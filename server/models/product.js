@@ -19,7 +19,7 @@ const productSchema = new Schema(
         },
         // product category 
         // drop down menu
-        title: {
+        category: {
             type: String,
             required: true,
         },
