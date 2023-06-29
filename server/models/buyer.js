@@ -1,11 +1,11 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const ownerSchema = require('./owner')
+const productSchema = require('./product');
 
 
-const userSchema = new Schema(
+
+const buyerSchema = new Schema(
     {
-
         username: {
             type: String,
             required: true,
@@ -21,18 +21,12 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        isOwner: {
-            type: Boolean,
-            required: true,
-        },
-        // if they hit is owner they will get the owner info
-        // idea: create separate table 
-        ownerData: [ownerSchema],
         zipCode: {
             type: Number,
             required: false,
             max: 5,
         },
+        myList: [productSchema],
 
     },
 
@@ -44,9 +38,12 @@ const userSchema = new Schema(
 
 );
 
+// this will get us the count of product buyer has
+buyerSchema.virtual('listCount').get(function () {
+    return this.myList.length;
+});
 
-
-userSchema.pre('save', async function (next) {
+buyerSchema.pre('save', async function (next) {
     if (this.isNew || this, this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds)
@@ -56,12 +53,13 @@ userSchema.pre('save', async function (next) {
 
 
 // compare password for login 
-userSchema.methods.isCorrectPassword = async function (password) {
+buyerSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
 
 
-const User = model('User', userSchema);
 
-module.exports = User;
+const Buyer = model('Buyer', buyerSchema);
+
+module.exports = Buyer;

@@ -1,3 +1,5 @@
+// 
+
 const { Schema } = require('mongoose');
 
 // product 
@@ -17,7 +19,7 @@ const productSchema = new Schema(
         },
         // product category 
         // drop down menu
-        title: {
+        category: {
             type: String,
             required: true,
         },
@@ -41,5 +43,7 @@ const productSchema = new Schema(
             required: true,
         }
     });
+
+
 
 module.exports = productSchema;
