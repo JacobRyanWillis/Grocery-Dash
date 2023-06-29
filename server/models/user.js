@@ -25,6 +25,8 @@ const userSchema = new Schema(
             type: Boolean,
             required: true,
         },
+        // if they hit is owner they will get the owner info
+        // idea: create separate table 
         ownerData: [ownerSchema],
         zipCode: {
             type: Number,
