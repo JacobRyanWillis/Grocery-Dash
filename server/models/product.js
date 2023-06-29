@@ -1,3 +1,5 @@
+// 
+
 const { Schema } = require('mongoose');
 
 // product 
@@ -41,5 +43,7 @@ const productSchema = new Schema(
             required: true,
         }
     });
+
+
 
 module.exports = productSchema;
