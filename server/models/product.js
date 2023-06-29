@@ -1,3 +1,5 @@
+// 
+
 const { Schema } = require('mongoose');
 
 // product 
@@ -15,13 +17,16 @@ const productSchema = new Schema(
         image: {
             type: String,
         },
-        title: {
+        // product category 
+        // drop down menu
+        category: {
             type: String,
             required: true,
         },
         price: {
             // add decimal
-            type: Decimal,
+            // look for decimal 
+            type: Decimal128,
             required: true,
         },
         quantity: {
@@ -32,10 +37,13 @@ const productSchema = new Schema(
             type: Number,
             required: false,
         },
+        // one item should be featured like a waring for feature if they already have it
         feature: {
             type: Boolean,
             required: true,
         }
     });
+
+
 
 module.exports = productSchema;
