@@ -21,7 +21,7 @@ const productSchema = new Schema(
         },
         price: {
             // add decimal
-            type: Decimal128,
+            type: Decimal,
             required: true,
         },
         quantity: {
