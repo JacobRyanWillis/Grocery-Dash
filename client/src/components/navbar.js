@@ -19,13 +19,13 @@ const Navbar = () => {
           >
             <FiMenu />
           </button>
-          <h3 className='lg:text-xl md:text-base hidden sm:block text-white mx-3'>
+          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
             About Us
           </h3>
-          <h3 className='lg:text-xl md:text-base hidden sm:block text-white mx-3'>
+          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
             Contact Us
           </h3>
-          <h3 className='lg:text-xl md:text-base hidden sm:block text-white mx-3'>
+          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
             Login
           </h3>
         </div>
