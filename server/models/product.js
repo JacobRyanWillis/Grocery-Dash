@@ -1,6 +1,6 @@
 // 
 
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 // product 
 // how we are connecting 
@@ -44,6 +44,6 @@ const productSchema = new Schema(
         }
     });
 
+const Product = model('Product', productSchema)
 
-
-module.exports = productSchema;
+module.exports = Product;

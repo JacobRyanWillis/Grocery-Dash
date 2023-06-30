@@ -1,0 +1,119 @@
+[
+    {
+      "username": "owner1",
+      "email": "owner1@example.com",
+      "password": "owner1password",
+      "zipCode": 12345,
+      "myProducts": [{
+        "productName": "Product 1",
+        "description": "Description of Product 1",
+        "image": "image1.jpg",
+        "category": "Category 1",
+        "price": 19.99,
+        "quantity": 10,
+        "weight": 1.5,
+        "feature": true
+      },
+      {
+        "productName": "Product 2",
+        "description": "Description of Product 2",
+        "image": "image2.jpg",
+        "category": "Category 2",
+        "price": 29.99,
+        "quantity": 5,
+        "weight": 2.0,
+        "feature": false
+      },
+      {
+        "productName": "Product 3",
+        "description": "Description of Product 3",
+        "image": "image3.jpg",
+        "category": "Category 1",
+        "price": 9.99,
+        "quantity": 20,
+        "weight": 0.5,
+        "feature": true
+      }],
+      "ownerName": "Owner 1",
+      "ownerStory": "Story of Owner 1",
+      "ownerImage": "owner1.jpg"
+    },
+    {
+      "username": "owner2",
+      "email": "owner2@example.com",
+      "password": "owner2password",
+      "zipCode": 67890,
+      "myProducts": [{
+        "productName": "Product 4",
+        "description": "Description of Product 4",
+        "image": "image4.jpg",
+        "category": "Category 4",
+        "price": 19.99,
+        "quantity": 10,
+        "weight": 1.5,
+        "feature": true
+      },
+      {
+        "productName": "Product 5",
+        "description": "Description of Product 5",
+        "image": "image5.jpg",
+        "category": "Category 5",
+        "price": 29.99,
+        "quantity": 5,
+        "weight": 2.0,
+        "feature": false
+      },
+      {
+        "productName": "Product 6",
+        "description": "Description of Product 6",
+        "image": "image6.jpg",
+        "category": "Category 6",
+        "price": 9.99,
+        "quantity": 20,
+        "weight": 0.5,
+        "feature": true
+      }],
+      "ownerName": "Owner 2",
+      "ownerStory": "Story of Owner 2",
+      "ownerImage": "owner2.jpg"
+    },
+    {
+      "username": "owner3",
+      "email": "owner3@example.com",
+      "password": "owner3password",
+      "zipCode": 98765,
+      "myProducts": [{
+        "productName": "Product 7",
+        "description": "Description of Product 7",
+        "image": "image7.jpg",
+        "category": "Category 7",
+        "price": 19.99,
+        "quantity": 10,
+        "weight": 1.5,
+        "feature": true
+      },
+      {
+        "productName": "Product 8",
+        "description": "Description of Product 8",
+        "image": "image8.jpg",
+        "category": "Category 8",
+        "price": 29.99,
+        "quantity": 5,
+        "weight": 2.0,
+        "feature": false
+      },
+      {
+        "productName": "Product 9",
+        "description": "Description of Product 9",
+        "image": "image9.jpg",
+        "category": "Category 9",
+        "price": 9.99,
+        "quantity": 20,
+        "weight": 0.5,
+        "feature": true
+      }],
+      "ownerName": "Owner 3",
+      "ownerStory": "Story of Owner 3",
+      "ownerImage": "owner3.jpg"
+    }
+  ]
