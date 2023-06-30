@@ -1,6 +1,4 @@
-const { Schema } = require('mongoose');
-const productSchema = require('./product');
-
+const { Schema, model } = require('mongoose');
 
 const ownerSchema = new Schema(
     {
@@ -24,7 +22,12 @@ const ownerSchema = new Schema(
             required: false,
             max: 5,
         },
-        myProducts: [productSchema],
+        myProducts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Product',
+              },
+        ],
         ownerName: {
             type: String,
             required: true,
@@ -58,5 +61,5 @@ ownerSchema.methods.isCorrectPassword = async function (password) {
 const Owner = model('Owner', ownerSchema);
 
 
-module.exports = ownerSchema;
+module.exports = Owner;
 

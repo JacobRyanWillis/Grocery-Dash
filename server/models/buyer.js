@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const productSchema = require('./product');
-
-
 
 const buyerSchema = new Schema(
     {
@@ -26,7 +23,12 @@ const buyerSchema = new Schema(
             required: false,
             max: 5,
         },
-        myList: [productSchema],
+        myList: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Product',
+            },
+        ],
 
     },
 
