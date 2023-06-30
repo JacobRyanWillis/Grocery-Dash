@@ -4,7 +4,17 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'eggplant': '#14293A',
+        'header': '#6F9B2A',
+        'buttons': '#CE9B5A',
+        'tanish': '#F8B570'
+      }
+    },
+    fontFamily: {
+      gilroy: ['Gilroy']
+    },
   },
   plugins: [],
 }

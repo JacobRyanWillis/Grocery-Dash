@@ -9,7 +9,7 @@ const Home = () => {
       <div>
         <Navbar />
         <div className="h-screen">
-            <h1 className="text-3xl font-bold underline sm:text-4xl md:text-5xl">
+            <h1 className="font-test text-3xl font-bold underline sm:text-4xl md:text-5xl">
                 Choose your farmers market
             </h1>
         </div>
