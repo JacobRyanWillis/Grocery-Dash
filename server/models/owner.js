@@ -20,7 +20,7 @@ const ownerSchema = new Schema(
         zipCode: {
             type: Number,
             required: false,
-            max: 5,
+            max: 100000,
         },
         myProducts: [
             {
