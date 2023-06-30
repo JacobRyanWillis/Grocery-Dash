@@ -1,0 +1,23 @@
+[
+  {
+    "username": "buyer1",
+    "email": "buyer1@example.com",
+    "password": "buyer1password",
+    "zipCode": 12345,
+    "myList": "['id1', 'id2']"
+  },
+  {
+    "username": "buyer2",
+    "email": "buyer2@example.com",
+    "password": "buyer2password",
+    "zipCode": 67890,
+    "myList": []
+  },
+  {
+    "username": "buyer3",
+    "email": "buyer3@example.com",
+    "password": "buyer3password",
+    "zipCode": 54321,
+    "myList": []
+  }
+]

@@ -1,4 +1,6 @@
-const { Schema } = require('mongoose');
+// 
+
+const { Schema, model } = require('mongoose');
 
 // product 
 // how we are connecting 
@@ -17,7 +19,7 @@ const productSchema = new Schema(
         },
         // product category 
         // drop down menu
-        title: {
+        category: {
             type: String,
             required: true,
         },
@@ -42,4 +44,6 @@ const productSchema = new Schema(
         }
     });
 
-module.exports = productSchema;
+const Product = model('Product', productSchema)
+
+module.exports = Product;
