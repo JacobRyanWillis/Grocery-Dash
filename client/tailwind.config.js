@@ -13,7 +13,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      gilroy: ['Gilroy']
+      gilroy: 'Gilroy',
+      logo: 'Permanent Marker',
     },
   },
   plugins: [],
