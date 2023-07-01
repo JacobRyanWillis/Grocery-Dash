@@ -1,0 +1,120 @@
+[
+    {
+      "productName": "Product 1",
+      "description": "Description of Product 1",
+      "image": "image1.jpg",
+      "category": "Category 1",
+      "price": 19.99,
+      "quantity": 10,
+      "feature": true
+    },
+    {
+      "productName": "Product 2",
+      "description": "Description of Product 2",
+      "image": "image2.jpg",
+      "category": "Category 2",
+      "price": 29.99,
+      "quantity": 5,
+      "feature": false
+    },
+    {
+      "productName": "Product 3",
+      "description": "Description of Product 3",
+      "image": "image3.jpg",
+      "category": "Category 1",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 4",
+      "description": "Description of Product 4",
+      "image": "image4.jpg",
+      "category": "Category 4",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 5",
+      "description": "Description of Product 5",
+      "image": "image5.jpg",
+      "category": "Category 5",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 6",
+      "description": "Description of Product 6",
+      "image": "image6.jpg",
+      "category": "Category 6",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 7",
+      "description": "Description of Product 7",
+      "image": "image7.jpg",
+      "category": "Category 7",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 8",
+      "description": "Description of Product 8",
+      "image": "image8.jpg",
+      "category": "Category 8",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 9",
+      "description": "Description of Product 9",
+      "image": "image9.jpg",
+      "category": "Category 9",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 10",
+      "description": "Description of Product 10",
+      "image": "image10.jpg",
+      "category": "Category 10",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 11",
+      "description": "Description of Product 11",
+      "image": "image11.jpg",
+      "category": "Category 11",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    },
+    {
+      "productName": "Product 12",
+      "description": "Description of Product 12",
+      "image": "image12.jpg",
+      "category": "Category 12",
+      "price": 9.99,
+      "quantity": 20,
+      "weight": 0.5,
+      "feature": true
+    }
+  ]
