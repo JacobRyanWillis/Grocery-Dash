@@ -1,77 +1,96 @@
-import React from 'react';
-import willisImage from '../assets/willis.jpg';
-import clarenceImage from '../assets/clarence.png';
-import everittImage from '../assets/everitt.png';
-import brunoImage from '../assets/bruno.jpg';
-import badrImage from '../assets/badr.jpg';
-
+import React from "react";
+import willisImage from "../assets/willis.jpg";
+import clarenceImage from "../assets/clarence.png";
+import everittImage from "../assets/everitt.png";
+import brunoImage from "../assets/bruno.jpg";
+import badrImage from "../assets/badr.jpg";
+import { FaGithub } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 const people = [
-    {
-      name: 'Leslie Alexander',
-      role: 'Co-Founder / CEO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    // More people...
-    {
-      name: 'Jacob Willis',
-      role: 'Front-End Developer/React',
-      imageUrl:
-        willisImage
-    },
-    {
-      name: 'Clarence Chang',
-      role: 'UI/UX Designer',
-      imageUrl:
-        clarenceImage
-    },
-    {
-      name: 'Everitt Gill',
-      role: 'Back-end/Chatbot',
-      imageUrl:
-        everittImage
-    },
-    {
-      name: 'Bruno Rosa',
-      role: 'Full-Stack Developer',
-      imageUrl:
-        brunoImage
-    },
-    {
-      name: 'Badr Almadhi',
-      role: 'Back-End',
-      imageUrl:
-        badrImage
-    },
-  ]
-  
-  export default function About() {
-    return (
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our developers</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper
-              suspendisse.
-            </p>
-          </div>
-          <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-            {people.map((person) => (
-              <li key={person.name}>
-                <div className="flex items-center gap-x-6">
-                  <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
-                  <div>
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
-                    <p className="text-sm font-semibold leading-6 text-indigo-600">{person.role}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+  {
+    name: "Jacob Willis",
+    role: "Front-End Developer/React",
+    imageUrl: willisImage,
+    github: "https://github.com/JacobRyanWillis",
+    linkedin: "https://www.linkedin.com/in/jacob-willis-a9a8a823a/"
+  },
+  {
+    name: "Clarence Chang",
+    role: "UI/UX Designer",
+    imageUrl: clarenceImage,
+    github: "https://github.com/hiclarence",
+    linkedin: "https://www.linkedin.com/in/changclarence/"
+  },
+  {
+    name: "Everitt Gill",
+    role: "Back-end/Chatbot",
+    imageUrl: everittImage,
+    github: "https://github.com/EverittGill",
+    linkedin: "https://www.linkedin.com/in/everitt-gill-574226a0/"
+  },
+  {
+    name: "Bruno Rosa",
+    role: "Full-Stack Developer",
+    imageUrl: brunoImage,
+    github: "https://github.com/barosa19",
+    linkedin: "https://www.linkedin.com/in/brunoarosa/"
+  },
+  {
+    name: "Badr Almadhi",
+    role: "Back-End",
+    imageUrl: badrImage,
+    github: "https://github.com/BadrAlmadhi",
+    linkedin: "https://www.linkedin.com/in/badr-almadhi-079107184/"
+  },
+];
+
+export default function About() {
+  return (
+    <div className="bg-eggplant py-32 md:py-24 mt-8 md:mt-0">
+      <div className="flex flex-col justify-center items-center mb-20 mx-4">
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Meet our developers
+        </h2>
+        <p className="mt-6 text-lg leading-8 text-gray-400">
+          These guys have worked hard to provide you this wonderful app! 
+          Please show them some love and check out their work.
+        </p>
       </div>
-    )
-  }
-  
+      <div className="mx-auto grid max-w-7xl gap-x-6 gap-y-6 px-6 lg:px-8 lg:grid-cols-3 md:grid-cols-2">
+        {people.map((person) => (
+          <div
+            key={person.name}
+            className="bg-gray-900 bg-opcatiy-75 rounded-lg shadow-md w-full mx-auto"
+          >
+            <div className="p-12 h-full">
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-48 w-48 rounded-full"
+                  src={person.imageUrl}
+                  alt=""
+                />
+              </div>
+              <div className="mt-6 flex flex-col justify-center items-center">
+                <h3 className="text-white font-semibold leading-7 text-gray-900">
+                  {person.name}
+                </h3>
+                <p className="text-sm font-medium leading-6 text-gray-500">
+                  {person.role}
+                </p>
+              </div>
+              <div className="mt-6 flex justify-center space-x-6">
+                <a href={person.github} className="text-white hover:text-gray-700">
+                  <FaGithub className="h-7 w-7"/>
+                </a>
+                <a href={person.linkedin} className="text-linkedin hover:text-gray-700">
+                  <FaLinkedin className="h-7 w-7 bg-white rounded"/>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
