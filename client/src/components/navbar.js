@@ -9,8 +9,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className='w-full'>
-      <nav className='bg-header h-20 flex items-center justify-between md:justify-end'>
+    <div className='w-full font-gilroy'>
+      <nav className='bg-grass h-20 flex items-center justify-between md:justify-end'>
         <div className='flex items-center'>
           <button
             className='lg:hidden md:hidden text-white text-3xl mx-4'

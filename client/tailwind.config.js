@@ -7,9 +7,10 @@ module.exports = {
     extend: {
       colors: {
         'eggplant': '#14293A',
-        'header': '#6F9B2A',
-        'buttons': '#CE9B5A',
-        'tanish': '#F8B570',
+        'grass': '#6F9B2A',
+        'dark-tan': '#CE9B5A',
+        'tan': '#F8B570',
+        'light-tan': '#FFF7EC',
         'linkedin': '#0072b1'
       }
     },
@@ -18,5 +19,7 @@ module.exports = {
       logo: 'Permanent Marker',
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

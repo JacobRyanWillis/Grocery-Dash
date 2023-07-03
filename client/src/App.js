@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 // Import pages here:
 import Home from './pages/home';
+import SignUpIntro from './pages/signupintro';
+import VendorSignUp from './pages/VendorSignUp';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -16,6 +18,8 @@ const App = () => {
         <div className="font">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/signupintro" element={<SignUpIntro />}/>
+            <Route path="/vendorsignup" element={<VendorSignUp />}/>
           </Routes>
         </div>
       </Router>
