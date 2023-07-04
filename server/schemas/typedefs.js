@@ -19,8 +19,8 @@ type Product {
     image: String
     category: String!
     price: Float!
-    quantity: Number
-    weight: Number
+    quantity: Int
+    weight: Int
     feature: Boolean!
 }
 
@@ -37,12 +37,14 @@ type Owner {
 }
 
 type Query {
-    chatbot: [{Owner, Product}]
-}
+    chatbot: [ChatbotData] 
+  }
 
-type Mutation {
+  type ChatbotData { 
+    owner: Owner
+    product: Product
+  }
 
-}
 `;
 
 module.exports = typeDefs;
