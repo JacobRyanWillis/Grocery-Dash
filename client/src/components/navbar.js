@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <div className='w-full font-gilroy'>
-      <nav className='bg-grass h-20 flex items-center justify-between md:justify-end'>
-        <div className='flex items-center'>
+      <nav className='bg-grass h-20 flex items-center justify-between'>
+        <div className='flex justify-between'>
           <button
             className='lg:hidden md:hidden text-white text-3xl mx-4'
             onClick={handleMenuToggle}
@@ -21,22 +21,26 @@ const Navbar = () => {
           >
             <FiMenu />
           </button>
-          <Link to='/'>
-            <a>
-              <Logo />
-            </a>
-          </Link>
-          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3 '>
-            About Us
-          </h3>
-          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
-            Contact Us
-          </h3>
-          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
-            Login
-          </h3>
+          <div className='flex ml-8 md:ml-6'>
+            <Link to='/'>
+              <a>
+                <Logo />
+              </a>
+            </Link>
+          </div>
         </div>
         <div className='flex items-center'>
+          <ul className='flex'>
+            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3 '>
+              About Us
+            </li>
+            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
+              Contact Us
+            </li>
+            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
+              Login
+            </li>
+          </ul>
           <FiShoppingCart className='text-white text-3xl mx-9' />
         </div>
       </nav>
