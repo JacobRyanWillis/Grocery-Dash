@@ -12,6 +12,10 @@ module.exports = {
         'tan': '#F8B570',
         'light-tan': '#FFF7EC',
         'linkedin': '#0072b1'
+      },
+      backgroundImage: {
+        'vendorImage': "url('./assets/VendorImage.png')",
+        'buyerImage': "url('./assets/BuyerImage.png')",
       }
     },
     fontFamily: {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Logo from '../components/logo';
 
-const VendorSignUp = () => {
+const BuyerSignUp = () => {
   return (
     <div className="h-screen bg-gray-100">
       <Navbar />
@@ -11,7 +11,7 @@ const VendorSignUp = () => {
         <div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col justify-center items-center">
           <Logo />
           <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign up for a Vendor Account
+            Sign up for a Consumer Account
           </h2>
         </div>
 
@@ -98,13 +98,13 @@ const VendorSignUp = () => {
           </form>
 
           <p class="mt-10 text-center text-sm text-gray-500">
-            Did you mean Buyer?
+            Did you mean Vendor?
             <a
               href="#"
               class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-            <Link to="/buyersignup">
-              Click Here
+            <Link to="/vendorsignup">
+                Click Here
             </Link>
             </a>
           </p>
@@ -115,4 +115,4 @@ const VendorSignUp = () => {
   );
 };
 
-export default VendorSignUp;
+export default BuyerSignUp;

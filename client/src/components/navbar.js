@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FiMenu, FiShoppingCart } from 'react-icons/fi';
+import Logo from './navLogo.js';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +21,12 @@ const Navbar = () => {
           >
             <FiMenu />
           </button>
-          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
+          <Link to='/'>
+            <a>
+              <Logo />
+            </a>
+          </Link>
+          <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3 '>
             About Us
           </h3>
           <h3 className='lg:text-xl md:text-base hidden md:block text-white mx-3'>

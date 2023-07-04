@@ -5,6 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/home';
 import SignUpIntro from './pages/signupintro';
 import VendorSignUp from './pages/VendorSignUp';
+import BuyerSignUp from './pages/BuyerSignUp';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/signupintro" element={<SignUpIntro />}/>
             <Route path="/vendorsignup" element={<VendorSignUp />}/>
+            <Route path="/buyersignup" element={<BuyerSignUp />}/>
           </Routes>
         </div>
       </Router>

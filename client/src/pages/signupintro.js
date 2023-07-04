@@ -1,34 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar.js';
-import VendorImage from '../assets/VendorImage.png';
-import BuyerImage from '../assets/BuyerImage.png';
 
 const SignupIntro = () => {
+
   return (
-    <div>
+    <div className='h-screen'>
       <Navbar />
-      <div className="h-screen grid grid-cols-2 font-gilroy">
-        <div className="bg-gray-200 flex justify-center items-center relative brightness-50 hover:brightness-100">
-          <div
-            className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: `url(${VendorImage})` }}
-          ></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 className='text-3xl text-white m-2'> Sell your items </h1>
-            <button className="bg-grass hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-              Sign Up as a Vendor
+      <div className='text-4xl bg-light-tan md:text-5xl font-semi-bold flex justify-center items-center m-5 p-5 font-gilroy'>
+        Create your account
+      </div>
+      <div className='h-[calc(100vh-15rem)] grid grid-cols-1 md:grid-cols-2 font-gilroy gap-6 m-2 p-2 '>
+        <div className='flex justify-center items-center bg-no-repeat bg-center bg-cover rounded bg-vendorImage brightness-50 hover:brightness-100'>
+          <div className='text-center'>
+            <h1 className='text-3xl font-bold mb-4 text-white'>Sell your items</h1>
+            <button className='bg-grass hover:bg-gray-600 text-white font-bold py-2 px-4 rounded'>
+              <Link to="/vendorsignup">
+                Sign Up as a Vendor
+              </Link>
             </button>
           </div>
         </div>
-        <div className="bg-gray-300 flex justify-center items-center relative brightness-50 hover:brightness-100">
-          <div
-            className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: `url(${BuyerImage})` }}
-          ></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 className='text-3xl text-white m-2'>Shop around</h1>
-            <button className="bg-white hover:bg-gray-600 text-eggplant font-bold py-2 px-4 rounded">
-              Sign Up as a Buyer
+        <div className='flex justify-center items-center bg-no-repeat bg-center bg-cover rounded bg-buyerImage brightness-50 hover:brightness-100' >
+          <div className='text-center'>
+            <h1 className='text-3xl font-bold mb-4 text-white'>Shop around</h1>
+            <button className='bg-eggplant hover:bg-gray-600 text-white font-bold py-2 px-4 rounded'>
+              <Link to="/buyersignup">
+                Sign Up as a Buyer
+              </Link>
             </button>
           </div>
         </div>
