@@ -1,5 +1,7 @@
 // Assuming you have the necessary imports and data models
-const { Owner, Product, ChatbotData } = require('../models');
+const { Owner, Product} = require('../models');
+
+
 
 const resolvers = {
   Query: {
@@ -50,8 +52,16 @@ const resolvers = {
     },
     chatbotData: async () => {
       try {
-        // Fetch chatbot data, including owner and product information
-        const chatbotData = await ChatbotData.find().populate('owner').populate('product');
+        // Fetch owner and product data separately
+        const owners = await Owner.find();
+        const products = await Product.find();
+
+        // Combine owner and product data into chatbotData array
+        const chatbotData = owners.map((owner, index) => ({
+          owner,
+          product: products[index % products.length]
+        }));
+
         return chatbotData;
       } catch (err) {
         throw new Error('Failed to fetch chatbot data');
