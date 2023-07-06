@@ -1,51 +1,54 @@
-const {gql} = require('apollo-server-express')
+const { gql } = require('apollo-server-express');
 
-
-
-const typeDefs = gql`
-type Buyer {
+module.exports = gql`
+  type Owner {
     _id: ID
     username: String
     email: String
     password: String
     zipCode: Int
-    myList: [Product]
-}
+    myProducts: [Product]
+    ownerName: String
+    ownerStory: String
+    ownerImage: String
+  }
 
-type Product {
+  type Product {
     _id: ID
     productName: String!
-    description: String
+    description: String!
     image: String
     category: String!
     price: Float!
     quantity: Int
-    weight: Int
+    weight: Float
     feature: Boolean!
-}
+  }
 
-type Owner {
+  type Buyer {
     _id: ID
-    username: String
+    username: String!
     email: String!
     password: String!
     zipCode: Int
-    myProducts: [Product]
-    ownerName: String!
-    ownerStory: String
-    ownerImage: String
-}
-
-type Query {
-    chatbot: [ChatbotData] 
+    myList: [Product]
   }
 
-  type ChatbotData { 
+  type ChatbotData {
     owner: Owner
     product: Product
   }
 
+  type Query {
+    allOwnersDevInfo: [Owner]
+    allOwnersPublicInfo: [Owner]
+    ownerById(_id: ID!): Owner
+    allProducts: [Product]
+    productById(_id: ID!): Product
+    chatbotData: [ChatbotData]
+  }
+
+  schema {
+    query: Query
+  }
 `;
-
-module.exports = typeDefs;
-
