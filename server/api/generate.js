@@ -59,7 +59,7 @@ async function generateChatResponse(question, data) {
   ];
   
   const response = await openai.Completion.create({
-    engine: "text-davinci-002",
+    engine: "gpt-3.5-turbo",
     messages: GPT35TurboMessage,
   });
 
