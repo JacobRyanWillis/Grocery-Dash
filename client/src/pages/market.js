@@ -35,13 +35,12 @@ const Market = () => {
             <div className='flex justify-center items-center m-2 p-8'>
                 <h2 className='text-3xl font-semibold'> Austell Farmers Market </h2>
             </div>
-            <div className='grid grid-cols-3'>
-                <div className='bg-cFruits'>
+            <div className='grid grid-cols-3 mx-4 px-4'>
+                <div className='bg-cFruits m-4 p-4'>
                     <h2>Fruits & Vegetables</h2>
                 </div>
                 <div className='col-span-2'>
-                    <div className='grid grid-cols-2 grid-rows-2 gap-4'>
-                        {/* First item */}
+                    <div className='grid grid-cols-2 grid-rows-2 gap-4 m-4'>
                         <div className='bg-cFruits shadow-md'>
                             <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
                             <p className='mt-2 text-md'>Fresh Mangos</p>
@@ -56,6 +55,45 @@ const Market = () => {
                             <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
                             <p className='mt-2 text-md'>Fresh Mangos</p>
                         </div>
+                    </div>
+                </div>
+                <div className='grid grid-rows-3 gap-4 m-4 p-4'>
+                    <div className='bg-cMeats shadow-md'>
+                        <h2>Meats & Seafood</h2>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
+                    </div>
+                </div>
+                <div className='grid grid-rows-3 gap-4 m-4 p-4'>
+                    <div className='bg-cDairy shadow-md'>
+                        <h2>Dairy Products</h2>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
+                    </div>
+                </div>
+                <div className='grid grid-rows-3 gap-4 m-4 p-4'>
+                    <div className='bg-cBaked shadow-md'>
+                        <h2>Baked Goods</h2>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
+                    </div>
+                    <div className='bg-cFruits shadow-md'>
+                        <img className='h-24 w-24 rounded-full' src={mangos} alt='Mangos' />
+                        <p className='mt-2 text-md'>Fresh Mangos</p>
                     </div>
                 </div>
             </div>
