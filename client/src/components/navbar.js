@@ -37,9 +37,11 @@ const Navbar = () => {
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
               Contact Us
             </li>
+          <Link to='/signupintro'>
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
               Login
             </li>
+          </Link>
           </ul>
           <FiShoppingCart className='text-white text-3xl mx-9' />
         </div>

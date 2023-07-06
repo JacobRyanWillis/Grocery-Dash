@@ -6,6 +6,7 @@ import Home from './pages/home';
 import SignUpIntro from './pages/signupintro';
 import VendorSignUp from './pages/VendorSignUp';
 import BuyerSignUp from './pages/BuyerSignUp';
+import Market from './pages/market';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/signupintro" element={<SignUpIntro />}/>
             <Route path="/vendorsignup" element={<VendorSignUp />}/>
             <Route path="/buyersignup" element={<BuyerSignUp />}/>
+            <Route path="/welcomescreen" element={<Market />}/>
           </Routes>
         </div>
       </Router>
