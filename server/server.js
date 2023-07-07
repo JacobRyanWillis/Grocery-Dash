@@ -20,11 +20,27 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
+
+// For the chatbot++++++++++++++++++++++++++++++++++++++++++++++++
 app.use(bodyParser.json()); // New
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/api/chat', chatRoute); // New
+app.post("/api/chatbot", async (req, res) => {
+  try {
+    const userMessage = req.body.userMessage;
+    const botResponse = await chatbotResponse(userMessage);
+    res.status(200).json(botResponse);
+  } catch (error) {
+    console.error(`Error in chatbot: ${error}`);
+    res.status(500).json({ error: "An error occurred in the chatbot.", errorDetails: error });
+  }
+});
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
