@@ -39,9 +39,11 @@ const Navbar = () => {
               Sign-Up
             </li>
           </Link>
+          <Link to='/login'>
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
               Login
             </li>
+          </Link>
           </ul>
           <FiShoppingCart className='text-white text-3xl mx-9' />
         </div>
@@ -55,19 +57,21 @@ const Navbar = () => {
             About Us
           </a>
           <Link to='/signupintro'>
-          <a
-            href='#'
-            className='block py-2 px-4 text-sm hover:bg-gray-700'
-          >
-            Sign-Up
-          </a>
+            <a
+              href='#'
+              className='block py-2 px-4 text-sm hover:bg-gray-700'
+            >
+              Sign-Up
+            </a>
           </Link>
-          <a
-            href='#'
-            className='block py-2 px-4 text-sm hover:bg-gray-700'
-          >
-            Login
-          </a>
+          <Link>
+            <a
+              href='#'
+              className='block py-2 px-4 text-sm hover:bg-gray-700'
+            >
+              Login
+            </a>
+          </Link>
         </div>
       )}
     </div>
