@@ -13,30 +13,38 @@ db.once("open", async () => {
     const product = await Product.insertMany(productSeeds);
 
     const productId = product.map((prod) => {
-      return prod._id;
+      return prod._id.toString();
     });
     console.log(productId);
 
     const owner = await Owner.insertMany(ownerSeeds);
 
     const ownerId = owner.map((own) => {
-      return own._id;
+      const id = own._id.toString()
+      return id;
     });
-  
-    productId.forEach(async (id, i) => {
+    console.log(ownerId)
+
+    await Owner.findByIdAndUpdate(
+      ownerId[0],
+      { $addToSet: { myProducts: "64a76694b33b3424f7e00b79" } },
+      { new: true }
+    );
+    
+    productId.forEach(async (_id, i) => {
         if (i % 3 == 0) {
-          const user1 = await Owner.findByIdAndUpdate(
+          await Owner.findByIdAndUpdate(
             ownerId[0],
-            { $addToSet: { myList: id } },
+            { $addToSet: { myProducts: _id } },
             { new: true }
           );
-          console.log(user1);
+          console.log("line 33");
         }
 
         if (i % 3 == 1) {
           await Owner.findByIdAndUpdate(
             ownerId[1],
-            { $addToSet: { myList: id } },
+            { $addToSet: { myProducts: _id } },
             { new: true }
           );
         }
@@ -44,7 +52,7 @@ db.once("open", async () => {
         if (i % 3 == 2) {
           await Owner.findByIdAndUpdate(
             ownerId[2],
-            { $addToSet: { myList: id } },
+            { $addToSet: { myProducts: id } },
             { new: true }
           );
         }
