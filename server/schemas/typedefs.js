@@ -53,7 +53,7 @@ module.exports = gql`
 
   type Query {
     publicOwners: [PublicOwner]
-    productsByOwner(ownerId: ID!): [Product]
+    productsByOwner(ownerId: ID!): PublicOwner
     productById(_id: ID!) : Product
     buyerById(_id: ID!): MyList
     buyerMe: Buyer
