@@ -7,7 +7,7 @@ import Austell from '../assets/austell-market.jpg';
 import Marietta from '../assets/marietta-market.jpg';
 import Asheville from '../assets/asheville-market.jpg';
 import Hero from '../assets/hero-image.png';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [showScrollHint, setShowScrollHint] = useState(true);
@@ -37,8 +37,10 @@ const Home = () => {
           <h2 className='text-2xl md:text-4xl font-gilroy'>Welcome! Select your farmers market</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 md:mr-20 md:pt-10'>
             <div className="relative hover:scale-90 transition-transform duration-300">
-              <img src={Austell} alt="Austell Market" className='w-full h-auto rounded drop-shadow-2xl' />
-              <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-center p-2 rounded">Austell</p>
+              <Link to="welcomescreen">
+                <img src={Austell} alt="Austell Market" className='w-full h-auto rounded drop-shadow-2xl' />
+                <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-center p-2 rounded">Austell</p>
+              </Link>
             </div>
             <div className="relative hover:scale-90 transition-transform duration-300">
               <img src={Marietta} alt="Marietta Market" className='w-full h-auto rounded drop-shadow-2xl' />

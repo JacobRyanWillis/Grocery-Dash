@@ -11,7 +11,11 @@ module.exports = {
         'dark-tan': '#CE9B5A',
         'tan': '#F8B570',
         'light-tan': '#FFF7EC',
-        'linkedin': '#0072b1'
+        'linkedin': '#0072b1',
+        'cFruits': '#F2F9EA',
+        'cMeats': '#FFEFF0',
+        'cDairy': '#EDEEFF',
+        'cBaked': '#FFF7E7'
       },
       backgroundImage: {
         'vendorImage': "url('./assets/VendorImage.png')",

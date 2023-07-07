@@ -34,9 +34,11 @@ const Navbar = () => {
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3 '>
               About Us
             </li>
+          <Link to='/signupintro'>
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
-              Contact Us
+              Sign-Up
             </li>
+          </Link>
             <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
               Login
             </li>
@@ -52,12 +54,14 @@ const Navbar = () => {
           >
             About Us
           </a>
+          <Link to='/signupintro'>
           <a
             href='#'
             className='block py-2 px-4 text-sm hover:bg-gray-700'
           >
-            Contact Us
+            Sign-Up
           </a>
+          </Link>
           <a
             href='#'
             className='block py-2 px-4 text-sm hover:bg-gray-700'
