@@ -3,7 +3,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const bodyParser = require('body-parser'); // New
 const { authMiddleware } = require('./utils/auth');
-const chatRoute = require('./chat'); // New
+const chatRoute = require('../server/chat'); // New
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -28,8 +28,8 @@ app.use(express.json());
 
 app.post("/api/chatbot", async (req, res) => {
   try {
-    const userMessage = req.body.userMessage;
-    const botResponse = await chatbotResponse(userMessage);
+    const userMessage = req.body.question; // Changed to 'question' to match chat.js
+    const botResponse = await chatRoute.chatbotResponse(userMessage); // Correctly referenced
     res.status(200).json(botResponse);
   } catch (error) {
     console.error(`Error in chatbot: ${error}`);

@@ -39,7 +39,16 @@ const resolvers = {
   },
 };
 
-module.exports = resolvers;
+// const chatbotData = async () => {
+//   try {
+//     const owners = await Owner.find({});
+//     return owners;
+//   } catch (err) {
+//     throw new Error('Failed to fetch owners');
+//   }
+// }
+
+module.exports = { resolvers };
 
 
 

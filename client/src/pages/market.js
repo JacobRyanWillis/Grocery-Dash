@@ -2,13 +2,44 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import mangos from '../assets/mangos.jpg';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from 'react-responsive-carousel'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './market.css';
+import Slider from "react-slick";
 
 
 
 const Market = () => {
+
+    const settings = {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+        
+                }
+            },
+                
+        ]
+    };
+    
 
     return (
         <div className='font-gilroy'>
@@ -16,45 +47,29 @@ const Market = () => {
             <div className='m-2 pt-8 ml-10 pl-10'>
                 <h1 className='text-2xl'> Today's Featured Items </h1>
             </div>
-            <div className='flex justify-center items-center bg-light-tan'>
-                {/* <Carousel
-                    showArrows={true}
-                    showStatus={false}
-                    showIndicators={false}
-                    showThumbs={false}
-                    infiniteLoop={true}
-                    centerMode={false}
-                    swipeable={true}
-                    emulateTouch={true}
-                    selectedItem={2} // Optionally set the initial selected item index
-                    renderThumbs={() => null} // Disable thumbnail display
-                    responsive={{
-                    0: { slidesToShow: 1 }, // Small breakpoint (1 slide/item)
-                    768: { slidesToShow: 3 }, // Medium breakpoint (3 slides/items)
-                    1024: { slidesToShow: 5 }, // Large breakpoint (5 slides/items)
-                    }}
-                > */}
+            <div className='bg-light-tan'>
+                <Slider {...settings}>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className='mt-2 text-md'> Fresh Mangos </p>
+                        <p className=''> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className='mt-2 text-md'> Fresh Mangos </p>
+                        <p className=''> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className='mt-2 text-md'> Fresh Mangos </p>
-                    </div>
-                    {/* <div className='m-2 flex flex-col justify-center items-center'>
-                        <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className='mt-2 text-md'> Fresh Mangos </p>
+                        <p className=''> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className='mt-2 text-md'> Fresh Mangos </p>
-                    </div>   */}
-                {/* </Carousel> */}
+                        <p className=''> Fresh Mangos </p>
+                    </div>
+                    <div className='m-2 flex flex-col justify-center items-center'>
+                        <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
+                        <p className=''> Fresh Mangos </p>
+                    </div> 
+                </Slider>
             </div>
 
 
