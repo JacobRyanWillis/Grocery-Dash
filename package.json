@@ -16,8 +16,13 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@apollo/client": "^3.7.16",
     "body-parser": "^1.20.2",
     "react": "^18.2.0"
+=======
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+>>>>>>> 61e9acaa87336958a948304da5d571ebe43d2395
   }
 }

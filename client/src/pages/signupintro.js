@@ -7,7 +7,7 @@ const SignupIntro = () => {
   return (
     <div className='h-screen'>
       <Navbar />
-      <div className='text-4xl bg-light-tan md:text-5xl font-semi-bold flex justify-center items-center m-5 p-5 font-gilroy'>
+      <div className='text-4xl md:text-5xl font-bold flex justify-center items-center m-5 p-5 font-gilroy'>
         Create your account
       </div>
       <div className='h-[calc(100vh-15rem)] grid grid-cols-1 md:grid-cols-2 font-gilroy gap-6 m-2 p-2 '>
