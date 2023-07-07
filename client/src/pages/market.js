@@ -29,8 +29,11 @@ const Market = () => {
             {
                 breakpoint: 600,
                 settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
+                    centerMode: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+        
                 }
             },
                 
