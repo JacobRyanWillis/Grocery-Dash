@@ -49,15 +49,15 @@ export default function About() {
   return (
     <div className="bg-eggplant py-32 md:py-24 mt-8 md:mt-0">
       <div className="flex flex-col justify-center items-center mb-20 mx-4">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-4xl">
           Meet our developers
         </h2>
-        <p className="mt-6 text-lg leading-8 text-gray-400">
+        <p className="mt-6 text-xl leading-8 text-gray-400">
           These guys have worked hard to provide you this wonderful app! 
           Please show them some love and check out their work.
         </p>
       </div>
-      <div className="mx-auto grid max-w-7xl gap-x-6 gap-y-6 px-6 lg:px-8 lg:grid-cols-3 md:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:px-8 lg:grid-cols-3 md:grid-cols-2">
         {people.map((person) => (
           <div
             key={person.name}
@@ -72,10 +72,10 @@ export default function About() {
                 />
               </div>
               <div className="mt-6 flex flex-col justify-center items-center">
-                <h3 className="text-white font-semibold leading-7 text-gray-900">
+                <h3 className="text-white text-xl font-semibold leading-7 text-gray-900">
                   {person.name}
                 </h3>
-                <p className="text-sm font-medium leading-6 text-gray-500">
+                <p className="text-lg mt-2 font-medium leading-6 text-gray-500">
                   {person.role}
                 </p>
               </div>

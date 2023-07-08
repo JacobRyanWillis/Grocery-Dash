@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className='w-full font-gilroy'>
-      <nav className='bg-grass h-20 flex items-center justify-between'>
+      <nav className='bg-grass h-20 md:h-28 flex items-center justify-between'>
         <div className='flex justify-between'>
           <button
             className='lg:hidden md:hidden text-white text-3xl mx-4'
@@ -31,21 +31,21 @@ const Navbar = () => {
         </div>
         <div className='flex items-center'>
           <ul className='flex'>
-            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3 '>
-              About Us
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 '>
+              Shop
             </li>
           <Link to='/signupintro'>
-            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3'>
               Sign-Up
             </li>
           </Link>
           <Link to='/login'>
-            <li className='lg:text-xl md:text-base hidden md:block text-white mx-3'>
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3'>
               Login
             </li>
           </Link>
           </ul>
-          <FiShoppingCart className='text-white text-3xl mx-9' />
+          <FiShoppingCart className='text-white text-3xl md:text-4xl mx-9' />
         </div>
       </nav>
       {isMenuOpen && (
@@ -54,7 +54,7 @@ const Navbar = () => {
             href='#'
             className='block py-2 px-4 text-sm hover:bg-gray-700'
           >
-            About Us
+            Shop
           </a>
           <Link to='/signupintro'>
             <a
@@ -64,7 +64,7 @@ const Navbar = () => {
               Sign-Up
             </a>
           </Link>
-          <Link>
+          <Link to='/login'>
             <a
               href='#'
               className='block py-2 px-4 text-sm hover:bg-gray-700'

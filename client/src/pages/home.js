@@ -34,21 +34,21 @@ const Home = () => {
       <div className="md:h-screen grid grid-cols-1 lg:grid-cols-2 bg-light-tan">
         <div className='flex flex-col ml-4 mr-4 lg:ml-6 space-y-8 mt-5 lg:mt-20'>
           <Logo />
-          <h2 className='text-2xl md:text-4xl font-gilroy'>Welcome! Select your farmers market</h2>
+          <h2 className='text-4xl md:text-5xl font-gilroy'>Welcome! Select your farmers market</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 md:mr-20 md:pt-10'>
             <div className="relative hover:scale-90 transition-transform duration-300">
               <Link to="welcomescreen">
                 <img src={Austell} alt="Austell Market" className='w-full h-auto rounded drop-shadow-2xl' />
-                <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-center p-2 rounded">Austell</p>
+                <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Austell</p>
               </Link>
             </div>
             <div className="relative hover:scale-90 transition-transform duration-300">
               <img src={Marietta} alt="Marietta Market" className='w-full h-auto rounded drop-shadow-2xl' />
-              <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-center p-2 rounded">Marietta</p>
+              <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Marietta</p>
             </div>
             <div className="relative hover:scale-90 transition-transform duration-300">
               <img src={Asheville} alt="Asheville Market" className='w-full h-auto rounded drop-shadow-2xl' />
-              <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-center p-2 rounded">Asheville</p>
+              <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Asheville</p>
             </div>
           </div>
           {showScrollHint && (
@@ -60,7 +60,7 @@ const Home = () => {
             )}
         </div>
         <div className='lg:flex justify-center items-center hidden'>
-          <img src={Hero} alt="hero-image" className='w-full h-auto max-w-4xl drop-shadow-2xl'/>
+          <img src={Hero} alt="hero-image" className='w-full h-auto max-w-6xl drop-shadow-2xl'/>
         </div>
       </div>
       <About />

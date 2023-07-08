@@ -45,36 +45,36 @@ const Market = () => {
         <div className='font-gilroy'>
             <Navbar />
             <div className='m-2 pt-8 ml-10 pl-10'>
-                <h1 className='text-2xl'> Today's Featured Items </h1>
+                <h1 className='text-2xl md:text-3xl'> Today's Featured Items </h1>
             </div>
             <div className='bg-light-tan'>
                 <Slider {...settings}>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className=''> Fresh Mangos </p>
+                        <p className='md:text-lg'> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className=''> Fresh Mangos </p>
+                        <p className='md:text-lg'> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className=''> Fresh Mangos </p>
+                        <p className='md:text-lg'> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className=''> Fresh Mangos </p>
+                        <p className='md:text-lg'> Fresh Mangos </p>
                     </div>
                     <div className='m-2 flex flex-col justify-center items-center'>
                         <img className='h-24 w-24 rounded-full' alt='mangos' src= {mangos}></img>
-                        <p className=''> Fresh Mangos </p>
+                        <p className='md:text-lg'> Fresh Mangos </p>
                     </div> 
                 </Slider>
             </div>
 
 
             <div className='flex justify-center items-center m-2 p-8'>
-                <h2 className='text-3xl font-semibold'> Austell Farmers Market </h2>
+                <h2 className='text-3xl md:text-4xl font-semibold'> Austell Farmers Market </h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-4 px-4'>
                 <div className='bg-cFruits m-4 p-4 shadow-class flex justify-end items-start col-span-2 lg:col-span-1 rounded'>
@@ -87,8 +87,8 @@ const Market = () => {
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
                             <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                                <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                                <p className=''>Fruits</p>
+                                <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                                <p className='md:text-lg'>Fruits</p>
                             </div>
                         </div>
                         <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -96,8 +96,8 @@ const Market = () => {
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
                             <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                                <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                                <p className=''>Fruits</p>
+                                <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                                <p className='md:text-lg'>Fruits</p>
                             </div>
                         </div>
                         <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -105,8 +105,8 @@ const Market = () => {
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
                             <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                                <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                                <p className=''>Fruits</p>
+                                <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                                <p className='md:text-lg'>Fruits</p>
                             </div>
                         </div>
                         <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -114,8 +114,8 @@ const Market = () => {
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
                             <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                                <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                                <p className=''>Fruits</p>
+                                <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                                <p className='md:text-lg'>Fruits</p>
                             </div>
                         </div>
                     </div>
@@ -131,8 +131,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -140,8 +140,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                 </div>
@@ -155,8 +155,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -164,8 +164,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                 </div>
@@ -179,8 +179,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105'>
@@ -188,8 +188,8 @@ const Market = () => {
                             <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-6 md:pl-6'>
-                            <h3 className='text-md mb-2 text-xl font-semibold'>Mango Boys</h3>
-                            <p className=''>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-semibold'>Mango Boys</h3>
+                            <p className='md:text-lg'>Fruits</p>
                         </div>
                     </div>
                 </div>
