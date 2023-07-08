@@ -4,8 +4,9 @@ import Navbar from '../components/navbar';
 import mangos from '../assets/mangos.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './market.css';
 import Slider from "react-slick";
+import Austell from '../assets/austell-market.jpg';
+
 
 
 

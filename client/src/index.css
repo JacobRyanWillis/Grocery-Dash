@@ -8,6 +8,9 @@
   /* Add additional font properties if required */
 }
 
+.shadow-class {
+  box-shadow: 2px 2px 4px 4px rgba(145, 143, 143, 0.25);
+}
 
 body {
   margin: 0;
