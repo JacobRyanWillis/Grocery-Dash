@@ -1,20 +1,37 @@
 [
   {
-    "username": "buyer1",
-    "email": "buyer1@example.com",
-    "password": "buyer1password",
-    "zipCode": 12345
+    "_id": "64a76694b33b3424f7e00b01",
+    "username": "Brosa",
+    "email": "brosa@gmail.com",
+    "password": "brosa",
+    "zipCode": 30318
   },
   {
-    "username": "buyer2",
-    "email": "buyer2@example.com",
-    "password": "buyer2password",
-    "zipCode": 67890
+    "_id": "64a76694b33b3424f7e00b02",
+    "username": "jwillis",
+    "email": "jwillis@gmail.com",
+    "password": "jwillis",
+    "zipCode": 30318
   },
   {
-    "username": "buyer3",
-    "email": "buyer3@example.com",
-    "password": "buyer3password",
-    "zipCode": 54321
+    "_id": "64a76694b33b3424f7e00b03",
+    "username": "egill",
+    "email": "egill@gmail.com",
+    "password": "egill",
+    "zipCode": 30318
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b04",
+    "username": "cchang",
+    "email": "cchang@gmail.com",
+    "password": "cchang",
+    "zipCode": 30318
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b05",
+    "username": "balmadhi",
+    "email": "balmadhi@gmail.com",
+    "password": "balmadhi",
+    "zipCode": 30318
   }
 ]

@@ -1,25 +1,61 @@
 [
     {
-      "username": "owner1",
-      "email": "owner1@example.com",
-      "password": "owner1password",
-      "zipCode": 12345,
-      "ownerName": "Owner 1",
-      "ownerStory": "Story of Owner 1",
-      "ownerImage": "owner1.jpg"
+      "_id": "64a76694b33b3424f7e00b06",
+      "username": "rawdried",
+      "email": " rawdried@gmail.com",
+      "password": "rawdried",
+      "zipCode": 30318,
+      "myProducts": ["64a76694b33b3424f7e00b12","64a76694b33b3424f7e00b13","64a76694b33b3424f7e00b14","64a76694b33b3424f7e00b15","64a76694b33b3424f7e00b16","64a76694b33b3424f7e00b17"],
+      "ownerName": "John Doe",
+      "ownerStory": "Our commitment is simple. We provide you with the absolute highest quality of raw dried fruit. Our commitment hinges on providing nutrient dense healthy options for you. Let's talk Raw Dried. By creating real live food we source the very best organic fruit from local farms. The product does vary in texture, color and flavor due to the seasonal crop variety. Raw Dried fruit is an handcrafted healthy treat for everyday snacking. Organically grown, raw, vegan and gluten free, and nut free.Raw Dried is an excellent source of antioxidants, vitamin C and dietary fiber. It's delicious as a snack or mixed in cereal, trail mixes, salads or yogurt. You can also add it to your favorite smoothies & dessert recipes.",
+      "ownerImage": "rawdried.jpg"
     },
     {
-      "username": "owner2",
-      "email": "owner2@example.com",
-      "password": "owner2password",
-      "zipCode": 67890,
-      "ownerName": "Owner 2",
-      "ownerStory": "Story of Owner 2",
-      "ownerImage": "owner2.jpg"
+      "_id": "64a76694b33b3424f7e00b07",
+      "username": "dianasspecialties",
+      "email": "dianasspecialties@gmail.com",
+      "password": "dianasspecialties",
+      "zipCode": 30318,
+      "myProducts": ["64a76694b33b3424f7e00b18","64a76694b33b3424f7e00b19","64a76694b33b3424f7e00b20"],
+      "ownerName": "Diana Fitzgerald",
+      "ownerStory": "I was born in Atlanta, graduated from Vanderbilt, worked in the financial industry for 13+ years, retired to raise our kids, and was ready for a new challenge.  I started Diana’s Specialties in 2010 after family and friends said, “This is the best smoked salmon we’ve ever tasted, you should sell it!” Starting a business processing and selling fish high in omega 3s with many other health benefits seemed to fit my active, health conscious lifestyle. My first customer was a great friend who insisted I start the company. She promptly bought a whole batch and gave baskets of my products to her neighbors as Christmas gifts.  Then Kim Wilson, the owner of Lucy’s Market, tasted my smoked salmon and called me back within 1 hour saying she would take all I could produce! My product list soon expanded as I added smoked trout at the suggestion of Steve Alterman of Horseradish Grill. After hiring a Food Scientist to advise and “ratify” my proceedures or “recipe” and taking food safety and Hazard Analysis courses, I finally got licensed by the Georgia Dept. of Agriculture in September 2010.  I’ve been smokin’ ever since!",
+      "ownerImage": "dianasspecialties.jpg"
     },
     {
-      "username": "owner3",
-      "email": "owner3@example.com",
+      "_id": "64a76694b33b3424f7e00b08",
+      "username": "prideroad",
+      "email": "prideroad@gmail.com",
+      "password": "prideroad",
+      "zipCode": 30318,
+      "myProducts": ["64a76694b33b3424f7e00b21","64a76694b33b3424f7e00b22","64a76694b33b3424f7e00b23","64a76694b33b3424f7e00b24","64a76694b33b3424f7e00b25","64a76694b33b3424f7e00b26"],
+      "ownerName": "Jane Smith",
+      "ownerStory": "Pride Road LLC is a family owned and operated food manufacturing company that produces all natural locally grown Hibiscus based products. Our Hibiscus begins from seeds collected from the previous season’s harvest. These seeds are grown into transplants and planted at local Georgia farms. The harvesting process requires that each calyx is individually hand-picked and cored where they are processed and packaged locally at our multi-processing facility located in Lithonia Georgia. The Georgia climate offers an ideal environment for Hibiscus growth. We only give our plants the best possible feed, Sun and Rain and Georgia has plenty. “Very Best Quality, Where It Matters Most”",
+      "ownerImage": "prideroad.jpg"
+    },
+    {
+      "_id": "64a76694b33b3424f7e00b09",
+      "username": "owner4",
+      "email": "owner4@example.com",
+      "password": "owner3password",
+      "zipCode": 98765,
+      "ownerName": "Owner 3",
+      "ownerStory": "Story of Owner 3",
+      "ownerImage": "owner3.jpg"
+    },
+    {
+      "_id": "64a76694b33b3424f7e00b10",
+      "username": "owner5",
+      "email": "owner5@example.com",
+      "password": "owner3password",
+      "zipCode": 98765,
+      "ownerName": "Owner 3",
+      "ownerStory": "Story of Owner 3",
+      "ownerImage": "owner3.jpg"
+    },
+    {
+      "_id": "64a76694b33b3424f7e00b11",
+      "username": "owner6",
+      "email": "owner6@example.com",
       "password": "owner3password",
       "zipCode": 98765,
       "ownerName": "Owner 3",
