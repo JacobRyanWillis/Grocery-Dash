@@ -31,9 +31,11 @@ const Navbar = () => {
         </div>
         <div className='flex items-center'>
           <ul className='flex'>
+          <Link to='/shop'>
             <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 '>
               Shop
             </li>
+          </Link>
           <Link to='/signupintro'>
             <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3'>
               Sign-Up
@@ -50,12 +52,14 @@ const Navbar = () => {
       </nav>
       {isMenuOpen && (
         <div className='bg-gray-800 text-white px-2 py-3'>
-          <a
-            href='#'
-            className='block py-2 px-4 text-sm hover:bg-gray-700'
-          >
-            Shop
-          </a>
+          <Link to='/shop'>
+            <a
+
+              className='block py-2 px-4 text-sm hover:bg-gray-700'
+            >
+              Shop
+            </a>
+          </Link>
           <Link to='/signupintro'>
             <a
               href='#'

@@ -83,7 +83,7 @@ const Market = () => {
                 </div>
                 <div className='col-span-2'>
                     <div className='grid grid-cols-1 md:grid-cols-2 grid-rows-1 lg:grid-rows-2 gap-4 m-4'>
-                        <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
+                        <div className='grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
                             <div className='col-span-1 flex items-center'>
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
@@ -92,7 +92,7 @@ const Market = () => {
                                 <p className='md:text-lg'>Fruits</p>
                             </div>
                         </div>
-                        <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
+                        <div className='grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
                             <div className='col-span-1 flex items-center'>
                                 <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
                             </div>
