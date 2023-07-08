@@ -78,17 +78,41 @@ const resolvers = {
       const token = signToken(buyer);
       return { token, buyer };
     },
-  },
+    
+ // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
+ addProduct: async (parent, { productName, description, image, category, price, quantity, weight, feature }, context) => {
+  if (context.user) {
+    const product = await Product.create({
+      productName,
+      description,
+      image,
+      category,
+      price,
+      quantity,
+      weight,
+      feature,
+    });
+
+    await Owner.findOneAndUpdate(
+      { _id: context.user._id },
+      { $addToSet: { myProducts: product._id } }
+    );
+
+    return owner;
+  }
+  throw new AuthenticationError('You need to be logged in!');
+},
+// updateProduct: async (parent, args, context) => {}
+// deleteProduct: async (parent, args, context) => {}
+
+// addProductToBuyer: async (parent, args, context) => {}
+// removeProductFromBuyer: async (parent, args, context) => {}
+
+}
 };
 
-// const chatbotData = async () => {
-//   try {
-//     const owners = await Owner.find({});
-//     return owners;
-//   } catch (err) {
-//     throw new Error('Failed to fetch owners');
-//   }
-// }
+
+
 
 module.exports = resolvers;
 
