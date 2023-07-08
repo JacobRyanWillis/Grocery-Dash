@@ -57,8 +57,8 @@ module.exports = gql`
     productsByOwner(ownerId: ID!): PublicOwner
     productById(_id: ID!) : Product
     #buyerById(_id: ID!): MyList
-    #buyerMe: Buyer
-    #ownerMe: Owner
+    buyerMe: Buyer
+    ownerMe: Owner
   }
 
 type OwnerAuth {
@@ -71,11 +71,11 @@ type BuyerAuth {
     buyer: Buyer
   }
 
-#type Mutation {
-    #addOwner(username: String!, email: String!, password: String!, zipCode: Int, ownerName: String, ownerStory: String, ownerImage: String): OwnerAuth
+type Mutation {
+    addOwner(username: String!, email: String!, password: String!, zipCode: Int, ownerName: String, ownerStory: String, ownerImage: String): OwnerAuth
     #addBuyer(username: String!, email: String!, password: String!, zipCode: Int): BuyerAuth
-    #loginOwner(email: String!, password: String!): OwnerAuth
-    #loginBuyer(email: String!, password: String!): BuyerAuth
+    loginOwner(email: String!, password: String!): OwnerAuth
+    loginBuyer(email: String!, password: String!): BuyerAuth
     
     #addProduct(productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
     #updateProduct(_id: ID): Owner
@@ -83,7 +83,7 @@ type BuyerAuth {
 
     #addProductToBuyer(_id: ID!): Buyer
     #removeProductFromBuyer(_id: ID!): Buyer
-#}
+}
 
 
 `;

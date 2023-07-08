@@ -10,9 +10,9 @@ db.once("open", async () => {
     await Owner.deleteMany({});
     await Product.deleteMany({});
 
-    const buyer = await Buyer.insertMany(buyerSeeds);
-    const product = await Product.insertMany(productSeeds);
-    const owner = await Owner.insertMany(ownerSeeds);
+    const buyer = await Buyer.create(buyerSeeds);
+    const product = await Product.create(productSeeds);
+    const owner = await Owner.create(ownerSeeds);
     /* 
      const productId = product.map((prod) => {
       return prod._id.toString();

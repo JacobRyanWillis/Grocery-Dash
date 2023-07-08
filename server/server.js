@@ -13,10 +13,6 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cors: {
-    origin: '*', // adjust this to your needs
-    credentials: true
-  },
   context: authMiddleware
 });
 
