@@ -12,13 +12,14 @@ db.once("open", async () => {
 
     const buyer = await Buyer.insertMany(buyerSeeds);
     const product = await Product.insertMany(productSeeds);
-
+    const owner = await Owner.insertMany(ownerSeeds);
+    /* 
      const productId = product.map((prod) => {
       return prod._id.toString();
     });
     console.log(productId);
 
-    const owner = await Owner.insertMany(ownerSeeds);
+    
 
     const ownerId = owner.map((own) => {
       const id = own._id.toString()
@@ -67,7 +68,7 @@ db.once("open", async () => {
       })
       .catch(error => {
         console.error("An error occurred during the updates:", error);
-      }); 
+      });  */
     
   } catch (err) {
     console.error(err);

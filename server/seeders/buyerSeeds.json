@@ -4,34 +4,39 @@
     "username": "Brosa",
     "email": "brosa@gmail.com",
     "password": "brosa",
-    "zipCode": 30318
+    "zipCode": 30318,
+    "myList": ["64a76694b33b3424f7e00b21","64a76694b33b3424f7e00b12","64a76694b33b3424f7e00b17","64a76694b33b3424f7e00b18"]
   },
   {
     "_id": "64a76694b33b3424f7e00b02",
     "username": "jwillis",
     "email": "jwillis@gmail.com",
     "password": "jwillis",
-    "zipCode": 30318
+    "zipCode": 30318,
+    "myList": ["64a76694b33b3424f7e00b25","64a76694b33b3424f7e00b26"]
   },
   {
     "_id": "64a76694b33b3424f7e00b03",
     "username": "egill",
     "email": "egill@gmail.com",
     "password": "egill",
-    "zipCode": 30318
+    "zipCode": 30318,
+    "myList": ["64a76694b33b3424f7e00b14","64a76694b33b3424f7e00b15","64a76694b33b3424f7e00b16"]
   },
   {
     "_id": "64a76694b33b3424f7e00b04",
     "username": "cchang",
     "email": "cchang@gmail.com",
     "password": "cchang",
-    "zipCode": 30318
+    "zipCode": 30318,
+    "myList": ["64a76694b33b3424f7e00b13"]
   },
   {
     "_id": "64a76694b33b3424f7e00b05",
     "username": "balmadhi",
     "email": "balmadhi@gmail.com",
     "password": "balmadhi",
-    "zipCode": 30318
+    "zipCode": 30318,
+    "myList": []
   }
 ]
