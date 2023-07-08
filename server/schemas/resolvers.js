@@ -1,5 +1,7 @@
 // Assuming you have the necessary imports and data models
 const { Owner, Product, Buyer } = require("../models");
+const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -36,15 +38,16 @@ const resolvers = {
     },
     // buyerById: async () => {},
     buyerMe: async (parent, args, context) => {
-      if (context.buyer) {
-        return Buyer.findOne({ _id: context.buyer._id });
+      if (context.user) {
+        const buyer = await Buyer.findOne({ _id: context.user._id });
+        return buyer
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
     ownerMe: async (parent, args, context) => {
-      if (context.owner) {
-        return Owner.findOne({ _id: context.owner._id });
+      if (context.user) {
+        return Owner.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -65,9 +68,10 @@ const resolvers = {
     loginBuyer: async (parent, { email, password }) => {
       const buyer = await Buyer.findOne({ email });
       if (!buyer) {
-        throw new AuthenticationError("No user found with this email address");
+        throw new AuthenticationError("No buyer found with this email address");
       }
-      const correctPW = await user.isCorrectPassword(password);
+      console.log(buyer)
+      const correctPW = await buyer.isCorrectPassword(password);
       if (!correctPW) {
         throw new AuthenticationError("Incorrect credentials");
       }
