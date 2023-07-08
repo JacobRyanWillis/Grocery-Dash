@@ -1,5 +1,5 @@
 // Assuming you have the necessary imports and data models
-const { Owner, Product, PublicOwner } = require('../models');
+const { Owner, Product} = require('../models');
 
 
 
