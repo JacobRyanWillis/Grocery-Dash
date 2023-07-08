@@ -22,14 +22,14 @@ const server = new ApolloServer({
 
 
 // For the chatbot++++++++++++++++++++++++++++++++++++++++++++++++
-app.use(bodyParser.json()); // New
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post("/api/chatbot", async (req, res) => {
   try {
-    const userMessage = req.body.question; // Changed to 'question' to match chat.js
-    const botResponse = await chatRoute.chatbotResponse(userMessage); // Correctly referenced
+    const question = req.body.question; 
+    const botResponse = await chatRoute.chatbotResponse(question); 
     res.status(200).json(botResponse);
   } catch (error) {
     console.error(`Error in chatbot: ${error}`);

@@ -1,11 +1,13 @@
 const { Configuration, OpenAIApi } = require("openai");
 // const { chatbotData } = require("./schemas/resolvers");
-const { publicOwners } = require("./schemas/resolvers");
+
 const configuration = new Configuration({
   apiKey: "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"
 });
 const openai= new OpenAIApi(configuration);
 
+
+// set up the chatbot response
 async function chatbotResponse(question) {
   if (!configuration.apiKey) {
     return {
@@ -18,6 +20,7 @@ async function chatbotResponse(question) {
     };
   }
 
+//   trim the question down and make sure it's not empty
   if (question.trim().length === 0) {
     return {
       status: 400,
@@ -29,13 +32,15 @@ async function chatbotResponse(question) {
     };
   }
 
-  const data = await publicOwners({}); // Using model directly to query database
+//   pull from the resolver. This is missing the thing from graphql that determines what data to pull. the big object
+//   const data = await publicOwners({})   
 
+//   this is the first set of messages that informs the chatbot what to do and feeds it the data
   const GPT35TurboMessage = [
     { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data` },
     {
       role: "user",
-      content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data ${JSON.stringify(data)}. Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
+      content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data ${data}. Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
     },
     {
       role: "assistant",
@@ -44,6 +49,7 @@ async function chatbotResponse(question) {
     { role: "user", content: question},
   ];
   
+//   this is from openAI npm package and it sets up the chatbot response and sends it the message above
   try {
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -52,11 +58,13 @@ async function chatbotResponse(question) {
       temperature: 2,
     });
 
+    // return the chatbot response if it worked
     return {
       status: 200,
       body: { result: completion.data.choices[0].message.content }
     };
 
+    // otherwise return an error. couldn't use res.status because of something to do with express and how it handles async functions
   } catch(error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);

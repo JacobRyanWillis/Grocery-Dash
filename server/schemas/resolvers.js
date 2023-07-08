@@ -1,5 +1,5 @@
 // Assuming you have the necessary imports and data models
-const { Owner, Product} = require('../models');
+const { Owner, Product, PublicOwner } = require('../models');
 
 
 
@@ -8,8 +8,9 @@ const resolvers = {
     publicOwners: async () => {
       try {
         // Fetch all owners' public information from the database
-        const owners = await Owner.find({});
-        return owners;
+        const publicOwners = await Owner.find().populate('myProducts');
+        console.log(publicOwners)
+        return publicOwners;
       } catch (err) {
         throw new Error('Failed to fetch owners');
       }
@@ -19,8 +20,8 @@ const resolvers = {
         // Owner: fetches owner's products so that owner can modify
         // Buyer: shows all products one Owner has
         //! We will need to grab OwnerId from state
-        const owner = await Owner.findById(ownerId);
-        return owner;
+        const publicOwner = await Owner.findById(ownerId).populate('myProducts');
+        return publicOwner;
       } catch (err) {
         throw new Error('Failed to fetch owners');
       }
@@ -33,9 +34,9 @@ const resolvers = {
         throw new Error('Failed to fetch product');
       }
     },
-    buyerById: async () => {},
-    buyerMe: async () => {},
-    ownerMe: async () => {},
+    // buyerById: async () => {},
+    // buyerMe: async () => {},
+    // ownerMe: async () => {},
   },
 };
 
@@ -48,7 +49,7 @@ const resolvers = {
 //   }
 // }
 
-module.exports = { resolvers };
+module.exports = resolvers;
 
 
 
