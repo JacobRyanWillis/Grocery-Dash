@@ -4,7 +4,7 @@
     "productName": "Organic Strawberry",
     "description": "Made fresh to order. These organic strawberries are so healthy and delicious.",
     "image": "strawberry.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -14,7 +14,7 @@
     "productName": "Organic Pineapple",
     "description": "Organic pineapple is a delicious and healthy snack. Grown without pesticide and chemical free, all natural organic pineapple hand sliced contain no added sweeteners or preservatives.",
     "image": "Pineapple.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": true
@@ -24,7 +24,7 @@
     "productName": "Organic Kiwi",
     "description": "Organic kiwi are deliciously and slightly tangy taste. These dried kiwi are hand sliced have a vibrant green color that is so much fun to look at, but even better to eat.",
     "image": "Kiwi.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -34,7 +34,7 @@
     "productName": "Organic Date",
     "description": "Fresh dried! Organic Barhi dates are small and somewhat chewy texture. This gorgeous dates are grown in Florida",
     "image": "Date.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -44,7 +44,7 @@
     "productName": "Organic Moringa",
     "description": "MORINGA SEEDS ARE OBTAINED FROM THE PODS OF THE MORINGA PLANT (MORINGA OLEIFERA) OR THE DRUMSTICK TREE",
     "image": "Moringa.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -54,7 +54,7 @@
     "productName": "Organic Beet Chip",
     "description": "Perfect Snack! Organic Beets root are a rich source of nutrients that are needed for a healthy body.",
     "image": "Beet.jpg",
-    "category": "Category 1",
+    "category": "fruits and vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -64,7 +64,7 @@
     "productName": "Apple wood Smoked Norwegian Salmon",
     "description": "Piece size and prices generally range from 7oz to 11oz ",
     "image": "Salmon.jpg",
-    "category": "Category 2",
+    "category": "meats and seafood",
     "price": 35,
     "weight": 1,
     "feature": true
@@ -74,7 +74,7 @@
     "productName": "Apple wood Smoked Georgia Mountain Trout",
     "description": "Packages of single fillets generally range 6oz to 7 1/2oz. Double packages with 2 smaller fillets generally range 9 ½oz- 11 oz ",
     "image": "Trout.jpg",
-    "category": "Category 2",
+    "category": "meats and seafood",
     "price": 35,
     "weight": 1,
     "feature": false
@@ -84,7 +84,7 @@
     "productName": "Herb Aioli",
     "description": "A wonderful sauce that is a delicious accompaniment to the smoked fish with fresh garlic, fresh lemon juice, and fresh herbs in a mayonnaise base. ",
     "image": "Aioli.jpg",
-    "category": "Category 2",
+    "category": "baked goods",
     "price": 4,
     "weight": 0.25,
     "feature": false
@@ -94,7 +94,7 @@
     "productName": "Habanero Hibiscucs Jelly",
     "description": "Habanero Hibiscus Jelly is prepared using fresh hand-picked Hibiscus",
     "image": "Habanero.jpg",
-    "category": "Category 3",
+    "category": "baked goods",
     "price": 10,
     "quantity": 1,
     "feature": true
@@ -104,7 +104,7 @@
     "productName": "Hibiscucs Chutney",
     "description": "Beautiful flowers make the best chutney.",
     "image": "Chutney.jpg",
-    "category": "Category 3",
+    "category": "baked goods",
     "price": 10,
     "quantity": 1,
     "feature": false
@@ -114,7 +114,7 @@
     "productName": "Hibiscus Jelly",
     "description": "Pride Road all natural Hibiscus Jelly is prepared using freshly hand picked hibiscus.",
     "image": "Jelly.jpg",
-    "category": "Category 3",
+    "category": "baked goods",
     "price": 10,
     "quantity": 1,
     "feature": false
@@ -125,26 +125,27 @@
     "productName": "Hibiscucs Peach Chutney",
     "description": "Hibiscus Peach Chutney is slowly cooked sweet and tangy spread made with hand-picked Hibiscus calyxes, peaches, zest, and spices.",
     "image": "Peach.jpg",
-    "category": "Category 3",
+    "category": "baked goods",
     "price": 10,
     "quantity": 1,
     "feature": false
   },
   {
     "_id": "64a76694b33b3424f7e00b25",
-    "productName": "Hibiscucs Tea",
-    "description": "In order to produce this flavorful blend of Hibiscus Tea, we've drawn from the home brewing traditions of the south. Merging the distinct flavors of ginger and citrus to our hibiscus base produced a satisfying beverage we just had to share. ",
+    "productName": "Goat Cheese",
+    "description": "The freshest cheese from Sonoma farms ",
     "image": "Tea.jpg",
-    "category": "Category 3",
+    "category": "dairy",
     "price": 12,
     "quantity": 4,
     "feature": false
   },
   {
     "_id": "64a76694b33b3424f7e00b26",
-    "productName": "Sparkling Hibiscus",
+    "productName": "Ricotta",
+    "description": "Perfect pairing for your charcuterie board ",
     "image": "Sparkling.jpg",
-    "category": "Category 3",
+    "category": "dairy",
     "price": 18,
     "quantity": 6,
     "feature": false
