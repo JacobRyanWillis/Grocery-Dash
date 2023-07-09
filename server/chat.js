@@ -1,24 +1,81 @@
 const { Configuration, OpenAIApi } = require("openai");
-// const { chatbotData } = require("./schemas/resolvers");
+const { chatbotData } = require("./schemas/resolvers");
+const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
+const gql = require('graphql-tag');
+const fetch = require('cross-fetch');
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: process.env.NODE_ENV === 'production' ? 
+      'https://our-domain.com/graphql' : // replace with your actual domain
+      'http://localhost:3001/graphql', fetch
+  }),
+  cache: new InMemoryCache(),
+});
+
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: "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"
 });
 const openai= new OpenAIApi(configuration);
 
 
-// set up the chatbot response
-async function chatbotResponse(question) {
-  if (!configuration.apiKey) {
-    return {
-      status: 500,
-      body: {
-        error: {
-          message: "OpenAI API key not configured, please follow instructions in README.md",
-        }
-      }
-    };
+// Define your GraphQL query
+const PUBLIC_OWNERS_QUERY = gql`
+  query GetPublicOwners {
+    publicOwners {
+      _id
+    myProducts {
+      category
+      feature
+      image
+      price
+      productName
+      quantity
+      weight
+    }
+    ownerImage
+    ownerName
+    ownerStory
+    zipCode
+    }
   }
+`;
+
+
+
+// Fetch data from your GraphQL server
+async function fetchGraphqlData() {
+  try {
+    const { data } = await client.query({ query: PUBLIC_OWNERS_QUERY });
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    throw new Error("Failed to fetch data.");
+  }
+}
+
+async function chatbotResponse(question) {
+  // Fetch data from your GraphQL server
+  let data = await fetchGraphqlData();
+  console.log(data);
+  data = JSON.stringify(data);
+
+
+// set up the chatbot response
+// async function chatbotResponse(question) {
+//   if (!configuration.apiKey) {
+//     return {
+//       status: 500,
+//       body: {
+//         error: {
+//           message: "OpenAI API key not configured, please follow instructions in README.md",
+//         }
+//       }
+//     };
+//   }
+
+  
 
 //   trim the question down and make sure it's not empty
   if (question.trim().length === 0) {
@@ -33,7 +90,18 @@ async function chatbotResponse(question) {
   }
 
 //   pull from the resolver. This is missing the thing from graphql that determines what data to pull. the big object
-//   const data = await publicOwners({})   
+// const data = {};
+// async function fetchGraphqlData() {
+//     try {
+//       const data = chatbotData(); // Calls the publicOwners resolver to get the owner data from the database
+//       return { data }; // Returns the data in a format that is compatible with the chatbot response generator
+//     } catch (error) {
+//       console.error("Failed to fetch data:", error);
+//       throw new Error("Failed to fetch data.");
+//     }
+//   }
+
+
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
   const GPT35TurboMessage = [
@@ -54,8 +122,8 @@ async function chatbotResponse(question) {
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: GPT35TurboMessage,
-      max_tokens: 200,
-      temperature: 2,
+      max_tokens: 150,
+      temperature: 0.1,
     });
 
     // return the chatbot response if it worked
