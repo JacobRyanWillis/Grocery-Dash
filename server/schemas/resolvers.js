@@ -91,7 +91,7 @@ const resolvers = {
       feature,
     });
 
-    await Owner.findOneAndUpdate(
+    const owner = await Owner.findOneAndUpdate(
       { _id: context.user._id },
       { $addToSet: { myProducts: product._id } }
     );
@@ -100,24 +100,43 @@ const resolvers = {
   }
   throw new AuthenticationError('You need to be logged in!');
 },
-updateProduct: async (parent, args, context) => {
-  const { id, productName, description, image, category, price, quantity, weight, feature } = args;
 
+  // Owner: {
+  //   myProducts: async (parent) => {
+  //     try {
+  //       const products = await Product.find({ ownerId: parent._id });
+  //       console.log(products)
+  //       return products;
+  //     } catch (error) {
+  //       console.error(error);
+  //       throw new Error('Failed to fetch owner products');
+  //     }
+  //   },
+  // },
+updateProduct: async (Owner, { _id, productName, description, image, category, price, quantity, weight, feature }, context) => {
+  
   if (!context.user) {
     throw new AuthenticationError('You need to be logged in!');
   }
 
+
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
-      id,
-      { $set: { productName, description, image, category, price, quantity, weight, feature } },
+      product.id,
+      { $set: { _id, productName, description, image, category, price, quantity, weight, feature } },
       { new: true }
     );
-
+    const theId = context.user._id
+    console.log(theId)
+    console.log(updatedProduct)
     return updatedProduct;
   } catch (error) {
     throw new Error('Failed to update product.');
   }
+},
+
+deleteProduct: async (parent, { id }, context) => {
+
 }
 
 

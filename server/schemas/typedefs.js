@@ -78,11 +78,13 @@ type Mutation {
     loginBuyer(email: String!, password: String!): BuyerAuth
     
     addProduct(productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
-    updateProduct(_id: ID): Owner
-    #deleteProduct(_id: ID): Owner
+    updateProduct(_id: ID, productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
+    deleteProduct(_id: ID): Owner
 
     #addProductToBuyer(_id: ID!): Buyer
     #removeProductFromBuyer(_id: ID!): Buyer
+
+    
 }
 
 
