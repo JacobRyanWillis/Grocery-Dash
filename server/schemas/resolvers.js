@@ -24,7 +24,6 @@ const resolvers = {
       try {
         // Fetch all owners' public information from the database
         const publicOwners = await Owner.find().populate("myProducts");
-        console.log(publicOwners);
         return publicOwners;
       } catch (err) {
         throw new Error("Failed to fetch owners");
@@ -65,7 +64,6 @@ const resolvers = {
       if (!buyer) {
         throw new AuthenticationError("No buyer found with this email address");
       }
-      console.log(buyer)
       const correctPW = await buyer.isCorrectPassword(password);
       if (!correctPW) {
         throw new AuthenticationError("Incorrect credentials");
@@ -85,17 +83,60 @@ const resolvers = {
       const token = signToken(owner);
       return { token, owner };
     },
-  },
+    
+ // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
+ addProduct: async (parent, { productName, description, image, category, price, quantity, weight, feature }, context) => {
+  if (context.user) {
+    const product = await Product.create({
+      productName,
+      description,
+      image,
+      category,
+      price,
+      quantity,
+      weight,
+      feature,
+    });
+
+    await Owner.findOneAndUpdate(
+      { _id: context.user._id },
+      { $addToSet: { myProducts: product._id } }
+    );
+
+    return owner;
+  }
+  throw new AuthenticationError('You need to be logged in!');
+},
+updateProduct: async (parent, args, context) => {
+  const { id, productName, description, image, category, price, quantity, weight, feature } = args;
+
+  if (!context.user) {
+    throw new AuthenticationError('You need to be logged in!');
+  }
+
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      id,
+      { $set: { productName, description, image, category, price, quantity, weight, feature } },
+      { new: true }
+    );
+
+    return updatedProduct;
+  } catch (error) {
+    throw new Error('Failed to update product.');
+  }
+}
+
+// deleteProduct: async (parent, args, context) => {}
+
+// addProductToBuyer: async (parent, args, context) => {}
+// removeProductFromBuyer: async (parent, args, context) => {}
+
+}
 };
 
-// const chatbotData = async () => {
-//   try {
-//     const owners = await Owner.find({});
-//     return owners;
-//   } catch (err) {
-//     throw new Error('Failed to fetch owners');
-//   }
-// }
+
+
 
 module.exports = resolvers;
 
