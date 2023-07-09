@@ -5,6 +5,21 @@ const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
+    buyerById: async (parent, { _id }) => {
+      try {
+        const product = await Buyer.findById(_id);
+        return product;
+      } catch (err) {
+        throw new Error("Failed to fetch product");
+      }
+    },
+    buyerMe: async (parent, args, context) => {
+      if (context.user) {
+        const buyer = await Buyer.findOne({ _id: context.user._id });
+        return buyer
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     publicOwners: async () => {
       try {
         // Fetch all owners' public information from the database
@@ -36,14 +51,6 @@ const resolvers = {
         throw new Error("Failed to fetch product");
       }
     },
-    // buyerById: async () => {},
-    buyerMe: async (parent, args, context) => {
-      if (context.user) {
-        const buyer = await Buyer.findOne({ _id: context.user._id });
-        return buyer
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
 
     ownerMe: async (parent, args, context) => {
       if (context.user) {
@@ -53,18 +60,6 @@ const resolvers = {
     },
   },
   Mutation: {
-    loginOwner: async (parent, { email, password }) => {
-      const owner = await Owner.findOne({ email });
-      if (!owner) {
-        throw new AuthenticationError("No owner found with this email address");
-      }
-      const correctPW = await owner.isCorrectPassword(password);
-      if (!correctPW) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
-      const token = signToken(owner);
-      return { token, owner };
-    },
     loginBuyer: async (parent, { email, password }) => {
       const buyer = await Buyer.findOne({ email });
       if (!buyer) {
@@ -77,6 +72,18 @@ const resolvers = {
       }
       const token = signToken(buyer);
       return { token, buyer };
+    },
+    loginOwner: async (parent, { email, password }) => {
+      const owner = await Owner.findOne({ email });
+      if (!owner) {
+        throw new AuthenticationError("No owner found with this email address");
+      }
+      const correctPW = await owner.isCorrectPassword(password);
+      if (!correctPW) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+      const token = signToken(owner);
+      return { token, owner };
     },
   },
 };
