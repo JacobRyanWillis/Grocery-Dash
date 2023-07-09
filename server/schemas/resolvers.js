@@ -9,7 +9,6 @@ const resolvers = {
       try {
         // Fetch all owners' public information from the database
         const publicOwners = await Owner.find().populate("myProducts");
-        console.log(publicOwners);
         return publicOwners;
       } catch (err) {
         throw new Error("Failed to fetch owners");
@@ -70,7 +69,6 @@ const resolvers = {
       if (!buyer) {
         throw new AuthenticationError("No buyer found with this email address");
       }
-      console.log(buyer)
       const correctPW = await buyer.isCorrectPassword(password);
       if (!correctPW) {
         throw new AuthenticationError("Incorrect credentials");
@@ -102,7 +100,30 @@ const resolvers = {
   }
   throw new AuthenticationError('You need to be logged in!');
 },
-// updateProduct: async (parent, args, context) => {}
+updateProduct: async (parent, args, context) => {
+  const { id, productName, description, image, category, price, quantity, weight, feature } = args;
+
+  if (!context.user) {
+    throw new AuthenticationError('You need to be logged in!');
+  }
+
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      id,
+      { $set: { productName, description, image, category, price, quantity, weight, feature } },
+      { new: true }
+    );
+
+    return updatedProduct;
+  } catch (error) {
+    throw new Error('Failed to update product.');
+  }
+}
+
+
+
+
+
 // deleteProduct: async (parent, args, context) => {}
 
 // addProductToBuyer: async (parent, args, context) => {}
