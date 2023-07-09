@@ -81,7 +81,7 @@ module.exports = gql`
     updateProduct(_id: ID): Owner
     #deleteProduct(_id: ID): Owner
 
-    #addProductToBuyer(_id: ID!): Buyer
-    #removeProductFromBuyer(_id: ID!): Buyer
+    addProductToBuyer(_id: ID!): Buyer
+    removeProductFromBuyer(_id: ID!): Buyer
   }
 `;

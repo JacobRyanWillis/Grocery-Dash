@@ -16,7 +16,7 @@ const resolvers = {
     buyerMe: async (parent, args, context) => {
       if (context.user) {
         const buyer = await Buyer.findOne({ _id: context.user._id });
-        return buyer
+        return buyer;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -83,60 +83,114 @@ const resolvers = {
       const token = signToken(owner);
       return { token, owner };
     },
-    
- // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
- addProduct: async (parent, { productName, description, image, category, price, quantity, weight, feature }, context) => {
-  if (context.user) {
-    const product = await Product.create({
-      productName,
-      description,
-      image,
-      category,
-      price,
-      quantity,
-      weight,
-      feature,
-    });
 
-    await Owner.findOneAndUpdate(
-      { _id: context.user._id },
-      { $addToSet: { myProducts: product._id } }
-    );
+    // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
+    addProduct: async (
+      parent,
+      {
+        productName,
+        description,
+        image,
+        category,
+        price,
+        quantity,
+        weight,
+        feature,
+      },
+      context
+    ) => {
+      if (context.user) {
+        const product = await Product.create({
+          productName,
+          description,
+          image,
+          category,
+          price,
+          quantity,
+          weight,
+          feature,
+        });
 
-    return owner;
-  }
-  throw new AuthenticationError('You need to be logged in!');
-},
-updateProduct: async (parent, args, context) => {
-  const { id, productName, description, image, category, price, quantity, weight, feature } = args;
+        await Owner.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { myProducts: product._id } }
+        );
 
-  if (!context.user) {
-    throw new AuthenticationError('You need to be logged in!');
-  }
+        return owner;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateProduct: async (parent, args, context) => {
+      const {
+        id,
+        productName,
+        description,
+        image,
+        category,
+        price,
+        quantity,
+        weight,
+        feature,
+      } = args;
 
-  try {
-    const updatedProduct = await Product.findByIdAndUpdate(
-      id,
-      { $set: { productName, description, image, category, price, quantity, weight, feature } },
-      { new: true }
-    );
+      if (!context.user) {
+        throw new AuthenticationError("You need to be logged in!");
+      }
 
-    return updatedProduct;
-  } catch (error) {
-    throw new Error('Failed to update product.');
-  }
-}
+      try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+          id,
+          {
+            $set: {
+              productName,
+              description,
+              image,
+              category,
+              price,
+              quantity,
+              weight,
+              feature,
+            },
+          },
+          { new: true }
+        );
 
-// deleteProduct: async (parent, args, context) => {}
+        return updatedProduct;
+      } catch (error) {
+        throw new Error("Failed to update product.");
+      }
+    },
 
-// addProductToBuyer: async (parent, args, context) => {}
-// removeProductFromBuyer: async (parent, args, context) => {}
+    // deleteProduct: async (parent, args, context) => {}
 
-}
+    addProductToBuyer: async (parent, { _id }, context) => {
+      try {
+        const buyer = await Buyer.findByIdAndUpdate(
+          context.user._id,
+          { $addToSet: {myList: _id} },
+          { new: true }
+        );
+
+        return buyer;
+      } catch (error) {
+        throw new Error("Failed to add product to my list.");
+      }
+    },
+    removeProductFromBuyer: async (parent, { _id }, context) => {
+      try {
+        const buyer = await Buyer.findByIdAndUpdate(
+          context.user._id,
+          { $pull: {myList: _id} },
+          { new: true }
+        );
+        console.log(buyer)
+        return buyer;
+      } catch (error) {
+        throw new Error("Failed to remove product from my list.");
+      }
+    },
+  },
 };
-
-
-
 
 module.exports = resolvers;
 
