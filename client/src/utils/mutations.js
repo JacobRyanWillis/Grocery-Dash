@@ -23,3 +23,16 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PRODUCT = gql`
+mutation AddProduct($productName: String!, $description: String!, $category: String!, $price: Float!, $feature: Boolean!) {
+  addProduct(productName: $productName, description: $description, category: $category, price: $price, feature: $feature) {
+    _id
+    myProducts {
+      _id
+      productName
+      description
+    }
+  }
+}
+`;
