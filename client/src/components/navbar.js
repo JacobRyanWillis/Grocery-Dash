@@ -32,22 +32,24 @@ const Navbar = () => {
         <div className='flex items-center'>
           <ul className='flex'>
           <Link to='/shop'>
-            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 '>
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110'>
               Shop
             </li>
           </Link>
           <Link to='/signupintro'>
-            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3'>
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110'>
               Sign-Up
             </li>
           </Link>
           <Link to='/login'>
-            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3'>
+            <li className='text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110'>
               Login
             </li>
           </Link>
           </ul>
-          <FiShoppingCart className='text-white text-3xl md:text-4xl mx-9' />
+          <Link to='/cart'>
+          <FiShoppingCart className='text-white text-3xl md:text-4xl mx-9 transition-transform transform hover:scale-110' />
+          </Link>
         </div>
       </nav>
       {isMenuOpen && (
