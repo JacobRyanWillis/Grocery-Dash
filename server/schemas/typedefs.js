@@ -77,8 +77,8 @@ type Mutation {
     loginOwner(email: String!, password: String!): OwnerAuth
     loginBuyer(email: String!, password: String!): BuyerAuth
     
-    #addProduct(productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
-    #updateProduct(_id: ID): Owner
+    addProduct(productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
+    updateProduct(_id: ID): Owner
     #deleteProduct(_id: ID): Owner
 
     #addProductToBuyer(_id: ID!): Buyer
