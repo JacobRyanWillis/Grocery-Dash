@@ -55,7 +55,12 @@ const ChatBot = ({ onClose }) => {
               value={questionInput}
               onChange={(e) => setQuestionInput(e.target.value)}
             />
-            <button type="submit">Generate answer</button>
+            <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs"
+                >
+                  Generate Answer
+                </button>
           </form>
 
           {!hasStarted && (
