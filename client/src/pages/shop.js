@@ -6,7 +6,7 @@ const Shop = () => {
   return (
     <div>
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="font-gilroy grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         <div className="flex flex-col justify-center items-center md:items-start col-span-full lg:col-start-2  mx-8 mt-5 md:mt-20">
           <h1 className="text-5xl font-bold my-2">Mango Boys</h1>
           <p className="text-xl my-2">Specialties: Fruits and Vegetables</p>
