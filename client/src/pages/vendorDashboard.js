@@ -3,7 +3,7 @@ import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
 import austell from "../assets/austell-market.jpg";
 
-const ManageItems = () => {
+const VendorDashboard = () => {
   return (
     <div className="h-screen">
       <Navbar />
@@ -41,4 +41,4 @@ const ManageItems = () => {
   );
 };
 
-export default ManageItems;
+export default VendorDashboard;
