@@ -1,3 +1,13 @@
+// set up the onsubmit function
+// it needs to take in the question and then send it to the server as a string. 
+// once in the server it needs to start the function to get the data and run the chatbot with the question and the data in it.
+// it needs to take the response and send it back to the client to be displayed in the chat window.
+
+
+
+
+
+
 import React, { useState } from "react";
 
 function Home() {

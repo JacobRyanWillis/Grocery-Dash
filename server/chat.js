@@ -15,6 +15,16 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// get the question from the client
+// const question = req.body.question || '';
+//   if (question.trim().length === 0) {
+//     res.status(400).json({
+//       error: {
+//         message: "Please enter a valid question.",
+//       }
+//     });
+//     return;
+//   }
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -63,19 +73,30 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
+
+  // const question = req.body.question || '';
+  // if (question.trim().length === 0) {
+  //   res.status(400).json({
+  //     error: {
+  //       message: "Please enter a valid question.",
+  //     }
+  //   });
+  //   return;
+  // }
+
   
 
 //   trim the question down and make sure it's not empty
-  if (question.trim().length === 0) {
-    return {
-      status: 400,
-      body: {
-        error: {
-          message: "Please enter a valid question.",
-        }
-      }
-    };
-  }
+  // if (question.trim().length === 0) {
+  //   return {
+  //     status: 400,
+  //     body: {
+  //       error: {
+  //         message: "Please enter a valid question.",
+  //       }
+  //     }
+  //   };
+  // }
 
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
