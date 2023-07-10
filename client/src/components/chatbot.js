@@ -40,7 +40,7 @@ const ChatBot = ({ onClose }) => {
   }
 
   return (
-    <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg">
+    <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg m-2 p-2">
       <div>
         <title>OpenAI Quickstart</title>
         <link rel="icon" href="/dog.png" />

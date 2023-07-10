@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Chatbot from "./chatbot";
+import chatboticon from "../assets/chatboticon.png"
 
 const ChatbotIcon = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +10,15 @@ const ChatbotIcon = () => {
   };
 
   return (
-    <div>
-      <button
-        className="fixed bottom-4 right-4 z-10 bg-gray-500 text-white rounded-full p-3"
-        onClick={toggleChatbot}
+    <div className="fixed bottom-4 right-4 z-10 m-2 p-2">
+      <img
+        className= "flex items-center justify-center hover:cursor-pointer"
+        src= {chatboticon}
+        alt= "Chatbot"
+       onClick={toggleChatbot}
       >
-        Chat
-      </button>
+        
+      </img>
       {isOpen && <Chatbot onClose={toggleChatbot} />}
     </div>
   );
