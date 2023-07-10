@@ -23,9 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post("/api/chatbot", async (req, res) => {
+  console.log("req.body: ", req.body)
   try {
     const question = req.body.question; 
     const botResponse = await chatRoute.chatbotResponse(question); 
+    console.log("botResponse: ", botResponse)
     res.status(200).json(botResponse);
   } catch (error) {
     console.error(`Error in chatbot: ${error}`);

@@ -9,7 +9,7 @@ const ChatBot = ({ onClose }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("/api/generate", {
+      const response = await fetch("/api/chatbot", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const ChatBot = ({ onClose }) => {
       });
 
       const data = await response.json();
-
+      console.log(data)
       if (response.status !== 200) {
         throw (
           data.error ||
@@ -30,7 +30,7 @@ const ChatBot = ({ onClose }) => {
       setConversation([
         ...conversation,
         { role: "user", text: questionInput },
-        { role: "assistant", text: data.result },
+        { role: "assistant", text: data.body.result },
       ]);
       setQuestionInput("");
     } catch (error) {
@@ -40,6 +40,7 @@ const ChatBot = ({ onClose }) => {
   };
 
   return (
+    <>
     <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg">
       <div>
         <title>OpenAI Quickstart</title>
@@ -62,7 +63,7 @@ const ChatBot = ({ onClose }) => {
                   Generate Answer
                 </button>
           </form>
-
+          
           {!hasStarted && (
             <p>
               Hello, I'm a chatbot that can answer questions about the farmers
@@ -72,10 +73,10 @@ const ChatBot = ({ onClose }) => {
 
           {conversation.map((message, index) => (
             <div key={index}>
-              {/* <strong>{message.role === 'user' ? 'You: ' : 'Assistant: '}
-            
-            </strong>{message.text} */}
-              {/* <strong className={styles[`${message.role === 'user' ? "user" : "assistant"}Message`]}>{message.text}</strong> */}
+              <strong>{message.role === 'user' ? 'You: ' : 'Assistant: '}
+            {console.log(message)}
+            </strong>
+              <strong className={`${message.role === 'user' ? "user" : "assistant"}Message`}>{message.text}</strong> 
 
               {/* <strong className={`${checkIsUser ? "user" : "assistant"}message`}>{message.text}</strong> */}
             </div>
@@ -84,7 +85,7 @@ const ChatBot = ({ onClose }) => {
       </div>
       <button onClick={onClose}>Close</button>
     </div>
+    </>
   );
 };
-
 export default ChatBot;
