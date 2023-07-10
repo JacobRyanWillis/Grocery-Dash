@@ -5,6 +5,21 @@ const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
+    buyerById: async (parent, { _id }) => {
+      try {
+        const product = await Buyer.findById(_id);
+        return product;
+      } catch (err) {
+        throw new Error("Failed to fetch product");
+      }
+    },
+    buyerMe: async (parent, args, context) => {
+      if (context.user) {
+        const buyer = await Buyer.findOne({ _id: context.user._id });
+        return buyer;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     publicOwners: async () => {
       try {
         // Fetch all owners' public information from the database
@@ -35,14 +50,6 @@ const resolvers = {
         throw new Error("Failed to fetch product");
       }
     },
-    // buyerById: async () => {},
-    buyerMe: async (parent, args, context) => {
-      if (context.user) {
-        const buyer = await Buyer.findOne({ _id: context.user._id });
-        return buyer
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
 
     ownerMe: async (parent, args, context) => {
       if (context.user) {
@@ -52,18 +59,6 @@ const resolvers = {
     },
   },
   Mutation: {
-    loginOwner: async (parent, { email, password }) => {
-      const owner = await Owner.findOne({ email });
-      if (!owner) {
-        throw new AuthenticationError("No owner found with this email address");
-      }
-      const correctPW = await owner.isCorrectPassword(password);
-      if (!correctPW) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
-      const token = signToken(owner);
-      return { token, owner };
-    },
     loginBuyer: async (parent, { email, password }) => {
       const buyer = await Buyer.findOne({ email });
       if (!buyer) {
@@ -76,64 +71,126 @@ const resolvers = {
       const token = signToken(buyer);
       return { token, buyer };
     },
-    
- // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
- addProduct: async (parent, { productName, description, image, category, price, quantity, weight, feature }, context) => {
-  if (context.user) {
-    const product = await Product.create({
-      productName,
-      description,
-      image,
-      category,
-      price,
-      quantity,
-      weight,
-      feature,
-    });
+    loginOwner: async (parent, { email, password }) => {
+      const owner = await Owner.findOne({ email });
+      if (!owner) {
+        throw new AuthenticationError("No owner found with this email address");
+      }
+      const correctPW = await owner.isCorrectPassword(password);
+      if (!correctPW) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+      const token = signToken(owner);
+      return { token, owner };
+    },
 
-    await Owner.findOneAndUpdate(
-      { _id: context.user._id },
-      { $addToSet: { myProducts: product._id } }
-    );
+    // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
+    addProduct: async (
+      parent,
+      {
+        productName,
+        description,
+        image,
+        category,
+        price,
+        quantity,
+        weight,
+        feature,
+      },
+      context
+    ) => {
+      if (context.user) {
+        const product = await Product.create({
+          productName,
+          description,
+          image,
+          category,
+          price,
+          quantity,
+          weight,
+          feature,
+        });
 
-    return owner;
-  }
-  throw new AuthenticationError('You need to be logged in!');
-},
-updateProduct: async (parent, args, context) => {
-  const { id, productName, description, image, category, price, quantity, weight, feature } = args;
+        await Owner.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { myProducts: product._id } }
+        );
 
-  if (!context.user) {
-    throw new AuthenticationError('You need to be logged in!');
-  }
+        return owner;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateProduct: async (parent, args, context) => {
+      const {
+        id,
+        productName,
+        description,
+        image,
+        category,
+        price,
+        quantity,
+        weight,
+        feature,
+      } = args;
 
-  try {
-    const updatedProduct = await Product.findByIdAndUpdate(
-      id,
-      { $set: { productName, description, image, category, price, quantity, weight, feature } },
-      { new: true }
-    );
+      if (!context.user) {
+        throw new AuthenticationError("You need to be logged in!");
+      }
 
-    return updatedProduct;
-  } catch (error) {
-    throw new Error('Failed to update product.');
-  }
-}
+      try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+          id,
+          {
+            $set: {
+              productName,
+              description,
+              image,
+              category,
+              price,
+              quantity,
+              weight,
+              feature,
+            },
+          },
+          { new: true }
+        );
 
+        return updatedProduct;
+      } catch (error) {
+        throw new Error("Failed to update product.");
+      }
+    },
 
+    // deleteProduct: async (parent, args, context) => {}
 
+    addProductToBuyer: async (parent, { _id }, context) => {
+      try {
+        const buyer = await Buyer.findByIdAndUpdate(
+          context.user._id,
+          { $addToSet: {myList: _id} },
+          { new: true }
+        );
 
-
-// deleteProduct: async (parent, args, context) => {}
-
-// addProductToBuyer: async (parent, args, context) => {}
-// removeProductFromBuyer: async (parent, args, context) => {}
-
-}
+        return buyer;
+      } catch (error) {
+        throw new Error("Failed to add product to my list.");
+      }
+    },
+    removeProductFromBuyer: async (parent, { _id }, context) => {
+      try {
+        const buyer = await Buyer.findByIdAndUpdate(
+          context.user._id,
+          { $pull: {myList: _id} },
+          { new: true }
+        );
+        console.log(buyer)
+        return buyer;
+      } catch (error) {
+        throw new Error("Failed to remove product from my list.");
+      }
+    },
+  },
 };
-
-
-
 
 module.exports = resolvers;
 

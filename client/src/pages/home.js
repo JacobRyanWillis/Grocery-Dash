@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      <div className="md:h-screen grid grid-cols-1 lg:grid-cols-2 bg-light-tan">
+      <div className="md:h-screen grid grid-cols-1 lg:grid-cols-2 bg-light-tan px-8 py-8">
         <div className='flex flex-col ml-4 mr-4 lg:ml-6 space-y-8 mt-5 lg:mt-20'>
           <Logo />
           <h2 className='text-4xl md:text-5xl font-gilroy'>Welcome! Select your farmers market</h2>
