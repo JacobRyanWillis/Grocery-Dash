@@ -1,17 +1,13 @@
-import Head from "next/head";
 import { useState } from "react";
-import styles from "./index.module.css";
 
-export default function Home() {
+const ChatBot = ({ onClose }) => {
   const [questionInput, setQuestionInput] = useState("");
   const [conversation, setConversation] = useState([]);
   const [hasStarted, setHasStarted] = useState(false);
-  // const [messageRole, setMessageRole] = useState("Assistant");
-  // const [checkIsUser, setCheckIsUser] = useState("user");
 
   async function onSubmit(event) {
     event.preventDefault();
-    
+
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -22,60 +18,68 @@ export default function Home() {
       });
 
       const data = await response.json();
-      
+
       if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
       }
 
-
-
       setHasStarted(true);
-      setConversation([...conversation, { role: "user", text: questionInput }, { role: "assistant", text: data.result }]);
+      setConversation([
+        ...conversation,
+        { role: "user", text: questionInput },
+        { role: "assistant", text: data.result },
+      ]);
       setQuestionInput("");
-    
-    
-
-    } catch(error) {
+    } catch (error) {
       console.error(error);
       alert(error.message);
     }
   }
 
   return (
-    <div>
-      <Head>
+    <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg">
+      <div>
         <title>OpenAI Quickstart</title>
         <link rel="icon" href="/dog.png" />
-      </Head>
 
-      <main className={styles.main}>
-        <h3>Ask Me a Question About The Farmers Market</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="question"
-            placeholder="Enter a question"
-            value={questionInput}
-            onChange={(e) => setQuestionInput(e.target.value)}
-          />
-          <input type="submit" value="Generate answer" />
-        </form>
-        
-        {!hasStarted && <p>Hello, I'm a chatbot that can answer questions about the farmers market. Ask me a question!</p>}
-        
-        {conversation.map((message, index) => (
-          
-          <div  key={index}>
-            {/* <strong>{message.role === 'user' ? 'You: ' : 'Assistant: '}
+        <main className="">
+          <h3>Ask Me a Question About The Farmers Market</h3>
+          <form onSubmit={onSubmit}>
+            <textarea
+              rows={4}
+              className="w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+              placeholder="Enter a question"
+              value={questionInput}
+              onChange={(e) => setQuestionInput(e.target.value)}
+            />
+            <button type="submit">Generate answer</button>
+          </form>
+
+          {!hasStarted && (
+            <p>
+              Hello, I'm a chatbot that can answer questions about the farmers
+              market. Ask me a question!
+            </p>
+          )}
+
+          {conversation.map((message, index) => (
+            <div key={index}>
+              {/* <strong>{message.role === 'user' ? 'You: ' : 'Assistant: '}
             
             </strong>{message.text} */}
-            <strong className={styles[`${message.role === 'user' ? "user" : "assistant"}Message`]}>{message.text}</strong>
+              {/* <strong className={styles[`${message.role === 'user' ? "user" : "assistant"}Message`]}>{message.text}</strong> */}
 
-            {/* <strong className={`${checkIsUser ? "user" : "assistant"}message`}>{message.text}</strong> */}
-          </div>
-        ))}
-        
-      </main>
+              {/* <strong className={`${checkIsUser ? "user" : "assistant"}message`}>{message.text}</strong> */}
+            </div>
+          ))}
+        </main>
+      </div>
+      <button onClick={onClose}>Close</button>
     </div>
   );
-}
+};
+
+export default ChatBot;

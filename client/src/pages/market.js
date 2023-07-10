@@ -5,7 +5,7 @@ import mangos from '../assets/mangos.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Austell from '../assets/austell-market.jpg';
+import ChatbotIcon from '../components/chatboticon';
 
 
 
@@ -195,6 +195,7 @@ const Market = () => {
                     </div>
                 </div>
             </div>
+            <ChatbotIcon />
         </div>
     )
     
