@@ -1,5 +1,5 @@
 const { Configuration, OpenAIApi } = require("openai");
-const { chatbotData } = require("./schemas/resolvers");
+const getWholeMarketData = require("./utils/WholeMarketData");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
@@ -15,7 +15,7 @@ const client = new ApolloClient({
 
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: "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"
 });
 const openai= new OpenAIApi(configuration);
 
@@ -58,22 +58,8 @@ async function fetchGraphqlData() {
 async function chatbotResponse(question) {
   // Fetch data from your GraphQL server
   let data = await fetchGraphqlData();
-  console.log(data);
   data = JSON.stringify(data);
 
-
-// set up the chatbot response
-// async function chatbotResponse(question) {
-//   if (!configuration.apiKey) {
-//     return {
-//       status: 500,
-//       body: {
-//         error: {
-//           message: "OpenAI API key not configured, please follow instructions in README.md",
-//         }
-//       }
-//     };
-//   }
 
   
 
@@ -108,7 +94,7 @@ async function chatbotResponse(question) {
     { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data` },
     {
       role: "user",
-      content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data ${data}. Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
+      content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data for all the owners their products ${data}. Here is all the data for the market as a whole ${getWholeMarketData()}Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
     },
     {
       role: "assistant",
@@ -123,7 +109,7 @@ async function chatbotResponse(question) {
       model: "gpt-3.5-turbo",
       messages: GPT35TurboMessage,
       max_tokens: 150,
-      temperature: 0.1,
+      temperature: 0.6,
     });
 
     // return the chatbot response if it worked
