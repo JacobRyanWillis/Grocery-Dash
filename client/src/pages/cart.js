@@ -72,6 +72,12 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
+            <div className='flex flex-col justify-center items-center m-2 p-2'>
+                <h2 className='text-2xl md:text-3xl'> Sub-total: </h2>
+                <button className="rounded-md bg-grass px-2 py-1 mt-2 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
+                            Pay now
+                </button>
+            </div>
         </div>
     )
     
