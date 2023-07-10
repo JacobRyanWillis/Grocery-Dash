@@ -59,17 +59,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    loginBuyer: async (parent, { email, password }) => {
-      const buyer = await Buyer.findOne({ email });
-      if (!buyer) {
-        throw new AuthenticationError("No buyer found with this email address");
-      }
-      const correctPW = await buyer.isCorrectPassword(password);
-      if (!correctPW) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
-      const token = signToken(buyer);
-      return { token, buyer };
+    addOwner: async (parent, args) => {
+      const owner = await Owner.create({ ...args });
+      const token = signToken(owner);
+      return { token, owner };
     },
     loginOwner: async (parent, { email, password }) => {
       const owner = await Owner.findOne({ email });
@@ -82,6 +75,23 @@ const resolvers = {
       }
       const token = signToken(owner);
       return { token, owner };
+    },
+    addBuyer: async (parent, args) => {
+      const buyer = await Buyer.create({ ...args });
+      const token = signToken(buyer);
+      return { token, buyer };
+    },
+    loginBuyer: async (parent, { email, password }) => {
+      const buyer = await Buyer.findOne({ email });
+      if (!buyer) {
+        throw new AuthenticationError("No buyer found with this email address");
+      }
+      const correctPW = await buyer.isCorrectPassword(password);
+      if (!correctPW) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+      const token = signToken(buyer);
+      return { token, buyer };
     },
 
     // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
@@ -167,7 +177,7 @@ const resolvers = {
       try {
         const buyer = await Buyer.findByIdAndUpdate(
           context.user._id,
-          { $addToSet: {myList: _id} },
+          { $addToSet: { myList: _id } },
           { new: true }
         );
 
@@ -180,10 +190,10 @@ const resolvers = {
       try {
         const buyer = await Buyer.findByIdAndUpdate(
           context.user._id,
-          { $pull: {myList: _id} },
+          { $pull: { myList: _id } },
           { new: true }
         );
-        console.log(buyer)
+        console.log(buyer);
         return buyer;
       } catch (error) {
         throw new Error("Failed to remove product from my list.");
