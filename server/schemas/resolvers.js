@@ -95,83 +95,43 @@ const resolvers = {
     },
 
     // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
-    addProduct: async (
-      parent,
-      {
-        productName,
-        description,
-        image,
-        category,
-        price,
-        quantity,
-        weight,
-        feature,
-      },
-      context
-    ) => {
+    addProduct: async (parent, args, context) => {
       if (context.user) {
-        const product = await Product.create({
-          productName,
-          description,
-          image,
-          category,
-          price,
-          quantity,
-          weight,
-          feature,
-        });
+        const product = await Product.create({ ...args });
 
-        await Owner.findOneAndUpdate(
+        const owner = await Owner.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { myProducts: product._id } }
+          { $addToSet: { myProducts: product._id } },
+          { new: true }
         );
-
         return owner;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     updateProduct: async (parent, args, context) => {
-      const {
-        id,
-        productName,
-        description,
-        image,
-        category,
-        price,
-        quantity,
-        weight,
-        feature,
-      } = args;
-
-      if (!context.user) {
-        throw new AuthenticationError("You need to be logged in!");
-      }
-
-      try {
-        const updatedProduct = await Product.findByIdAndUpdate(
-          id,
-          {
-            $set: {
-              productName,
-              description,
-              image,
-              category,
-              price,
-              quantity,
-              weight,
-              feature,
-            },
-          },
-          { new: true }
-        );
-
-        return updatedProduct;
-      } catch (error) {
-        throw new Error("Failed to update product.");
-      }
+      const updatedProduct = await Product.findByIdAndUpdate(
+        args._id,
+        { $set: { ...args } },
+        { new: true }
+      );
+      console.log(updatedProduct)
+      return updatedProduct;
     },
 
-    // deleteProduct: async (parent, args, context) => {}
+    deleteProduct: async (parent, { _id }, context) => {
+      if (context.user) {
+        const product = await Product.deleteOne({_id: _id})
+        console.log(product)
+        const updateOwner = await Owner.findByIdAndUpdate(
+          context.user._id,
+          { $pull: { myProducts: _id } },
+          { new: true }
+        );
+        console.log(updateOwner)
+        return updateOwner;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
 
     addProductToBuyer: async (parent, { _id }, context) => {
       try {
@@ -180,7 +140,6 @@ const resolvers = {
           { $addToSet: { myList: _id } },
           { new: true }
         );
-
         return buyer;
       } catch (error) {
         throw new Error("Failed to add product to my list.");
