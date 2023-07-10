@@ -12,7 +12,7 @@ const ChatbotIcon = () => {
   return (
     <div className="fixed bottom-4 right-4 z-10 m-2 p-2">
       <img
-        className= "flex items-center justify-center hover:cursor-pointer"
+        className= "flex items-center justify-center hover:cursor-pointer transition-transform transform hover:scale-105"
         src= {chatboticon}
         alt= "Chatbot"
        onClick={toggleChatbot}
