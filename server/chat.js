@@ -3,6 +3,8 @@ const getWholeMarketData = require("./utils/WholeMarketData");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
+require('dotenv').config();
+
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -15,7 +17,7 @@ const client = new ApolloClient({
 
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const openai= new OpenAIApi(configuration);
 
