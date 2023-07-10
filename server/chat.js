@@ -4,6 +4,7 @@ const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
 require('dotenv').config();
+OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
 const client = new ApolloClient({
@@ -27,7 +28,7 @@ const client = new ApolloClient({
 //   }
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: OPENAI_API_KEY,
   // apiKey: process.env.OPENAI_API_KEY,
 });
 const openai= new OpenAIApi(configuration);
@@ -55,12 +56,28 @@ const PUBLIC_OWNERS_QUERY = gql`
   }
 `;
 
-
+const ALL_PRODUCTS_QUERY = gql`
+query AllProducts {
+  publicOwners {
+    myProducts {
+      category
+      feature
+      description
+      image
+      price
+      productName
+      quantity
+      weight
+    }
+  }
+}
+`;
 
 // Fetch data from your GraphQL server
 async function fetchGraphqlData() {
   try {
-    const { data } = await client.query({ query: PUBLIC_OWNERS_QUERY });
+    const { data } = await client.query({ query: PUBLIC_OWNERS_QUERY }, { query: ALL_PRODUCTS_QUERY });
+    console.log("data: ", data)
     return data;
   } catch (error) {
     console.error("Failed to fetch data:", error);
@@ -120,7 +137,7 @@ async function chatbotResponse(question) {
       model: "gpt-3.5-turbo",
       messages: GPT35TurboMessage,
       max_tokens: 150,
-      temperature: 0.6,
+      temperature: 0.1,
     });
 
     // return the chatbot response if it worked
