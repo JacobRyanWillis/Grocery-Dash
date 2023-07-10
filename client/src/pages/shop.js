@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
+import ChatbotIcon from '../components/chatboticon';
+
 
 const Shop = () => {
   return (
@@ -116,6 +118,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
+      <ChatbotIcon />
     </div>
   );
 };

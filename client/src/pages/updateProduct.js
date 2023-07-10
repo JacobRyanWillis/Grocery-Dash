@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import ChatbotIcon from '../components/chatboticon';
+
 
 const UpdateProduct = () => {
 
@@ -71,6 +73,24 @@ const UpdateProduct = () => {
 
             <div>
               <label
+                htmlFor="Weight"
+                className="block text-xl font-medium leading-6 text-gray-900"
+              >
+                Weight (optional)
+              </label>
+              <div className="mt-2">
+                <input
+                  id="weight"
+                  name="weight"
+                  type="text"
+                  placeholder="Enter lbs"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
                 htmlFor="description"
                 className="block text-xl font-medium leading-6 text-gray-900"
               >
@@ -97,6 +117,7 @@ const UpdateProduct = () => {
           </form>
         </div>
       </div>
+      <ChatbotIcon />
     </div>
   );
 };

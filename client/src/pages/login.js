@@ -5,6 +5,8 @@ import Logo from "../components/logo";
 
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
+import ChatbotIcon from '../components/chatboticon';
+
 
 import Auth from "../utils/auth";
 
@@ -135,6 +137,7 @@ const Login = (props) => {
           <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
         )}
       </div>
+      <ChatbotIcon />
     </div>
   );
 };
