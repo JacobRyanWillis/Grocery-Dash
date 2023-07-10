@@ -3,6 +3,8 @@ const getWholeMarketData = require("./utils/WholeMarketData");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
+require('dotenv').config();
+
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -13,9 +15,20 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// get the question from the client
+// const question = req.body.question || '';
+//   if (question.trim().length === 0) {
+//     res.status(400).json({
+//       error: {
+//         message: "Please enter a valid question.",
+//       }
+//     });
+//     return;
+//   }
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: "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",
+  // apiKey: process.env.OPENAI_API_KEY,
 });
 const openai= new OpenAIApi(configuration);
 
@@ -61,19 +74,30 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
+
+  // const question = req.body.question || '';
+  // if (question.trim().length === 0) {
+  //   res.status(400).json({
+  //     error: {
+  //       message: "Please enter a valid question.",
+  //     }
+  //   });
+  //   return;
+  // }
+
   
 
 //   trim the question down and make sure it's not empty
-  if (question.trim().length === 0) {
-    return {
-      status: 400,
-      body: {
-        error: {
-          message: "Please enter a valid question.",
-        }
-      }
-    };
-  }
+  // if (question.trim().length === 0) {
+  //   return {
+  //     status: 400,
+  //     body: {
+  //       error: {
+  //         message: "Please enter a valid question.",
+  //       }
+  //     }
+  //   };
+  // }
 
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
