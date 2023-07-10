@@ -10,6 +10,7 @@ import Market from './pages/market';
 import Login from './pages/login';
 import Shop from './pages/shop';
 import Cart from './pages/cart';
+import ManageItems from './pages/manageItems';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='/login' element={<Login />}/>
             <Route path='/shop' element={<Shop />}/>
             <Route path='/cart' element={<Cart />}/>
+            <Route path='/manageitems' element={<ManageItems />}/>
           </Routes>
         </div>
       </Router>
