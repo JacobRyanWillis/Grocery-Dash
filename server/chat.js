@@ -1,5 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 const getWholeMarketData = require("./utils/WholeMarketData");
+const getProfileData = require("./utils/chatbotProfile");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
@@ -14,9 +15,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-console.log(process.env.OPENAIAPIKEY)
 const configuration = new Configuration({
   apiKey: process.env.OPENAIAPIKEY,
+
 });
 const openai= new OpenAIApi(configuration);
 
@@ -64,7 +65,7 @@ query AllProducts {
 async function fetchGraphqlData() {
   try {
     const { data } = await client.query({ query: PUBLIC_OWNERS_QUERY }, { query: ALL_PRODUCTS_QUERY });
-    console.log("data: ", data)
+    // console.log("data: ", data)
     return data;
   } catch (error) {
     console.error("Failed to fetch data:", error);
@@ -78,13 +79,13 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
-console.log(process.env.OPENAIAPIKEY)
+// console.log(process.env.OPENAIAPIKEY)
   
 
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
   const GPT35TurboMessage = [
-    { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data` },
+    { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data. If a user asks you a question about yourself then reference this information ${getProfileData()}. Do not make things up and do no deviate from the information.` },
     {
       role: "user",
       content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data for all the owners their products ${data}. Here is all the data for the market as a whole ${getWholeMarketData()}Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
@@ -134,4 +135,3 @@ console.log(process.env.OPENAIAPIKEY)
 }
 
 module.exports = { chatbotResponse };
-

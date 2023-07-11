@@ -11,3 +11,19 @@ export const QUERY_USER = gql`
 `;
 
 
+export const GET_PUBLIC_OWNERS = gql`
+  query GetPublicOwners {
+    publicOwners {
+      _id
+      ownerName
+      myProducts {
+        _id
+        productName
+        image
+        owner {
+          ownerName
+        }
+      }
+    }
+  }
+`;

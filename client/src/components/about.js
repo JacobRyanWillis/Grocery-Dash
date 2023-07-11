@@ -91,6 +91,14 @@ export default function About() {
           </div>
         ))}
       </div>
+      <div className="flex flex-col justify-center items-center m-2 p-2">
+        <p className="mt-6 text-xl leading-8 text-gray-400">
+          Care to make a donation? 
+        </p>
+        <button className="text-eggplant font-semibold leading-6 bg-white ring-eggplant rounded max-w-lg mx-auto p-2 m-2 transition-transform transform hover:scale-110">
+          Donate Here
+        </button>
+      </div>
     </div>
   );
 }
