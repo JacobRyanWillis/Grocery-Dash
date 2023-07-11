@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "preload": ["dotenv"],
+  "preload": [
+    "dotenv"
+  ],
   "scripts": {
     "start": "node server.js",
     "seed": "node seeders/seed.js",
@@ -24,7 +26,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.11.2",
     "node-fetch": "^3.3.1",
-    "openai": "^3.3.0"
+    "openai": "^3.3.0",
+    "stripe": "^12.12.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
