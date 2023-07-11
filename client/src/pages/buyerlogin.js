@@ -2,46 +2,50 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Logo from "../components/logo";
+
+import { useMutation } from "@apollo/client";
+import { LOGIN_BUYER } from "../utils/mutations";
 import ChatbotIcon from '../components/chatboticon';
 
 
-import { useMutation } from "@apollo/client";
-import { ADD_BUYER } from "../utils/mutations";
-
 import Auth from "../utils/auth";
 
-const BuyerSignUp = () => {
-  const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-  const [addBuyer, { error, data }] = useMutation(ADD_BUYER);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-
-    try {
-      const { data } = await addBuyer({
-        variables: { ...formState },
+const Login = (props) => {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    
+    const [login, { error }] = useMutation(LOGIN_BUYER)
+    
+  
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [name]: value,
       });
-
-      Auth.login(data.addBuyer.token);
-      window.location.assign('/');
-    } catch (e) {
-      console.error(e);
-    }
-  };
+    };
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+      try {
+        const { data } = await login({
+          variables: { ...formState },
+        });
+        Auth.login(data.loginBuyer.token);
+        window.location.assign('/');
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // clear form values
+      setFormState({
+        email: '',
+        password: '',
+      });
+    };
 
   return (
     <div className="h-screen md:bg-gray-100">
@@ -50,32 +54,11 @@ const BuyerSignUp = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col justify-center items-center">
           <Logo />
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign up for a Buyer Account
+            Please Login Below
           </h2>
         </div>
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg ">
             <form onSubmit={handleFormSubmit} className="space-y-6" action="#">
-              <div>
-                <label
-                  for="username"
-                  className="block text-xl font-medium leading-6 text-gray-900"
-                >
-                  Name
-                </label>
-                <div className="mt-2">
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    autocomplete="username"
-                    placeholder="Enter your username"
-                    value={formState.name}
-                    onChange={handleChange}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
-                  />
-                </div>
-              </div>
-
               <div>
                 <label
                   for="email"
@@ -133,16 +116,22 @@ const BuyerSignUp = () => {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs"
                 >
-                  Sign Up
+                  Log in
                 </button>
               </div>
             </form>
 
             <p className="mt-10 text-center text-lg text-gray-500">
-              Did you mean Vendor?
+              Did you want to Signup?
               <div className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                <Link to="/vendorsignup">Click Here</Link>
+                <Link to="/signupintro">Click Here</Link>
               </div>
+            </p>
+            <p className="mt-2 text-center text-lg text-gray-500 flex flex-col">
+              If you are an Owner
+              <button className="text-white font-semibold leading-6 bg-grass max-w-lg mx-auto p-2 m-2 transition-transform transform hover:scale-110">
+                <Link to="/ownerlogin">Click Here</Link>
+              </button>
             </p>
           </div>
 
@@ -155,4 +144,4 @@ const BuyerSignUp = () => {
   );
 };
 
-export default BuyerSignUp;
+export default Login;

@@ -42,11 +42,11 @@ const Home = () => {
                 <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Austell</p>
               </Link>
             </div>
-            <div className="relative hover:scale-90 transition-transform duration-300">
+            <div className="relative brightness-50">
               <img src={Marietta} alt="Marietta Market" className='w-full h-auto rounded drop-shadow-2xl' />
               <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Marietta</p>
             </div>
-            <div className="relative hover:scale-90 transition-transform duration-300">
+            <div className="relative brightness-50">
               <img src={Asheville} alt="Asheville Market" className='w-full h-auto rounded drop-shadow-2xl' />
               <p className="absolute font-gilroy bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-2xl text-center p-2 rounded">Asheville</p>
             </div>
