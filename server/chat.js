@@ -17,6 +17,7 @@ const client = new ApolloClient({
 console.log(process.env.OPENAIAPIKEY)
 const configuration = new Configuration({
   apiKey: process.env.OPENAIAPIKEY,
+
 });
 const openai= new OpenAIApi(configuration);
 

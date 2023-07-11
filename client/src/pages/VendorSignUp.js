@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Logo from "../components/logo";
+import ChatbotIcon from '../components/chatboticon';
+
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -153,6 +155,7 @@ const VendorSignUp = () => {
           <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
         )}
       </div>
+      <ChatbotIcon />
     </div>
   );
 };
