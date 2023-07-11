@@ -43,9 +43,7 @@ const ChatBot = ({ onClose }) => {
     <>
     <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg">
       <div>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-
+    
         <main className="">
           <h3>Ask Me a Question About The Farmers Market</h3>
           <form onSubmit={onSubmit}>
