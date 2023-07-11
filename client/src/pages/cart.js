@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
 import austell from "../assets/austell-market.jpg";
+import ChatbotIcon from '../components/chatboticon';
+
 
 const Cart = () => {
   return (
@@ -82,6 +84,7 @@ const Cart = () => {
           Check-out
         </button>
       </div>
+      <ChatbotIcon />
     </div>
   );
 };

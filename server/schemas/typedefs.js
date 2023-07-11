@@ -28,7 +28,7 @@ module.exports = gql`
     password: String
     zipCode: Int
     myProducts: [Product]
-    ownerName: String
+    ownerName: String!
     ownerStory: String
     ownerImage: String
   }
@@ -72,14 +72,14 @@ module.exports = gql`
   }
 
   type Mutation {
-    addOwner( username: String!, email: String!, password: String! zipCode: Int, ownerName: String, ownerStory: String, ownerImage: String): OwnerAuth
+    addOwner( username: String!, email: String!, password: String! zipCode: Int, ownerName: String!, ownerStory: String, ownerImage: String): OwnerAuth
     loginOwner(email: String!, password: String!): OwnerAuth
     addBuyer(username: String!, email: String!, password: String!, zipCode: Int): BuyerAuth
     loginBuyer(email: String!, password: String!): BuyerAuth
     
     addProduct(productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Owner
-    updateProduct(_id: ID): Owner
-    #deleteProduct(_id: ID): Owner
+    updateProduct(_id: ID!, productName: String!, description: String!, image: String, category: String!, price: Float!, quantity: Int, weight: Float, feature: Boolean!): Product
+    deleteProduct(_id: ID!): Owner
 
     addProductToBuyer(_id: ID!): Buyer
     removeProductFromBuyer(_id: ID!): Buyer

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar.js';
+import ChatbotIcon from '../components/chatboticon';
+
 
 const SignupIntro = () => {
 
@@ -32,6 +34,7 @@ const SignupIntro = () => {
           </div>
         </div>
       </div>
+      <ChatbotIcon />
     </div>
   );
 };
