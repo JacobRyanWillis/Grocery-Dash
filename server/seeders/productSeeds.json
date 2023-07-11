@@ -118,8 +118,7 @@
     "price": 10,
     "quantity": 1,
     "feature": false
-  }
-  ,
+  },
   {
     "_id": "64a76694b33b3424f7e00b24",
     "productName": "Hibiscucs Peach Chutney",
@@ -148,6 +147,49 @@
     "category": "dairy",
     "price": 18,
     "quantity": 6,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b27",
+    "productName": "Milk",
+    "description": "Fresh cow milk",
+    "image": "milk.jpg",
+    "category": "Dairy",
+    "price": 2.99,
+    "quantity": 10,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b28",
+    "productName": "Cheese",
+    "description": "Cheddar cheese",
+    "image": "cheese.jpg",
+    "category": "Dairy",
+    "price": 5.99,
+    "quantity": 5,
+    "weight": 0.5,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b29",
+    "productName": "Basil",
+    "description": "Fresh basil leaves",
+    "image": "basil.jpg",
+    "category": "Herbs",
+    "price": 1.99,
+    "quantity": 20,
+    "weight": 0.05,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b30",
+    "productName": "Rosemary",
+    "description": "Dried rosemary leaves",
+    "image": "rosemary.jpg",
+    "category": "Herbs",
+    "price": 0.99,
+    "quantity": 15,
+    "weight": 0.03,
     "feature": false
   }
 ]
