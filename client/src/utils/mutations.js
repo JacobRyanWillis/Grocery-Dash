@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const ADD_OWNER = gql`
-mutation Mutation($username: String!, $email: String!, $password: String!) {
-  addOwner(username: $username, email: $email, password: $password) {
+mutation Mutation($ownerName: String!, $username: String!, $email: String!, $password: String!) {
+  addOwner(ownerName: $ownerName, username: $username, email: $email, password: $password) {
     token
     owner {
       _id
