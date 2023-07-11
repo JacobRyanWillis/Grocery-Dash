@@ -1,10 +1,9 @@
 const { Configuration, OpenAIApi } = require("openai");
 const getWholeMarketData = require("./utils/WholeMarketData");
+const getProfileData = require("./utils/chatbotProfile");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
-require('dotenv').config();
-OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
 const client = new ApolloClient({
@@ -16,20 +15,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// get the question from the client
-// const question = req.body.question || '';
-//   if (question.trim().length === 0) {
-//     res.status(400).json({
-//       error: {
-//         message: "Please enter a valid question.",
-//       }
-//     });
-//     return;
-//   }
-
 const configuration = new Configuration({
-  apiKey: "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",
-  // apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAIAPIKEY,
+
 });
 const openai= new OpenAIApi(configuration);
 
@@ -77,7 +65,7 @@ query AllProducts {
 async function fetchGraphqlData() {
   try {
     const { data } = await client.query({ query: PUBLIC_OWNERS_QUERY }, { query: ALL_PRODUCTS_QUERY });
-    console.log("data: ", data)
+    // console.log("data: ", data)
     return data;
   } catch (error) {
     console.error("Failed to fetch data:", error);
@@ -91,35 +79,13 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
-
-  // const question = req.body.question || '';
-  // if (question.trim().length === 0) {
-  //   res.status(400).json({
-  //     error: {
-  //       message: "Please enter a valid question.",
-  //     }
-  //   });
-  //   return;
-  // }
-
+// console.log(process.env.OPENAIAPIKEY)
   
-
-//   trim the question down and make sure it's not empty
-  // if (question.trim().length === 0) {
-  //   return {
-  //     status: 400,
-  //     body: {
-  //       error: {
-  //         message: "Please enter a valid question.",
-  //       }
-  //     }
-  //   };
-  // }
 
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
   const GPT35TurboMessage = [
-    { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data` },
+    { role: "system", content: `You are a farmers market front desk employee who only answers customer questions about the data provided. Do not mention that the user provided the data. If a user asks you a question about yourself then reference this information ${getProfileData()}. Do not make things up and do no deviate from the information.` },
     {
       role: "user",
       content: `"reference this data for the farmers market I'm shopping in and use it to answer my questions. Here's the data for all the owners their products ${data}. Here is all the data for the market as a whole ${getWholeMarketData()}Do not mention that the user provided the data. The data is provided by the vendors at the farmers market"`,
@@ -136,7 +102,7 @@ async function chatbotResponse(question) {
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: GPT35TurboMessage,
-      max_tokens: 150,
+      max_tokens: 200,
       temperature: 0.1,
     });
 
@@ -169,4 +135,3 @@ async function chatbotResponse(question) {
 }
 
 module.exports = { chatbotResponse };
-
