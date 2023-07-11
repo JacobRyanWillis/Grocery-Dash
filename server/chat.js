@@ -3,8 +3,6 @@ const getWholeMarketData = require("./utils/WholeMarketData");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
 const fetch = require('cross-fetch');
-require('dotenv').config();
-OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
 const client = new ApolloClient({
@@ -16,20 +14,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// get the question from the client
-// const question = req.body.question || '';
-//   if (question.trim().length === 0) {
-//     res.status(400).json({
-//       error: {
-//         message: "Please enter a valid question.",
-//       }
-//     });
-//     return;
-//   }
-
+console.log(process.env.OPENAIAPIKEY)
 const configuration = new Configuration({
-  apiKey: OPENAI_API_KEY,
-  // apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAIAPIKEY,
 });
 const openai= new OpenAIApi(configuration);
 
@@ -91,30 +78,8 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
-
-  // const question = req.body.question || '';
-  // if (question.trim().length === 0) {
-  //   res.status(400).json({
-  //     error: {
-  //       message: "Please enter a valid question.",
-  //     }
-  //   });
-  //   return;
-  // }
-
+console.log(process.env.OPENAIAPIKEY)
   
-
-//   trim the question down and make sure it's not empty
-  // if (question.trim().length === 0) {
-  //   return {
-  //     status: 400,
-  //     body: {
-  //       error: {
-  //         message: "Please enter a valid question.",
-  //       }
-  //     }
-  //   };
-  // }
 
 
 //   this is the first set of messages that informs the chatbot what to do and feeds it the data
@@ -136,7 +101,7 @@ async function chatbotResponse(question) {
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: GPT35TurboMessage,
-      max_tokens: 150,
+      max_tokens: 200,
       temperature: 0.1,
     });
 
@@ -169,4 +134,3 @@ async function chatbotResponse(question) {
 }
 
 module.exports = { chatbotResponse };
-
