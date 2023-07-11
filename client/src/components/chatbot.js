@@ -51,6 +51,9 @@ const ChatBot = ({ onClose }) => {
     }
   };
 
+  const handleClose = () => {
+    onClose(); // Call the onClose function passed as a prop from the parent component
+  };
   return (
     <>
 <<<<<<< HEAD
@@ -69,7 +72,7 @@ const ChatBot = ({ onClose }) => {
               <p className="text-xs">24/7 Support</p>
             </div>
           </div>
-          <button className="px-4 bg-white rounded-full transition-transform transform hover:scale-95">
+          <button className="px-4 bg-white rounded-full transition-transform transform hover:scale-95" onClick={handleClose}>
             x
           </button>
         </div>

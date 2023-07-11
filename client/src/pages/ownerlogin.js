@@ -4,7 +4,7 @@ import Navbar from "../components/navbar";
 import Logo from "../components/logo";
 
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_OWNER } from "../utils/mutations";
 import ChatbotIcon from '../components/chatboticon';
 
 
@@ -12,7 +12,9 @@ import Auth from "../utils/auth";
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+    
+    const [login, { error }] = useMutation(LOGIN_OWNER)
+    
   
     // update state based on form input changes
     const handleChange = (event) => {
@@ -33,7 +35,8 @@ const Login = (props) => {
           variables: { ...formState },
         });
   
-        Auth.login(data.login.token);
+        Auth.login(data.loginOwner.token);
+        window.location.assign('/dashboard');
       } catch (e) {
         console.error(e);
       }
@@ -52,14 +55,9 @@ const Login = (props) => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col justify-center items-center">
           <Logo />
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-            Please Login below
+            Owner Login
           </h2>
         </div>
-        {data ? (
-          <p className="text-5xl">
-            Success! You may now head <Link to="/">back to the homepage.</Link>
-          </p>
-        ) : (
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg ">
             <form onSubmit={handleFormSubmit} className="space-y-6" action="#">
               <div>
@@ -130,11 +128,15 @@ const Login = (props) => {
                 <Link to="/signupintro">Click Here</Link>
               </div>
             </p>
+            <p className="mt-2 text-center text-lg text-gray-500 flex flex-col">
+              If you are a Buyer
+              <button className="text-white font-semibold leading-6 bg-grass max-w-lg mx-auto p-2 m-2 transition-transform transform hover:scale-110">
+                <Link to="/buyerlogin">Click Here</Link>
+              </button>
+            </p>
           </div>
-        )}
-
         {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          <div className="my-3 p-3 flex justify-center items-center">{error.message}</div>
         )}
       </div>
       <ChatbotIcon />
