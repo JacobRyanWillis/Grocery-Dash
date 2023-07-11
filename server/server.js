@@ -1,10 +1,10 @@
+require('dotenv').config({ silent: true });
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const bodyParser = require('body-parser'); // New
+const bodyParser = require('body-parser'); 
 const { authMiddleware } = require('./utils/auth');
-const chatRoute = require('../server/chat'); // New
-
+const chatRoute = require('../server/chat'); 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -22,11 +22,13 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// accepts a question from the user and passes it into the chatbotResponse function
 app.post("/api/chatbot", async (req, res) => {
   console.log("req.body: ", req.body)
   try {
     const question = req.body.question; 
     const botResponse = await chatRoute.chatbotResponse(question); 
+    // bot response is the status and the whole message
     console.log("botResponse: ", botResponse)
     res.status(200).json(botResponse);
   } catch (error) {
