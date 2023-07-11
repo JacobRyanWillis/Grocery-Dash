@@ -56,13 +56,6 @@ const ChatBot = ({ onClose }) => {
   };
   return (
     <>
-<<<<<<< HEAD
-    <div className="fixed bottom-16 right-16 p-4 bg-white rounded-tl-md shadow-lg">
-      <div>
-    
-        <main className="">
-          <h3>Ask Me a Question About The Farmers Market</h3>
-=======
       <div className="fixed bottom-20 right-20 bg-white rounded-tl-md drop-shadow-xl shadow-class">
         <div className="bg-tan h-10 flex justify-between">
           <div className="flex">
@@ -105,7 +98,6 @@ const ChatBot = ({ onClose }) => {
               Hello, I'm Zesty! Ask me a question!
             </p>
           )}
->>>>>>> 062c4d8717000028b546fbe9be2b0fdf86d8d443
           <form onSubmit={onSubmit}>
             <textarea
               rows={1}
