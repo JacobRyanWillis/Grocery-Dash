@@ -35,7 +35,7 @@ console.log(productData)
 
     return (
     <Link
-        to="/shop" state={{owner:randomOwner?._id}}
+        to="/shop" state={{owner:randomOwner?.myProducts}}
       >
       <div className="grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded">
         <div className="col-span-1 flex items-center">

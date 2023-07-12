@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS, SHOP } from "../utils/queries";
+import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS} from "../utils/queries";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
 import ChatbotIcon from "../components/chatboticon";
@@ -11,15 +11,14 @@ import { useLocation } from "react-router-dom";
 const Shop = () => {
   const location = useLocation();
   const {owner}=location.state || [];
-  console.log(owner);
-  const { loading, data } = useQuery(GET_ALL_PRODUCTS);
+
+  const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
   const productData = data?.allProducts;
 
-  const { loading0, data: owners } = useQuery(GET_PUBLIC_OWNERS);
-  console.log(owners)
+  const { loading: oLoading, data: owners } = useQuery(GET_PUBLIC_OWNERS);
   const ownersData = owners?.publicOwners;
 
-  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState(owner);
 
   const renderItems = (product) => {
     return (
@@ -109,7 +108,7 @@ const Shop = () => {
         </div>
         <div className="col-span-full md:col-span-2 lg:col-span-3 xl:col-span-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {loading ? (
+            {pLoading ? (
               <p> Products are loading</p>
             ) : (
               displayedProducts?.map((product) => renderItems(product))
