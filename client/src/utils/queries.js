@@ -12,18 +12,62 @@ export const QUERY_USER = gql`
 
 
 export const GET_PUBLIC_OWNERS = gql`
-  query GetPublicOwners {
-    publicOwners {
-      _id
-      ownerName
-      myProducts {
+    query Query {
+      publicOwners {
         _id
-        productName
-        image
-        owner {
-          ownerName
+        ownerName
+        ownerImage
+        myProducts {
+          _id
+          category
+          feature
+          productName
+          image
         }
       }
     }
-  }
 `;
+
+export const GET_ALL_PRODUCTS = gql`
+query Query {
+  allProducts {
+    _id
+    productName
+    description
+    image
+    category
+    price
+    quantity
+    weight
+    feature
+  }
+}
+`
+export const SHOP = gql`
+query Query {
+  allProducts {
+    _id
+    productName
+    description
+    image
+    category
+    price
+    quantity
+    weight
+    feature
+  }
+  publicOwners {
+    myProducts {
+      _id
+      productName
+      description
+      image
+      category
+      price
+      quantity
+      weight
+      feature
+    }
+  }
+}
+`
