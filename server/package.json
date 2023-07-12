@@ -5,9 +5,9 @@
   "main": "server.js",
   "preload": ["dotenv"],
   "scripts": {
-    "start": "node server.js",
+    "start": "node -r dotenv/config server.js",
     "seed": "node seeders/seed.js",
-    "watch": "nodemon server.js"
+    "watch": "node -r dotenv/config server.js"
   },
   "author": "",
   "license": "ISC",
