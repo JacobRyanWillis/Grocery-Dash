@@ -15,17 +15,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// get the question from the client
-// const question = req.body.question || '';
-//   if (question.trim().length === 0) {
-//     res.status(400).json({
-//       error: {
-//         message: "Please enter a valid question.",
-//       }
-//     });
-//     return;
-//   }
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAIAPIKEY,
 
@@ -90,17 +79,7 @@ async function chatbotResponse(question) {
   data = JSON.stringify(data);
 
 
-
-  // const question = req.body.question || '';
-  // if (question.trim().length === 0) {
-  //   res.status(400).json({
-  //     error: {
-  //       message: "Please enter a valid question.",
-  //     }
-  //   });
-  //   return;
-  // }
-
+// console.log(process.env.OPENAIAPIKEY)
   
 
 
