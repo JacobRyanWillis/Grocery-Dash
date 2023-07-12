@@ -8,11 +8,11 @@ import Slider from "react-slick";
 import ChatbotIcon from '../components/chatboticon';
 
 ////// pictures here
-
 import rawDried from '../assets/raw_and_dried.png';
-
-
-
+import dianas from '../assets/dianas_specialties.png';
+import pride from '../assets/pride_road.png';
+import gotelli from '../assets/gotelli.png';
+import bacon from '../assets/bacon.png';
 
 const Market = () => {
 
@@ -98,11 +98,11 @@ const Market = () => {
                         </div>
                         <div className='grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
                             <div className='col-span-1 flex items-center'>
-                                <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
+                                <img className='h-full w-auto rounded' src={gotelli} alt='Mangos' />
                             </div>
                             <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-2 md:pl-2'>
-                                <h3 className='text-md mb-2 text-xl md:text-2xl font-normal'>Mango Boys</h3>
-                                <p className='md:text-md font-light'>Fruits</p>
+                                <h3 className='text-md mb-2 text-xl md:text-2xl font-normal'>Gotelli Farms</h3>
+                                <p className='md:text-md font-light'>Vegetables</p>
                             </div>
                         </div>
                         <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
@@ -133,20 +133,20 @@ const Market = () => {
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
                         <div className='col-span-1 flex items-center'>
-                            <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
+                            <img className='h-full w-auto rounded' src={dianas} alt='dianas' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-2 md:pl-2'>
                             <h3 className='text-md mb-2 text-xl md:text-2xl font-medium'>Diana's Specialities</h3>
-                            <p className='md:text-md'>Fruits</p>
+                            <p className='md:text-md'>Seafood</p>
                         </div>
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded'>
                         <div className='col-span-1 flex items-center'>
-                            <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
+                            <img className='h-full w-auto rounded' src={bacon} alt='bacon' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-2 md:pl-2'>
-                            <h3 className='text-md mb-2 text-xl md:text-2xl font-medium'>Mango Boys</h3>
-                            <p className='md:text-md'>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-medium'>Bacon Bros</h3>
+                            <p className='md:text-md'>Meat</p>
                         </div>
                     </div>
                 </div>
@@ -181,11 +181,11 @@ const Market = () => {
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105'>
                         <div className='col-span-1 flex items-center'>
-                            <img className='h-full w-auto rounded' src={mangos} alt='Mangos' />
+                            <img className='h-full w-auto rounded' src={pride} alt='pride' />
                         </div>
                         <div className='col-span-2 flex flex-col justify-center ml-2 pl-2 md:ml-2 md:pl-2'>
-                            <h3 className='text-md mb-2 text-xl md:text-2xl font-medium'>Mango Boys</h3>
-                            <p className='md:text-md'>Fruits</p>
+                            <h3 className='text-md mb-2 text-xl md:text-2xl font-medium'>Pride Road</h3>
+                            <p className='md:text-md'>Jams</p>
                         </div>
                     </div>
                     <div className=' grid grid-cols-3 shadow-class transition-transform transform hover:scale-105'>
