@@ -27,14 +27,20 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  login(idToken, role) {
     localStorage.setItem('id_token', idToken);
+    localStorage.setItem('user_role', role);
 
   }
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('user_role');
     window.location.assign('/');
+  }
+
+  getUserRole() {
+    return localStorage.getItem('user_role');
   }
 }
 

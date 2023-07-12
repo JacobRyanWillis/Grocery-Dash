@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Navbar from "../components/navbar";
-import mangos from "../assets/mangos.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -77,6 +76,7 @@ const Market = () => {
   const settings = {
     slidesToShow: 5,
     slidesToScroll: 5,
+    infinite: true,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [

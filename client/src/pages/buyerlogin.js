@@ -34,7 +34,7 @@ const Login = (props) => {
         const { data } = await login({
           variables: { ...formState },
         });
-        Auth.login(data.loginBuyer.token);
+        Auth.login(data.loginBuyer.token, 'buyer');
         window.location.assign('/');
       } catch (e) {
         console.error(e);

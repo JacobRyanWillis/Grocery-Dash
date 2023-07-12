@@ -35,7 +35,7 @@ const Login = (props) => {
           variables: { ...formState },
         });
   
-        Auth.login(data.loginOwner.token);
+        Auth.login(data.loginOwner.token, 'owner');
         window.location.assign('/dashboard');
       } catch (e) {
         console.error(e);
