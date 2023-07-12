@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { GET_PUBLIC_OWNERS } from "../utils/queries";
+import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
@@ -13,6 +13,14 @@ const Market = () => {
   const { data, loading } = useQuery(GET_PUBLIC_OWNERS);
   const userData = data?.publicOwners;
 
+  const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
+  const productData = products?.allProducts;
+console.log(productData)
+  const filteredFeature = productData?.filter(
+    (product) => product.feature === true
+  );
+
+  console.log(filteredFeature)
 
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
@@ -77,6 +85,10 @@ const Market = () => {
   };
 
   if (loading) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
+  if (loading2) {
     return <p>Loading...</p>; // Render a loading indicator while data is being fetched
   }
 
