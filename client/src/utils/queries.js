@@ -41,7 +41,7 @@ query Query {
     feature
   }
 }
-`
+`;
 export const SHOP = gql`
 query Query {
   allProducts {
@@ -69,4 +69,30 @@ query Query {
     }
   }
 }
-`
+`;
+
+export const OWNER_ME = gql`
+  query {
+    ownerMe {
+      _id
+    }
+  }
+`;
+
+export const PRODUCT_BY_OWNER = gql`
+query Query($ownerId: ID!) {
+  productsByOwner(ownerId: $ownerId) {
+    myProducts {
+      _id
+      productName
+      image
+      price
+      quantity
+      weight
+      feature
+      category
+      description
+    }
+  }
+}
+`;

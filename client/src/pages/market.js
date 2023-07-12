@@ -138,10 +138,10 @@ const Market = () => {
         </div>
         <div className="col-span-2">
           <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 lg:grid-rows-2 gap-4 m-4">
-            {renderSection('fruits and vegetables')}
-            {renderSection('fruits and vegetables')}
-            {renderSection('fruits and vegetables')}
-            {renderSection('fruits and vegetables')}
+            {renderSection('Fruits and Vegetables')}
+            {renderSection('Fruits and Vegetables')}
+            {renderSection('Fruits and Vegetables')}
+            {renderSection('Fruits and Vegetables')}
             
           </div>
         </div>
@@ -153,8 +153,8 @@ const Market = () => {
               Meats & Seafood
             </h2>
           </div>
-            {renderSection('meats and seafood')}
-            {renderSection('meats and seafood')}
+            {renderSection('Meats and Vegetables')}
+            {renderSection('Meats and Vegetables')}
         </div>
 
         <div className="grid grid-rows-3 gap-4 m-2 p-2">
@@ -168,8 +168,8 @@ const Market = () => {
           <div className="bg-cBaked shadow-class flex justify-start items-start rounded p-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl">Baked Goods</h2>
           </div>
-            {renderSection('baked goods')}
-            {renderSection('baked goods')}
+            {renderSection('Baked Goods')}
+            {renderSection('Baked Goods')}
         </div>
       </div>
       <ChatbotIcon />
