@@ -28,10 +28,7 @@ const Market = () => {
 
     return (
     <Link
-        to={{
-          pathname: "/shop",
-          state: { ownerId: randomOwner?._id } // Pass the ownerId as a prop
-        }}
+        to="/shop" state={{owner:randomOwner?._id}}
       >
       <div className="grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded">
         <div className="col-span-1 flex items-center">
