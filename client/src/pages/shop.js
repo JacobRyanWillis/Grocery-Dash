@@ -5,8 +5,13 @@ import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
 import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
+import { useLocation } from "react-router-dom";
+
 
 const Shop = () => {
+  const location = useLocation();
+  const {owner}=location.state || [];
+  console.log(owner);
   const { loading, data } = useQuery(GET_ALL_PRODUCTS);
   const productData = data?.allProducts;
 

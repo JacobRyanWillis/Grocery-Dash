@@ -24,7 +24,6 @@ const Market = () => {
       owner.myProducts.some((product) => product.category === category)
     );
     const randomOwner = getRandomOwner(ownersWithCategory);
-    console.log(randomOwner)
 
     return (
     <Link
@@ -48,6 +47,7 @@ const Market = () => {
     </Link>
     );
   };
+
 
   const settings = {
     slidesToShow: 5,
