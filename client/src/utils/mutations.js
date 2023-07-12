@@ -67,4 +67,10 @@ export const ADD_PRODUCT = gql`
   }
 `;
 
-
+export const ADD_TO_CART = gql`
+mutation Mutation($id: ID!) {
+  addProductToBuyer(_id: $id) {
+    _id
+  }
+}
+`

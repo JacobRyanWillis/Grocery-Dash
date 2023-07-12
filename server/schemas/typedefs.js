@@ -8,6 +8,7 @@ module.exports = gql`
     password: String!
     zipCode: Int
     myList: [Product]
+    listCount: Int
   }
 
   type MyList {
