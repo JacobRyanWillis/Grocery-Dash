@@ -74,3 +74,10 @@ mutation Mutation($id: ID!) {
   }
 }
 `
+export const DELETE_PRODUCT = gql`
+  mutation DeleteProduct($_id: ID!) {
+    deleteProduct(_id: $_id) {
+      _id
+    }
+  }
+`;

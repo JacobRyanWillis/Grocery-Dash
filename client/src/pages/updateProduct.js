@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
-import ChatbotIcon from '../components/chatboticon';
-
+import ChatbotIcon from "../components/chatboticon";
 
 const UpdateProduct = () => {
+  const [selectedOption, setSelectedOption] = useState("price");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleOptionChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
 
   return (
     <div className="h-screen md:bg-gray-100">
@@ -35,55 +44,99 @@ const UpdateProduct = () => {
               </div>
             </div>
 
-            <div>
-              <label
-                htmlFor="price"
-                className="block text-xl font-medium leading-6 text-gray-900"
-              >
-                Price
-              </label>
-              <div className="mt-2">
-                <input
-                  id="price"
-                  name="price"
-                  type="text"
-                  placeholder="Enter price"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
-                />
+            <div className="flex justify-between items-center">
+              <div className="w-1/2">
+                <label
+                  htmlFor="quantity"
+                  className="block text-xl font-medium leading-6 text-gray-900"
+                >
+                  Quantity
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="quantity"
+                    name="quantity"
+                    type="text"
+                    placeholder="Enter quantity"
+                    className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div className="w-1/3 md:w-1/2 mb-1">
+                <div>
+                  <label
+                    htmlFor="option"
+                    className="block text-xl font-medium leading-6 text-gray-900"
+                  >
+                  </label>
+                  <select
+                    id="option"
+                    name="option"
+                    className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                    value={selectedOption}
+                    onChange={handleOptionChange}
+                  >
+                    <option value="price">Price</option>
+                    <option value="weight">Weight</option>
+                  </select>
+                </div>
+                {selectedOption === "price" ? (
+                  <input
+                    id="price"
+                    name="price"
+                    type="text"
+                    placeholder="Enter price"
+                    className="w-full block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                  />
+                ) : (
+                  <input
+                    id="weight"
+                    name="weight"
+                    type="text"
+                    placeholder="Enter lbs"
+                    className="w-full block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
+                  />
+                )}
               </div>
             </div>
 
             <div>
               <label
-                htmlFor="quantity"
+                htmlFor="category"
                 className="block text-xl font-medium leading-6 text-gray-900"
               >
-                Quantity
+                Category
               </label>
               <div className="mt-2">
-                <input
-                  id="quantity"
-                  name="quantity"
-                  type="text"
-                  placeholder="Enter quantity"
+                <select
+                  id="category"
+                  name="category"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
-                />
+                  value={selectedCategory}
+                  onChange={handleCategoryChange}
+                >
+                  <option value="">Select category</option>
+                  <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                  <option value="Meats and Seafood">Meats and Seafood</option>
+                  <option value="Dairy">Dairy</option>
+                  <option value="Baked Goods">Baked Goods</option>
+                </select>
               </div>
             </div>
 
             <div>
               <label
-                htmlFor="Weight"
+                htmlFor="image"
                 className="block text-xl font-medium leading-6 text-gray-900"
               >
-                Weight (optional)
+                Image URL
               </label>
               <div className="mt-2">
                 <input
-                  id="weight"
-                  name="weight"
+                  id="image"
+                  name="image"
                   type="text"
-                  placeholder="Enter lbs"
+                  placeholder="https://image-path"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                 />
               </div>
