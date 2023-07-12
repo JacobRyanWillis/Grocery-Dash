@@ -2,9 +2,13 @@ import React from "react";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
 import ChatbotIcon from '../components/chatboticon';
+import { useLocation } from "react-router-dom";
 
 
 const Shop = () => {
+  const location = useLocation();
+  const {owner}=location.state || [];
+  console.log(owner)
   return (
     <div>
       <Navbar />
