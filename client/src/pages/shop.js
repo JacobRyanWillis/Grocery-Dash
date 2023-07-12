@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const location = useLocation();
-  const {owner}=location.state;
+  const {owner}=location.state || [];
   console.log(owner)
   return (
     <div>
