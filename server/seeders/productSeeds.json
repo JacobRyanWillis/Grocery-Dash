@@ -134,7 +134,7 @@
     "productName": "Goat Cheese",
     "description": "The freshest cheese from Sonoma farms ",
     "image": "https://drive.google.com/uc?id=1GqEIt8JondyZmlMpnZUGDvsncfHbR0NN",
-    "category": "dairy",
+    "category": "Dairy",
     "price": 12,
     "quantity": 4,
     "feature": true
@@ -144,7 +144,7 @@
     "productName": "Ricotta",
     "description": "Perfect pairing for your charcuterie board ",
     "image": "https://drive.google.com/uc?id=1_sKzUF2zr0UfI4kpriSbeV1uAUKsXS1s",
-    "category": "dairy",
+    "category": "Dairy",
     "price": 18,
     "quantity": 6,
     "feature": true

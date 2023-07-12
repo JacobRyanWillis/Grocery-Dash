@@ -152,16 +152,16 @@ const Market = () => {
               Meats & Seafood
             </h2>
           </div>
-            {renderSection('Meats and Vegetables')}
-            {renderSection('Meats and Vegetables')}
+            {renderSection('Meats and Seafood')}
+            {renderSection('Meats and Seafood')}
         </div>
 
         <div className="grid grid-rows-3 gap-4 m-2 p-2">
           <div className="bg-cDairy shadow-class flex justify-start items-start rounded p-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl">Dairy Products</h2>
           </div>
-            {renderSection('dairy')}
-            {renderSection('dairy')}
+            {renderSection('Dairy')}
+            {renderSection('Dairy')}
         </div>
         <div className="grid grid-rows-3 gap-4 m-2 p-2">
           <div className="bg-cBaked shadow-class flex justify-start items-start rounded p-4">
