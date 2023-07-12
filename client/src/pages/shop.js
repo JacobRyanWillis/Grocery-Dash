@@ -1,21 +1,7 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PUBLIC_OWNERS } from "../utils/queries";
+import React from "react";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
-import ChatbotIcon from "../components/chatboticon";
-
-// const categories = [
-//   { label: "All Categories", value: "" },
-//   { label: "Fruits & Vegetables", value: "fruits" },
-//   { label: "Meats & Seafood", value: "meats" },
-//   { label: "Dairy Products", value: "dairy" },
-//   { label: "Baked Goods", value: "baked" },
-// ];
-
-// const [selectedCategory, setSelectedCategory] = useState("");
-
-// const { loading, error, data } = useQuery(GET_PUBLIC_OWNERS);
+import ChatbotIcon from '../components/chatboticon';
 
 
 const Shop = () => {
