@@ -15,16 +15,19 @@ const Market = () => {
 
   const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
   const productData = products?.allProducts;
-console.log(productData)
+  console.log(productData)
   const filteredFeature = productData?.filter(
     (product) => product.feature === true
   );
 
-  console.log(filteredFeature)
-
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
     return owners[randomIndex];
+  };
+
+  const getRandomFeature = (feature) => {
+    const randomIndex = Math.floor(Math.random() * feature.length);
+    return feature[randomIndex];
   };
 
   const renderSection = (category) => {
@@ -56,6 +59,19 @@ console.log(productData)
     );
   };
 
+  const renderCarousel = (features) => {
+    const randomFeature = getRandomFeature(features)
+      return (
+        <div className="m-2 flex flex-col justify-center items-center">
+            <img
+              className="h-24 w-24 rounded-full"
+              alt={randomFeature.productName}
+              src={randomFeature.image}
+            ></img>
+            <p className="md:text-lg"> {randomFeature.productName} </p>
+          </div>
+      )      
+  }
 
   const settings = {
     slidesToShow: 5,
@@ -100,46 +116,11 @@ console.log(productData)
       </div>
       <div className="bg-light-tan">
         <Slider {...settings}>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
         </Slider>
       </div>
 

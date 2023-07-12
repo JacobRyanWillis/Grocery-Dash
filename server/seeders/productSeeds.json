@@ -137,7 +137,7 @@
     "category": "dairy",
     "price": 12,
     "quantity": 4,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b26",
