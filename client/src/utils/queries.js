@@ -10,7 +10,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
 export const GET_PUBLIC_OWNERS = gql`
     query Query {
       publicOwners {

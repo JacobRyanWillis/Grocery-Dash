@@ -1,5 +1,5 @@
 const { Configuration, OpenAIApi } = require("openai");
-const getWholeMarketData = require("./utils/WholeMarketData");
+const getWholeMarketData = require("./utils/wholeMarketData");
 const getProfileData = require("./utils/chatbotProfile");
 const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
 const gql = require('graphql-tag');
