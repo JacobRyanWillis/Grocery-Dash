@@ -1,14 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS, SHOP } from "../utils/queries";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
-import ChatbotIcon from '../components/chatboticon';
-import { useLocation } from "react-router-dom";
-
+import ChatbotIcon from "../components/chatboticon";
+import Select from "react-select";
 
 const Shop = () => {
-  const location = useLocation();
-  const {owner}=location.state || [];
-  console.log(owner)
+  const { loading, data } = useQuery(GET_ALL_PRODUCTS);
+  const productData = data?.allProducts;
+
+  const { loading0, data: owners } = useQuery(GET_PUBLIC_OWNERS);
+  console.log(owners)
+  const ownersData = owners?.publicOwners;
+
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+
+  const renderItems = (product) => {
+    return (
+      <div className="m-6 flex flex-col rounded shadow-class h-full">
+        <img
+          className="h-full w-full object-cover rounded-t"
+          alt="mangos"
+          src={mangos}
+        />
+        <div className="flex flex-col justify-center space-y-8 p-4 h-full">
+          <p className="md:text-lg ">{product.productName}</p>
+          <p className="md:text-lg ">${product.price}</p>
+          <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const categoryOptions = [
+    { value: "all", label: "All Categories" },
+    { value: "fruits and vegetables", label: "Fruits and Vegetables" },
+    { value: "meats and seafood", label: "Meats and Seafood" },
+    { value: "baked goods", label: "Baked Goods" },
+  ];
+
+  const handleCategories = (selectedOption) => {
+    if (selectedOption.value == "all") {
+      return setDisplayedProducts(productData);
+    }
+    const filteredProducts = productData?.filter(
+      (product) => product.category == selectedOption.value
+    );
+    setDisplayedProducts(filteredProducts);
+  };
+
+  const vendors = () => {
+    console.log(ownersData)
+    const filteredVendors = ownersData?.map(
+      (owner) => {return {value: `${owner.ownerName}`, label: `${owner.ownerName}`}} 
+    )
+    console.log(filteredVendors)
+    return filteredVendors
+  }
+  const vendorOptions = vendors()
+
+  const handleVendors = (selectedOption) => {
+    const vendor = ownersData?.filter(
+      (owner) => owner.ownerName == selectedOption.value
+    );
+    console.log(vendor)
+    setDisplayedProducts(vendor[0].myProducts);
+  };
+
   return (
     <div>
       <Navbar />
@@ -22,103 +83,32 @@ const Shop = () => {
             <label htmlFor="category" className="text-lg font-semibold">
               Category:
             </label>
-            <select
+            <Select
+              options={categoryOptions}
               id="category"
-              className="block w-full mt-1 p-2 rounded-md border-gray-400 bg-white focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              <option value="">All Categories </option>
-              <option value="fruits">Fruits</option>
-              <option value="vegetables">Vegetables</option>
-              <option value="other">Other</option>
-            </select>
+              onChange={handleCategories}
+              className=" text-sm block w-full mt-1 p-2 rounded-md border-gray-400 bg-white focus:ring-indigo-500 focus:border-indigo-500"
+            />
           </div>
           <div className="p-6">
             <label htmlFor="vendor" className="text-lg font-semibold">
               Vendor:
             </label>
-            <select
+            <Select
+              options={vendorOptions}
               id="vendor"
-              className="block w-full mt-1 p-2 rounded-md border-gray-400 bg-white focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              <option value=""> All Vendors</option>
-              <option value="vendor1">Vendor 1</option>
-              <option value="vendor2">Vendor 2</option>
-              <option value="vendor3">Vendor 3</option>
-            </select>
+              onChange={handleVendors}
+              className="text-sm block w-full mt-1 p-2 rounded-md border-gray-400 bg-white focus:ring-indigo-500 focus:border-indigo-500"
+            />
           </div>
         </div>
         <div className="col-span-full md:col-span-2 lg:col-span-3 xl:col-span-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <div className="m-6 flex flex-col rounded shadow-class h-full">
-              <img
-                className="h-full w-full object-cover rounded-t"
-                alt="mangos"
-                src={mangos}
-              />
-              <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-                <p className="md:text-lg ">Fresh Mangos</p>
-                <p className="md:text-lg ">$2/lb</p>
-                <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-            <div className="m-6 flex flex-col rounded shadow-class h-full">
-              <img
-                className="h-full w-full object-cover rounded-t"
-                alt="mangos"
-                src={mangos}
-              />
-              <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-                <p className="md:text-lg ">Fresh Mangos</p>
-                <p className="md:text-lg ">$2/lb</p>
-                <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-            <div className="m-6 flex flex-col rounded shadow-class h-full">
-              <img
-                className="h-full w-full object-cover rounded-t"
-                alt="mangos"
-                src={mangos}
-              />
-              <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-                <p className="md:text-lg ">Fresh Mangos</p>
-                <p className="md:text-lg ">$2/lb</p>
-                <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-            <div className="m-6 flex flex-col rounded shadow-class h-full">
-              <img
-                className="h-full w-full object-cover rounded-t"
-                alt="mangos"
-                src={mangos}
-              />
-              <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-                <p className="md:text-lg ">Fresh Mangos</p>
-                <p className="md:text-lg ">$2/lb</p>
-                <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-            <div className="m-6 flex flex-col rounded shadow-class h-full">
-              <img
-                className="h-full w-full object-cover rounded-t"
-                alt="mangos"
-                src={mangos}
-              />
-              <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-                <p className="md:text-lg ">Fresh Mangos</p>
-                <p className="md:text-lg ">$2/lb</p>
-                <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
+            {loading ? (
+              <p> Products are loading</p>
+            ) : (
+              displayedProducts?.map((product) => renderItems(product))
+            )}
           </div>
         </div>
       </div>

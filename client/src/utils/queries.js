@@ -26,3 +26,47 @@ export const GET_PUBLIC_OWNERS = gql`
       }
     }
 `;
+
+export const GET_ALL_PRODUCTS = gql`
+query Query {
+  allProducts {
+    _id
+    productName
+    description
+    image
+    category
+    price
+    quantity
+    weight
+    feature
+  }
+}
+`
+export const SHOP = gql`
+query Query {
+  allProducts {
+    _id
+    productName
+    description
+    image
+    category
+    price
+    quantity
+    weight
+    feature
+  }
+  publicOwners {
+    myProducts {
+      _id
+      productName
+      description
+      image
+      category
+      price
+      quantity
+      weight
+      feature
+    }
+  }
+}
+`
