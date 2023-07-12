@@ -18,4 +18,4 @@ function getWholeMarketData() {
       }
 
     
-export default getWholeMarketData;
+module.exports = getWholeMarketData;
