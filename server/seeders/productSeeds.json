@@ -47,7 +47,7 @@
     "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b17",
@@ -117,7 +117,7 @@
     "category": "Baked Goods",
     "price": 10,
     "quantity": 1,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b24",
@@ -147,7 +147,7 @@
     "category": "dairy",
     "price": 18,
     "quantity": 6,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b27",
