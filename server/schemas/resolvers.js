@@ -42,6 +42,14 @@ const resolvers = {
         throw new Error("Failed to fetch owners");
       }
     },
+    allProducts: async () => {
+      try {
+        const product = await Product.find();
+        return product;
+      } catch (err) {
+        throw new Error("Failed to fetch product");
+      }
+    },
     productById: async (parent, { _id }) => {
       try {
         const product = await Product.findById(_id);

@@ -11,13 +11,12 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
 
-  
+  const userRole = Auth.getUserRole();
 
   return (
     <div className="w-full font-gilroy">
@@ -41,12 +40,21 @@ const Navbar = () => {
         <div className="flex items-center">
           <ul className="flex">
             {Auth.loggedIn() ? (
-                  <li
-                    className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 hover:cursor-pointer transition-transform transform hover:scale-110"
-                    onClick={logout}
-                  >
-                    Logout
-                  </li>
+              <>
+                <li
+                  className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 hover:cursor-pointer transition-transform transform hover:scale-110"
+                  onClick={logout}
+                >
+                  Logout
+                </li>
+                {userRole === "owner" && (
+                  <Link to="/dashboard">
+                    <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
+                      Dashboard
+                    </li>
+                  </Link>
+                )}
+              </>
             ) : (
               <>
                 <Link to="/buyerlogin">
@@ -75,12 +83,26 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="bg-gray-800 text-white px-2 py-3">
           {Auth.loggedIn() ? (
-            <span
-              className="block py-2 px-4 text-sm hover:bg-gray-700"
-              onClick={logout}
-            >
-              Logout
-            </span>
+            <>
+              <span
+                className="block py-2 px-4 text-sm hover:bg-gray-700"
+                onClick={logout}
+              >
+                Logout
+              </span>
+              {userRole === "owner" && (
+                <Link to="/dashboard">
+                  <span className="block py-2 px-4 text-sm hover:bg-gray-700">
+                    Dashboard
+                  </span>
+                </Link>
+              )}
+              <Link to="/shop">
+                <span className="block py-2 px-4 text-sm hover:bg-gray-700">
+                  Shop
+                </span>
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/buyerlogin">

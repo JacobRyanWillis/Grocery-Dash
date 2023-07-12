@@ -36,7 +36,7 @@ const BuyerSignUp = () => {
         variables: { ...formState },
       });
 
-      Auth.login(data.addBuyer.token);
+      Auth.login(data.addBuyer.token, 'buyer');
       window.location.assign('/');
     } catch (e) {
       console.error(e);
