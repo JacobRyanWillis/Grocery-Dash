@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { GET_PUBLIC_OWNERS } from "../utils/queries";
+import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Navbar from "../components/navbar";
 import mangos from "../assets/mangos.jpg";
@@ -13,10 +13,22 @@ const Market = () => {
   const { data, loading } = useQuery(GET_PUBLIC_OWNERS);
   const userData = data?.publicOwners;
 
+  const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
+  const productData = products?.allProducts;
+  console.log(productData)
+  const filteredFeature = productData?.filter(
+    (product) => product.feature === true
+  );
+
 
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
     return owners[randomIndex];
+  };
+
+  const getRandomFeature = (feature) => {
+    const randomIndex = Math.floor(Math.random() * feature.length);
+    return feature[randomIndex];
   };
 
   const renderSection = (category) => {
@@ -27,7 +39,7 @@ const Market = () => {
 
     return (
     <Link
-        to="/shop" state={{owner:randomOwner?._id}}
+        to="/shop" state={{owner:randomOwner?.myProducts}}
       >
       <div className="grid grid-cols-3 shadow-class transition-transform transform hover:scale-105 rounded">
         <div className="col-span-1 flex items-center">
@@ -48,6 +60,19 @@ const Market = () => {
     );
   };
 
+  const renderCarousel = (features) => {
+    const randomFeature = getRandomFeature(features)
+      return (
+        <div className="m-2 flex flex-col justify-center items-center">
+            <img
+              className="h-24 w-24 rounded-full"
+              alt={randomFeature.productName}
+              src={randomFeature.image}
+            ></img>
+            <p className="md:text-lg"> {randomFeature.productName} </p>
+          </div>
+      )      
+  }
 
   const settings = {
     slidesToShow: 5,
@@ -80,6 +105,10 @@ const Market = () => {
     return <p>Loading...</p>; // Render a loading indicator while data is being fetched
   }
 
+  if (loading2) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
   return (
     <div className="font-gilroy">
       <Navbar />
@@ -88,46 +117,11 @@ const Market = () => {
       </div>
       <div className="bg-light-tan">
         <Slider {...settings}>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
-          <div className="m-2 flex flex-col justify-center items-center">
-            <img
-              className="h-24 w-24 rounded-full"
-              alt="mangos"
-              src={mangos}
-            ></img>
-            <p className="md:text-lg"> Fresh Mangos </p>
-          </div>
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
+          {renderCarousel(filteredFeature)}
         </Slider>
       </div>
 
