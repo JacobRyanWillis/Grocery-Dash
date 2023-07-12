@@ -19,7 +19,6 @@ const Market = () => {
     (product) => product.feature === true
   );
 
-
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
     return owners[randomIndex];
