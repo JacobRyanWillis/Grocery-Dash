@@ -37,6 +37,11 @@ const SingleProduct = ({ product }) => {
     }
   };
 
+  // Check if the product is defined before accessing its properties
+  if (!product) {
+    return null; // or return a placeholder component/message
+  }
+
   return (
     <div className="m-6 flex flex-col rounded shadow-class h-full">
       <img
@@ -53,7 +58,7 @@ const SingleProduct = ({ product }) => {
         >
           Add to Cart
         </button>
-        {added ? <p>Added To Cart!</p> : <></>}{" "}
+        {added ? <p>Added To Cart!</p> : null}
       </div>
     </div>
   );
