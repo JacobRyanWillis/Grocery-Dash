@@ -68,7 +68,7 @@ const UpdateProduct = () => {
     try {
       const { data } = await updateProduct({
         variables: {
-          _id: formState._id,
+          id: formState._id,
           productName: formState.productName,
           description: formState.description,
           category: formState.category,
