@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS } from "../utils/queries";
 import Navbar from "../components/navbar";
@@ -18,9 +18,8 @@ const Shop = () => {
   const location = useLocation();
   console.log(location);
   const defaultProducts = location.state?.owner || productData;
-  const initialTitle = location.state
-    ? `${location.owner.ownerName}`
-    : "Shop All Products";
+  const initialTitle = location.state ? `${location.state.owner.ownerName}` : "Shop All Products";
+
   const [displayedProducts, setDisplayedProducts] = useState(defaultProducts);
   const [pageTitle, setPageTitle] = useState(initialTitle);
   const [ownerStory, setOwnerStory] = useState("")
@@ -74,7 +73,7 @@ const Shop = () => {
       <Navbar />
       <div className="font-gilroy grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         <div className="flex flex-col justify-center items-center md:items-start col-span-full lg:col-start-2  mx-8 mt-5 md:mt-20">
-          <h1 className="text-5xl font-bold my-2">{pageTitle}</h1>
+          <h1 className="text-5xl font-bold my-2">Results</h1>
           <p>{ownerStory}</p>
         </div>
         <div className="col-span-full md:col-span-1 lg:col-span-1 xl:col-span-1 md:text-7xl">
@@ -104,7 +103,7 @@ const Shop = () => {
         <div className="col-span-full md:col-span-2 lg:col-span-3 xl:col-span-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {pLoading ? (
-              <p> <Loading/></p>
+               <Loading/>
             ) : (
               displayedProducts?.map((product) => (
                 <SingleProduct product={product} />

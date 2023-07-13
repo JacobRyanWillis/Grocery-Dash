@@ -61,7 +61,7 @@ const Login = (props) => {
             <form onSubmit={handleFormSubmit} className="space-y-6" action="#">
               <div>
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block text-xl font-medium leading-6 text-gray-900"
                 >
                   Email address
@@ -71,7 +71,7 @@ const Login = (props) => {
                     id="email"
                     name="email"
                     type="email"
-                    autocomplete="email"
+                    autoComplete="email"
                     placeholder="Enter your e-mail address"
                     value={formState.email}
                     onChange={handleChange}
@@ -83,7 +83,7 @@ const Login = (props) => {
               <div>
                 <div className="flex items-center justify-between">
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block text-xl font-medium leading-6 text-gray-900"
                   >
                     Password
@@ -102,7 +102,7 @@ const Login = (props) => {
                     id="password"
                     name="password"
                     type="password"
-                    autocomplete="current-password"
+                    autoComplete="current-password"
                     placeholder="Enter your password"
                     value={formState.password}
                     onChange={handleChange}
