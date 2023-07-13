@@ -94,3 +94,31 @@ export const DELETE_PRODUCT = gql`
     }
   }
 `;
+
+export const UPDATE_PRODUCT = gql`
+  mutation Mutation(
+    $id: ID!
+    $productName: String!
+    $description: String!
+    $category: String!
+    $price: Float!
+    $feature: Boolean!
+    $image: String
+    $quantity: Int
+    $weight: Float
+  ) {
+    updateProduct(
+      _id: $id
+      productName: $productName
+      description: $description
+      category: $category
+      price: $price
+      feature: $feature
+      image: $image
+      quantity: $quantity
+      weight: $weight
+    ) {
+      _id
+    }
+  }
+`;
