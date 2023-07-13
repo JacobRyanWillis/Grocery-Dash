@@ -16,6 +16,7 @@ export const GET_PUBLIC_OWNERS = gql`
         _id
         ownerName
         ownerImage
+        ownerStory
         myProducts {
           _id
           category
