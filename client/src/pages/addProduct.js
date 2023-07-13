@@ -12,9 +12,9 @@ const AddProduct = () => {
     productName: "",
     description: "",
     category: "",
-    price: "",
+    price: null,
     weight: "",
-    quantity: "",
+    quantity: null,
     image: "",
     feature: false,
   });
@@ -31,9 +31,8 @@ const AddProduct = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
+  const handleSubmit = async () => {
+    console.log(formState);
     try {
       const { data } = await addProduct({
         variables: {
@@ -78,7 +77,7 @@ if (loading) {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg ">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={ () => handleSubmit()}>
             <div>
               <label
                 htmlFor="item-name"
@@ -172,7 +171,7 @@ if (loading) {
                   id="category"
                   name="category"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
-                  value={selectedCategory}
+                  value={formState.category}
                   onChange={handleCategoryChange}
                 >
                   <option value="">Select category</option>

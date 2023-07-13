@@ -106,7 +106,7 @@ const resolvers = {
     addProduct: async (parent, args, context) => {
       if (context.user) {
         const product = await Product.create({ ...args });
-
+        console.log(product)
         const owner = await Owner.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { myProducts: product._id } },

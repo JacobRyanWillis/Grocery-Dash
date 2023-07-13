@@ -59,9 +59,7 @@ export const ADD_PRODUCT = gql`
     $category: String!
     $price: Float!
     $feature: Boolean!
-    $quantity: Int
-    $weight: Float
-    $image: String
+    $quanity: Float!
   ) {
     addProduct(
       productName: $productName
@@ -69,33 +67,22 @@ export const ADD_PRODUCT = gql`
       category: $category
       price: $price
       feature: $feature
-      quantity: $quantity
-      weight: $weight
-      image: $image
+      quanity: $quanity
     ) {
-      _id
       myProducts {
         _id
-        productName
-        description
-        image
-        category
-        price
-        quantity
-        weight
-        feature
       }
     }
   }
 `;
 
 export const ADD_TO_CART = gql`
-mutation Mutation($id: ID!) {
-  addProductToBuyer(_id: $id) {
-    _id
+  mutation Mutation($id: ID!) {
+    addProductToBuyer(_id: $id) {
+      _id
+    }
   }
-}
-`
+`;
 export const DELETE_PRODUCT = gql`
   mutation DeleteProduct($_id: ID!) {
     deleteProduct(_id: $_id) {
