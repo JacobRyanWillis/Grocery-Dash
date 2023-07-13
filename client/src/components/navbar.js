@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { CartContext } from "./cartcontext.js";
 import Logo from "./navLogo.js";
@@ -39,9 +39,7 @@ const Navbar = () => {
           </button>
           <div className="flex ml-8 md:ml-6">
             <Link to="/">
-              <a>
                 <Logo />
-              </a>
             </Link>
           </div>
         </div>

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
-// import Navbar from '../components/navbar';
 import About from '../components/about';
 import Logo from '../components/logo';
 import Austell from '../assets/austell-market.jpg';
@@ -30,7 +29,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="md:h-screen grid grid-cols-1 lg:grid-cols-2 bg-light-tan px-8 py-8">
         <div className='flex flex-col ml-4 mr-4 lg:ml-6 space-y-8 mt-5 lg:mt-20'>
           <Logo />
