@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS} from "../utils/queries";
 import Navbar from "../components/navbar";
@@ -6,6 +6,7 @@ import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
 import { useLocation } from "react-router-dom";
 import SingleProduct from "../components/SingleProduct";
+import { CartProvider } from "../components/cartcontext";
 
 const Shop = () => {
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
@@ -27,7 +28,7 @@ const Shop = () => {
     { value: "Fruits and Vegetables", label: "Fruits and Vegetables" },
     { value: "Meats and Seafood", label: "Meats and Seafood" },
     { value: "Baked Goods", label: "Baked Goods" },
-    { value: "Dairy", label: "Dairy"}
+    { value: "Dairy", label: "Dairy" },
   ];
 
   const handleCategories = (selectedOption) => {

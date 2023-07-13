@@ -80,13 +80,15 @@ const VendorDashboard = () => {
               <span className="text-xl ml-2">{product.quantity}</span>
             </div>
             <div className="flex">
+            <Link to="/updateproduct" state={{productId:product._id}}>
               <button className="rounded-md px-3 py-1 mt-2 mr-2 text-base ring-eggplant ring-2 font-semibold leading-6 text-eggplant shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-600">
                 Edit
               </button>
+            </Link>
               <button onClick={() => handleRemoveProduct(product._id)} className="rounded-md bg-eggplant px-2 py-1 mt-2 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Remove
               </button>
-              <span className="text-md md:text-xl mx-auto flex items-center"> Price: ${product.price}</span>
+              <span  className="text-md md:text-xl mx-auto flex items-center"> Price: ${product.price}</span>
             </div>
           </div>
         </div>

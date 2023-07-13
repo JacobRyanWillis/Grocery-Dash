@@ -116,3 +116,17 @@ query Query {
   }
 }
 `
+export const PRODUCT_BY_ID = gql`
+query Query($id: ID!) {
+  productById(_id: $id) {
+    _id
+    productName
+    description
+    image
+    category
+    price
+    quantity
+    weight
+    feature
+  }
+}`;
