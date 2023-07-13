@@ -16,7 +16,7 @@ import VendorDashboard from './pages/vendorDashboard';
 import UpdateProduct from './pages/updateProduct';
 import OwnerLogin from './pages/ownerlogin';
 import AddProduct from './pages/addProduct';
-import { CartProvider } from './components/cartcontext';
+// import { CartProvider } from './components/cartcontext';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -43,7 +43,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <Router>
         <div className="font">
-          <CartProvider>
+          {/* <CartProvider> */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signupintro" element={<SignUpIntro />}/>
@@ -58,7 +58,7 @@ const App = () => {
               <Route path='/updateproduct' element={<UpdateProduct />}/>
               <Route path='/ownerlogin' element={<OwnerLogin />}/>
             </Routes>
-          </CartProvider>
+          {/* </CartProvider> */}
         </div>
       </Router>
     </ApolloProvider>
