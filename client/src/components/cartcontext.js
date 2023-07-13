@@ -22,8 +22,14 @@ const CartProvider = ({ children }) => {
     setCartItemsCount(count);
   };
 
+  const decreaseCartItemsCount = () => {
+    setCartItemsCount((prevCount) => prevCount - 1);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItemsCount, updateCartItemsCount }}>
+    <CartContext.Provider
+      value={{ cartItemsCount, updateCartItemsCount, decreaseCartItemsCount }}
+    >
       {children}
     </CartContext.Provider>
   );

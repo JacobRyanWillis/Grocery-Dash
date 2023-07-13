@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import { useQuery } from "@apollo/client";
-import mangos from "../assets/mangos.jpg";
 import CartItem from "../components/CartItem";
 import ChatbotIcon from '../components/chatboticon';
 import { BUYER_ME } from "../utils/queries";
-import { useLocation } from "react-router-dom";
 
 const Cart = () => {
-  const {loading, data} = useQuery(BUYER_ME)
-  const buyerData = data?.buyerMe
-  console.log(buyerData)
+  const { loading, data } = useQuery(BUYER_ME, {
+    fetchPolicy: "network-only",
+  });
+  const buyerData = data?.buyerMe;
+  console.log(buyerData);
   
   return (
     <div className="h-screen">

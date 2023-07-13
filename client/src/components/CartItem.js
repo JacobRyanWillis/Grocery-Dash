@@ -1,16 +1,24 @@
-import React from "react";
-import mangos from "../assets/mangos.jpg";
+import React, { useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_FROM_CART } from "../utils/mutations";
+import { CartContext } from "../components/cartcontext";
 
 const CartItem = ({ product }) => {
   const [removeProductFromBuyer, { error }] = useMutation(REMOVE_FROM_CART);
+  const { decreaseCartItemsCount } = useContext(CartContext); // Access decreaseCartItemsCount from CartContext
+
   const handleRemove = async (id) => {
-    const { data } = await removeProductFromBuyer({
-      variables: { id },
-    });
-    window.location.reload();
+    try {
+      await removeProductFromBuyer({
+        variables: { id },
+      });
+      decreaseCartItemsCount(); // Call decreaseCartItemsCount from the CartContext
+      window.location.reload();
+    } catch (error) {
+      // Handle error or display a notification
+    }
   };
+
   return (
     <div className="m-2 shadow-class rounded grid grid-cols-3">
       <div className="col-span-1">

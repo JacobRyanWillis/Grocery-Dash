@@ -6,7 +6,6 @@ import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
 import { useLocation } from "react-router-dom";
 import SingleProduct from "../components/SingleProduct";
-import { CartProvider } from "../components/cartcontext";
 
 const Shop = () => {
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
