@@ -104,14 +104,16 @@ const resolvers = {
 
     // product.create store in Variables. grab the id, new product.id then find the owner and owner.findoneandupdate, add to set the id to the owner.
     addProduct: async (parent, args, context) => {
+      console.log(context.user)
       if (context.user) {
         const product = await Product.create({ ...args });
         console.log(product)
-        const owner = await Owner.findOneAndUpdate(
+        const owner = await Owner.findByIdAndUpdate(
           { _id: context.user._id },
           { $addToSet: { myProducts: product._id } },
           { new: true }
         );
+        console.log(owner)
         return owner;
       }
       throw new AuthenticationError("You need to be logged in!");

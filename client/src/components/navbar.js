@@ -69,11 +69,16 @@ const Navbar = () => {
                 </Link>
               </>
             )}
-            <Link to="/shop">
-              <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
-                Shop
-              </li>
-            </Link>
+              <Link to="/shop">
+                <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
+                  Shop
+                </li>
+              </Link>
+              <Link to="/welcomescreen">
+                <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
+                  Market
+                </li>
+              </Link>
           </ul>
           <Link to="/cart">
             <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9 transition-transform transform hover:scale-110" />
@@ -102,6 +107,11 @@ const Navbar = () => {
                   Shop
                 </span>
               </Link>
+              <Link to="/welcomescreen">
+                <span className="block py-2 px-4 text-sm hover:bg-gray-700">
+                  Market
+                </span>
+              </Link>
             </>
           ) : (
             <>
@@ -118,6 +128,11 @@ const Navbar = () => {
               <Link to="/shop">
                 <span className="block py-2 px-4 text-sm hover:bg-gray-700">
                   Shop
+                </span>
+              </Link>
+              <Link to="/welcomescreen">
+                <span className="block py-2 px-4 text-sm hover:bg-gray-700">
+                  Market
                 </span>
               </Link>
             </>

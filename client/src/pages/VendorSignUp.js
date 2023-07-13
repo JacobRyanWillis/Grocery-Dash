@@ -37,7 +37,7 @@ const VendorSignUp = () => {
         variables: { ...formState },
       });
       Auth.login(data.addOwner.token, 'owner');
-      window.location.assign('/');
+      window.location.assign('/welcomescreen');
     } catch (e) {
       console.error(e);
     }

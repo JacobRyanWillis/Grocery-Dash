@@ -7,13 +7,12 @@ import Loading from "../components/loading";
 
 const AddProduct = () => {
   const [selectedOption, setSelectedOption] = useState("price");
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [formState, setFormState] = useState({
     productName: "",
     description: "",
     category: "",
     price: null,
-    weight: "",
+    weight: null,
     quantity: null,
     image: "",
     feature: false,
@@ -24,23 +23,33 @@ const AddProduct = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
     console.log(formState);
+    event.preventDefault();
+  
     try {
       const { data } = await addProduct({
         variables: {
-          ...formState
+          productName: formState.productName,
+          description: formState.description,
+          category: formState.category,
+          price: parseFloat(formState.price),
+          weight: parseInt(formState.weight),
+          quantity: parseInt(formState.quantity),
+          image: formState.image,
+          feature: formState.feature,
         },
       });
   
       // Handle the response data if needed
+      window.location.assign("/dashboard")
       console.log(data);
     } catch (error) {
       // Handle the error if needed
@@ -52,12 +61,18 @@ const AddProduct = () => {
     setSelectedOption(e.target.value);
   };
 
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
+  const handleCategoryChange = (event) => {
+    const { value } = event.target;
+  
+    setFormState((prevState) => ({
+      ...prevState,
+      category: value,
+    }));
   };
+  
 
   // Render loading state
-if (loading) {
+  if (loading) {
     return <Loading/>;
   }
   
@@ -77,7 +92,7 @@ if (loading) {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg ">
-          <form className="space-y-6" onSubmit={ () => handleSubmit()}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="item-name"
@@ -110,7 +125,7 @@ if (loading) {
                   <input
                     id="quantity"
                     name="quantity"
-                    type="text"
+                    type="number"
                     placeholder="Enter quantity"
                     className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                     value={formState.quantity}
@@ -139,7 +154,7 @@ if (loading) {
                   <input
                     id="price"
                     name="price"
-                    type="text"
+                    type="number"
                     placeholder="Enter price"
                     className="w-full block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                     value={formState.price}
@@ -149,7 +164,7 @@ if (loading) {
                   <input
                     id="weight"
                     name="weight"
-                    type="text"
+                    type="number"
                     placeholder="Enter lbs"
                     className="w-full block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-6"
                     value={formState.weight}

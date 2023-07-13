@@ -37,7 +37,7 @@ const BuyerSignUp = () => {
       });
 
       Auth.login(data.addBuyer.token, 'buyer');
-      window.location.assign('/');
+      window.location.assign('/welcomescreen');
     } catch (e) {
       console.error(e);
     }

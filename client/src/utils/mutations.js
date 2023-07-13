@@ -56,18 +56,22 @@ export const ADD_PRODUCT = gql`
   mutation Mutation(
     $productName: String!
     $description: String!
+    $image: String
     $category: String!
     $price: Float!
+    $quantity: Int
+    $weight: Float
     $feature: Boolean!
-    $quanity: Float!
   ) {
     addProduct(
       productName: $productName
       description: $description
+      image: $image
       category: $category
       price: $price
+      quantity: $quantity
+      weight: $weight
       feature: $feature
-      quanity: $quanity
     ) {
       myProducts {
         _id

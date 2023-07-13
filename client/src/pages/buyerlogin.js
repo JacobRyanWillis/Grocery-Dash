@@ -35,7 +35,7 @@ const Login = (props) => {
           variables: { ...formState },
         });
         Auth.login(data.loginBuyer.token, 'buyer');
-        window.location.assign('/');
+        window.location.assign('/welcomescreen');
       } catch (e) {
         console.error(e);
       }
