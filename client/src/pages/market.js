@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import ChatbotIcon from "../components/chatboticon";
 
 const Market = () => {
-  const { data, loading } = useQuery(GET_PUBLIC_OWNERS);
+  const { loading, data } = useQuery(GET_PUBLIC_OWNERS);
   const userData = data?.publicOwners;
   console.log(userData)
 
