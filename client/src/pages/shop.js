@@ -6,6 +6,7 @@ import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
 import { useLocation } from "react-router-dom";
 import SingleProduct from "../components/SingleProduct";
+import Loading from "../components/loading";
 
 const Shop = () => {
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
@@ -58,6 +59,7 @@ const Shop = () => {
     setDisplayedProducts(vendor[0].myProducts);
   };
 
+
   return (
     <div>
       <Navbar />
@@ -93,7 +95,7 @@ const Shop = () => {
         <div className="col-span-full md:col-span-2 lg:col-span-3 xl:col-span-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {pLoading ? (
-              <p> Products are loading</p>
+              <p> <Loading/></p>
             ) : (
               displayedProducts?.map((product) => <SingleProduct product = {product}/>)
             )}

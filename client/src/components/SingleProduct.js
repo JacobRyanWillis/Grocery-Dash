@@ -2,25 +2,39 @@ import React, { useState, useEffect, useContext } from "react";
 import { ADD_TO_CART } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 import { CartContext } from "./cartcontext";
-
+import auth from "../utils/auth";
 
 const SingleProduct = ({ product }) => {
-  const { updateCartItemsCount, cartItemsCount } = useContext(CartContext)
-  console.log(product);
+  const { updateCartItemsCount, cartItemsCount } = useContext(CartContext);
   const [addProductToBuyer, { error }] = useMutation(ADD_TO_CART);
   const [added, setAdded] = useState(false);
+
   useEffect(() => {
-    if(!added){return}
-    setTimeout(()=> {
-        setAdded(false)
-    }, 2000)
+    if (!added) {
+      return;
+    }
+    setTimeout(() => {
+      setAdded(false);
+    }, 2000);
   }, [added]);
+
   const handleToCart = async (id) => {
+    if (!auth.loggedIn()) {
+      // Check if user is not logged in
+      window.location.assign("/buyerlogin"); // Redirect to the login page
+      return;
+    }
+
     const { data } = await addProductToBuyer({
       variables: { id },
     });
-    error ? console.log(error) : setAdded(true)
-    updateCartItemsCount(cartItemsCount + 1);
+
+    if (error) {
+      console.log(error);
+    } else {
+      setAdded(true);
+      updateCartItemsCount(cartItemsCount + 1);
+    }
   };
 
   return (

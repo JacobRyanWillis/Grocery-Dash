@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import CartItem from "../components/CartItem";
 import ChatbotIcon from '../components/chatboticon';
 import { BUYER_ME } from "../utils/queries";
+import Loading from "../components/loading";
 
 const Cart = () => {
   const { loading, data } = useQuery(BUYER_ME, {
@@ -11,6 +12,10 @@ const Cart = () => {
   });
   const buyerData = data?.buyerMe;
   console.log(buyerData);
+
+  if (loading) {
+    <Loading/>
+  }
   
   return (
     <div className="h-screen">
