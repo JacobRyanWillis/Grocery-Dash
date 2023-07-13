@@ -121,12 +121,12 @@ const Login = (props) => {
               </div>
             </form>
 
-            <p className="mt-10 text-center text-lg text-gray-500">
+            <div className="mt-10 text-center text-lg text-gray-500">
               Did you want to Signup?
               <div className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 <Link to="/signupintro">Click Here</Link>
               </div>
-            </p>
+            </div>
             <p className="mt-2 text-center text-lg text-gray-500 flex flex-col">
               If you are an Owner
               <button className="text-white font-semibold leading-6 bg-grass max-w-lg mx-auto p-2 m-2 transition-transform transform hover:scale-110">
