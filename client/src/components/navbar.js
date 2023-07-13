@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import Logo from "./navLogo.js";
 import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+import { BUYER_ME } from "../utils/queries.js";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -80,9 +81,9 @@ const Navbar = () => {
                 </li>
               </Link>
           </ul>
-          <Link to="/cart">
-            <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9 transition-transform transform hover:scale-110" />
-          </Link>
+          {/* <Link to="/cart" > */}
+            <FiShoppingCart onClick={() => {window.location.assign("/cart")}} className="text-white text-3xl md:text-4xl mx-9 transition-transform transform hover:scale-110" />
+          {/* </Link> */}
         </div>
       </nav>
       {isMenuOpen && (

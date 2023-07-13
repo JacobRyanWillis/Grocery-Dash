@@ -7,7 +7,7 @@ const resolvers = {
   Query: {
     buyerById: async (parent, { _id }) => {
       try {
-        const product = await Buyer.findById(_id);
+        const product = await Buyer.findById(_id).populate("myList");
         return product;
       } catch (err) {
         throw new Error("Failed to fetch product");
@@ -15,7 +15,7 @@ const resolvers = {
     },
     buyerMe: async (parent, args, context) => {
       if (context.user) {
-        const buyer = await Buyer.findOne({ _id: context.user._id });
+        const buyer = await Buyer.findOne({ _id: context.user._id }).populate("myList");
         return buyer;
       }
       throw new AuthenticationError("You need to be logged in!");

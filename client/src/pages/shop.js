@@ -8,33 +8,34 @@ import { useLocation } from "react-router-dom";
 import SingleProduct from "../components/SingleProduct";
 
 const Shop = () => {
-  const location = useLocation();
-  console.log(location)
-  const {owner}=location.state || [];
-
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
   const productData = data?.allProducts;
 
   const { loading: oLoading, data: owners } = useQuery(GET_PUBLIC_OWNERS);
   const ownersData = owners?.publicOwners;
 
-  const [displayedProducts, setDisplayedProducts] = useState(owner);
+  const location = useLocation();
+  console.log(location)
+  const defaultProducts =location.state?.owner || productData;
+
+  const [displayedProducts, setDisplayedProducts] = useState(defaultProducts);
 
 
 
   const categoryOptions = [
     { value: "all", label: "All Categories" },
-    { value: "fruits and vegetables", label: "Fruits and Vegetables" },
-    { value: "meats and seafood", label: "Meats and Seafood" },
-    { value: "baked goods", label: "Baked Goods" },
+    { value: "Fruits and Vegetables", label: "Fruits and Vegetables" },
+    { value: "Meats and Seafood", label: "Meats and Seafood" },
+    { value: "Baked Goods", label: "Baked Goods" },
+    { value: "Dairy", label: "Dairy"}
   ];
 
   const handleCategories = (selectedOption) => {
-    if (selectedOption.value == "all") {
+    if (selectedOption.value === "all") {
       return setDisplayedProducts(productData);
     }
     const filteredProducts = productData?.filter(
-      (product) => product.category == selectedOption.value
+      (product) => product.category === selectedOption.value
     );
     setDisplayedProducts(filteredProducts);
   };
@@ -51,7 +52,7 @@ const Shop = () => {
 
   const handleVendors = (selectedOption) => {
     const vendor = ownersData?.filter(
-      (owner) => owner.ownerName == selectedOption.value
+      (owner) => owner.ownerName === selectedOption.value
     );
     console.log(vendor)
     setDisplayedProducts(vendor[0].myProducts);

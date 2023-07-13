@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mangos from "../assets/mangos.jpg";
 import { ADD_TO_CART } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
@@ -25,7 +24,7 @@ const SingleProduct = ({ product }) => {
       <img
         className="h-full w-full object-cover rounded-t"
         alt="mangos"
-        src={mangos}
+        src={product.image}
       />
       <div className="flex flex-col justify-center space-y-8 p-4 h-full">
         <p className="md:text-lg ">{product.productName}</p>
