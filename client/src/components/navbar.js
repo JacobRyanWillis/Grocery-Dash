@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { CartContext } from "./cartcontext.js";
 import Logo from "./navLogo.js";
@@ -20,7 +20,11 @@ const Navbar = () => {
 
   const userRole = Auth.getUserRole();
 
-  
+  const handleCartClick = () => {
+    if (!Auth.loggedIn()) {
+      window.location.assign("/buyerlogin");
+    }
+  };
 
   return (
     <div className="w-full font-gilroy">
@@ -73,26 +77,26 @@ const Navbar = () => {
                 </Link>
               </>
             )}
-              <Link to="/shop">
-                <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
-                  Shop
-                </li>
-              </Link>
-              <Link to="/welcomescreen">
-                <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
-                  Market
-                </li>
-              </Link>
+            <Link to="/shop">
+              <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
+                Shop
+              </li>
+            </Link>
+            <Link to="/welcomescreen">
+              <li className="text-xl lg:text-2xl md:text-base hidden md:block text-white mx-3 transition-transform transform hover:scale-110">
+                Market
+              </li>
+            </Link>
           </ul>
-          <Link to="/cart">
-              <div className="relative transition-transform transform hover:scale-110">
-                <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9" />
-                {cartItemsCount > 0 && (
-                  <div className="absolute top-0 right-7 -mt-2 -mr-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
-                    {cartItemsCount}
-                  </div>
-                )}
-              </div>
+          <Link to="/cart" onClick={handleCartClick}>
+            <div className="relative transition-transform transform hover:scale-110">
+              <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9" />
+              {cartItemsCount > 0 && (
+                <div className="absolute top-0 right-7 -mt-2 -mr-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+                  {cartItemsCount}
+                </div>
+              )}
+            </div>
           </Link>
         </div>
       </nav>
