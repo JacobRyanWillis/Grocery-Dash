@@ -9,17 +9,17 @@ import SingleProduct from "../components/SingleProduct";
 import { CartProvider } from "../components/cartcontext";
 
 const Shop = () => {
-  const location = useLocation();
-  console.log(location)
-  const {owner}=location.state || [];
-
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
   const productData = data?.allProducts;
 
   const { loading: oLoading, data: owners } = useQuery(GET_PUBLIC_OWNERS);
   const ownersData = owners?.publicOwners;
 
-  const [displayedProducts, setDisplayedProducts] = useState(owner);
+  const location = useLocation();
+  console.log(location)
+  const defaultProducts =location.state?.owner || productData;
+
+  const [displayedProducts, setDisplayedProducts] = useState(defaultProducts);
 
 
 

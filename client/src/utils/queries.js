@@ -98,6 +98,24 @@ query Query($ownerId: ID!) {
 }
 `;
 
+export const BUYER_ME = gql`
+query Query {
+  buyerMe {
+    listCount
+    myList {
+      _id
+      productName
+      description
+      image
+      category
+      price
+      quantity
+      weight
+      feature
+    }
+  }
+}
+`
 export const PRODUCT_BY_ID = gql`
 query Query($id: ID!) {
   productById(_id: $id) {
