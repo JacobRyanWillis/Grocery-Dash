@@ -22,6 +22,7 @@ export const GET_PUBLIC_OWNERS = gql`
           feature
           productName
           image
+          price
         }
       }
     }

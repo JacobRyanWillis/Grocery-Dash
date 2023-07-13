@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS} from "../utils/queries";
 import Navbar from "../components/navbar";
-import mangos from "../assets/mangos.jpg";
 import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
 import { useLocation } from "react-router-dom";
-
+import SingleProduct from "../components/SingleProduct";
 
 const Shop = () => {
   const location = useLocation();
+  console.log(location)
   const {owner}=location.state || [];
 
   const { loading: pLoading, data } = useQuery(GET_ALL_PRODUCTS);
@@ -20,24 +20,7 @@ const Shop = () => {
 
   const [displayedProducts, setDisplayedProducts] = useState(owner);
 
-  const renderItems = (product) => {
-    return (
-      <div className="m-6 flex flex-col rounded shadow-class h-full">
-        <img
-          className="h-full w-full object-cover rounded-t"
-          alt="mangos"
-          src={mangos}
-        />
-        <div className="flex flex-col justify-center space-y-8 p-4 h-full">
-          <p className="md:text-lg ">{product.productName}</p>
-          <p className="md:text-lg ">${product.price}</p>
-          <button className="flex w-full justify-center rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 max-w-xs">
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    );
-  };
+
 
   const categoryOptions = [
     { value: "all", label: "All Categories" },
@@ -111,7 +94,7 @@ const Shop = () => {
             {pLoading ? (
               <p> Products are loading</p>
             ) : (
-              displayedProducts?.map((product) => renderItems(product))
+              displayedProducts?.map((product) => <SingleProduct product = {product}/>)
             )}
           </div>
         </div>
