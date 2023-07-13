@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import mangos from "../assets/mangos.jpg";
 import { ADD_TO_CART } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
+import { CartContext } from "./cartcontext";
+
 
 const SingleProduct = ({ product }) => {
+  const { updateCartItemsCount, cartItemsCount } = useContext(CartContext)
   console.log(product);
   const [addProductToBuyer, { error }] = useMutation(ADD_TO_CART);
   const [added, setAdded] = useState(false);
@@ -18,6 +21,7 @@ const SingleProduct = ({ product }) => {
       variables: { id },
     });
     error ? console.log(error) : setAdded(true)
+    updateCartItemsCount(cartItemsCount + 1);
   };
 
   return (

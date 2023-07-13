@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS} from "../utils/queries";
 import Navbar from "../components/navbar";
@@ -6,6 +6,7 @@ import ChatbotIcon from "../components/chatboticon";
 import Select from "react-select";
 import { useLocation } from "react-router-dom";
 import SingleProduct from "../components/SingleProduct";
+import { CartProvider } from "../components/cartcontext";
 
 const Shop = () => {
   const location = useLocation();
@@ -24,17 +25,18 @@ const Shop = () => {
 
   const categoryOptions = [
     { value: "all", label: "All Categories" },
-    { value: "fruits and vegetables", label: "Fruits and Vegetables" },
-    { value: "meats and seafood", label: "Meats and Seafood" },
-    { value: "baked goods", label: "Baked Goods" },
+    { value: "Fruits and Vegetables", label: "Fruits and Vegetables" },
+    { value: "Meats and Seafood", label: "Meats and Seafood" },
+    { value: "Baked Goods", label: "Baked Goods" },
+    { value: "Dairy", label: "Dairy" },
   ];
 
   const handleCategories = (selectedOption) => {
-    if (selectedOption.value == "all") {
+    if (selectedOption.value === "all") {
       return setDisplayedProducts(productData);
     }
     const filteredProducts = productData?.filter(
-      (product) => product.category == selectedOption.value
+      (product) => product.category === selectedOption.value
     );
     setDisplayedProducts(filteredProducts);
   };
@@ -51,7 +53,7 @@ const Shop = () => {
 
   const handleVendors = (selectedOption) => {
     const vendor = ownersData?.filter(
-      (owner) => owner.ownerName == selectedOption.value
+      (owner) => owner.ownerName === selectedOption.value
     );
     console.log(vendor)
     setDisplayedProducts(vendor[0].myProducts);

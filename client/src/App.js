@@ -16,6 +16,7 @@ import VendorDashboard from './pages/vendorDashboard';
 import UpdateProduct from './pages/updateProduct';
 import OwnerLogin from './pages/ownerlogin';
 import AddProduct from './pages/addProduct';
+import { CartProvider } from './components/cartcontext';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -42,20 +43,22 @@ const App = () => {
     <ApolloProvider client={client}>
       <Router>
         <div className="font">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signupintro" element={<SignUpIntro />}/>
-            <Route path="/vendorsignup" element={<VendorSignUp />}/>
-            <Route path="/buyersignup" element={<BuyerSignUp />}/>
-            <Route path="/welcomescreen" element={<Market />}/>
-            <Route path='/buyerlogin' element={<BuyerLogin />}/>
-            <Route path='/shop' element={<Shop />}/>
-            <Route path='/cart' element={<Cart />}/>
-            <Route path='/dashboard' element={<VendorDashboard />}/>
-            <Route path='/addproduct' element={<AddProduct/>}/>
-            <Route path='/updateproduct' element={<UpdateProduct />}/>
-            <Route path='/ownerlogin' element={<OwnerLogin />}/>
-          </Routes>
+          <CartProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/signupintro" element={<SignUpIntro />}/>
+              <Route path="/vendorsignup" element={<VendorSignUp />}/>
+              <Route path="/buyersignup" element={<BuyerSignUp />}/>
+              <Route path="/welcomescreen" element={<Market />}/>
+              <Route path='/buyerlogin' element={<BuyerLogin />}/>
+              <Route path='/shop' element={<Shop />}/>
+              <Route path='/cart' element={<Cart />}/>
+              <Route path='/dashboard' element={<VendorDashboard />}/>
+              <Route path='/addproduct' element={<AddProduct/>}/>
+              <Route path='/updateproduct' element={<UpdateProduct />}/>
+              <Route path='/ownerlogin' element={<OwnerLogin />}/>
+            </Routes>
+          </CartProvider>
         </div>
       </Router>
     </ApolloProvider>

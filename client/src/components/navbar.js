@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
+import { CartContext } from "./cartcontext.js";
 import Logo from "./navLogo.js";
 import Auth from "../utils/auth";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItemsCount } = useContext(CartContext);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +19,8 @@ const Navbar = () => {
   };
 
   const userRole = Auth.getUserRole();
+
+  
 
   return (
     <div className="w-full font-gilroy">
@@ -81,7 +85,14 @@ const Navbar = () => {
               </Link>
           </ul>
           <Link to="/cart">
-            <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9 transition-transform transform hover:scale-110" />
+              <div className="relative transition-transform transform hover:scale-110">
+                <FiShoppingCart className="text-white text-3xl md:text-4xl mx-9" />
+                {cartItemsCount > 0 && (
+                  <div className="absolute top-0 right-7 -mt-2 -mr-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+                    {cartItemsCount}
+                  </div>
+                )}
+              </div>
           </Link>
         </div>
       </nav>
