@@ -93,11 +93,13 @@ export default function About() {
       </div>
       <div className="flex flex-col justify-center items-center m-2 p-2">
         <p className="mt-6 text-xl leading-8 text-gray-400">
-          Care to make a donation? 
+          Care to make a donation to the devs to keep Market Dash running? 
         </p>
+        <a href="https://buy.stripe.com/test_14k3dS0oH8tu8h2288">
         <button className="text-eggplant font-semibold leading-6 bg-white ring-eggplant rounded max-w-lg mx-auto p-2 m-2 transition-transform transform hover:scale-110">
           Donate Here
         </button>
+        </a>
       </div>
     </div>
   );

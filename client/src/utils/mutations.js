@@ -1,35 +1,45 @@
 import { gql } from "@apollo/client";
 
 export const ADD_OWNER = gql`
-mutation Mutation($ownerName: String!, $username: String!, $email: String!, $password: String!) {
-  addOwner(ownerName: $ownerName, username: $username, email: $email, password: $password) {
-    token
-    owner {
-      _id
+  mutation Mutation(
+    $ownerName: String!
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    addOwner(
+      ownerName: $ownerName
+      username: $username
+      email: $email
+      password: $password
+    ) {
+      token
+      owner {
+        _id
+      }
     }
   }
-}
 `;
-export const LOGIN_OWNER=gql`
-mutation Mutation($email: String!, $password: String!) {
-  loginOwner(email: $email, password: $password) {
-    token
-    owner {
-      _id
+export const LOGIN_OWNER = gql`
+  mutation Mutation($email: String!, $password: String!) {
+    loginOwner(email: $email, password: $password) {
+      token
+      owner {
+        _id
+      }
     }
   }
-}
 `;
 
 export const ADD_BUYER = gql`
-mutation Mutation($username: String!, $email: String!, $password: String!) {
-  addBuyer(username: $username, email: $email, password: $password) {
-    token
-    buyer {
-      _id
+  mutation Mutation($username: String!, $email: String!, $password: String!) {
+    addBuyer(username: $username, email: $email, password: $password) {
+      token
+      buyer {
+        _id
+      }
     }
   }
-}
 `;
 export const LOGIN_BUYER = gql`
   mutation Mutation($email: String!, $password: String!) {
@@ -43,12 +53,13 @@ export const LOGIN_BUYER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation AddProduct(
+  mutation Mutation(
     $productName: String!
     $description: String!
     $category: String!
     $price: Float!
     $feature: Boolean!
+    $quanity: Float!
   ) {
     addProduct(
       productName: $productName
@@ -56,15 +67,26 @@ export const ADD_PRODUCT = gql`
       category: $category
       price: $price
       feature: $feature
+      quanity: $quanity
     ) {
-      _id
       myProducts {
         _id
-        productName
-        description
       }
     }
   }
 `;
 
-
+export const ADD_TO_CART = gql`
+  mutation Mutation($id: ID!) {
+    addProductToBuyer(_id: $id) {
+      _id
+    }
+  }
+`;
+export const DELETE_PRODUCT = gql`
+  mutation DeleteProduct($_id: ID!) {
+    deleteProduct(_id: $_id) {
+      _id
+    }
+  }
+`;

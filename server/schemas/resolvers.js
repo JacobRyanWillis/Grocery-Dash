@@ -42,6 +42,14 @@ const resolvers = {
         throw new Error("Failed to fetch owners");
       }
     },
+    allProducts: async () => {
+      try {
+        const product = await Product.find();
+        return product;
+      } catch (err) {
+        throw new Error("Failed to fetch product");
+      }
+    },
     productById: async (parent, { _id }) => {
       try {
         const product = await Product.findById(_id);
@@ -98,7 +106,7 @@ const resolvers = {
     addProduct: async (parent, args, context) => {
       if (context.user) {
         const product = await Product.create({ ...args });
-
+        console.log(product)
         const owner = await Owner.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { myProducts: product._id } },

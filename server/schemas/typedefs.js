@@ -8,6 +8,7 @@ module.exports = gql`
     password: String!
     zipCode: Int
     myList: [Product]
+    listCount: Int
   }
 
   type MyList {
@@ -67,6 +68,7 @@ module.exports = gql`
     buyerMe: Buyer
     publicOwners: [PublicOwner]
     productsByOwner(ownerId: ID!): PublicOwner
+    allProducts: [Product]
     productById(_id: ID!): Product
     ownerMe: Owner
   }

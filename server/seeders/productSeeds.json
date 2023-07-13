@@ -1,11 +1,10 @@
-
 [
   {
     "_id": "64a76694b33b3424f7e00b12",
     "productName": "Organic Strawberry",
     "description": "Made fresh to order. These organic strawberries are so healthy and delicious.",
-    "image": "https://drive.google.com/file/d/1wAAydBV9GFP16vK6Ytk5OyrYB0SSJbMU/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=1wAAydBV9GFP16vK6Ytk5OyrYB0SSJbMU",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -14,8 +13,8 @@
     "_id": "64a76694b33b3424f7e00b13",
     "productName": "Organic Pineapple",
     "description": "Organic pineapple is a delicious and healthy snack. Grown without pesticide and chemical free, all natural organic pineapple hand sliced contain no added sweeteners or preservatives.",
-    "image": "https://drive.google.com/file/d/1QCCr8Xg7Ar2XmWZTrgiIEs1jt1uLSQGg/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=1QCCr8Xg7Ar2XmWZTrgiIEs1jt1uLSQGg",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": true
@@ -24,8 +23,8 @@
     "_id": "64a76694b33b3424f7e00b14",
     "productName": "Organic Kiwi",
     "description": "Organic kiwi are deliciously and slightly tangy taste. These dried kiwi are hand sliced have a vibrant green color that is so much fun to look at, but even better to eat.",
-    "image": "https://drive.google.com/file/d/11xQeD2qjKerPA4OXs6r8P8WAGpmZLnL6/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=11xQeD2qjKerPA4OXs6r8P8WAGpmZLnL6",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -34,8 +33,8 @@
     "_id": "64a76694b33b3424f7e00b15",
     "productName": "Organic Date",
     "description": "Fresh dried! Organic Barhi dates are small and somewhat chewy texture. This gorgeous dates are grown in Florida",
-    "image": "https://drive.google.com/file/d/14Pkg4BdSW831W-m0rxg2T4c7jRJuc_FU/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=14Pkg4BdSW831W-m0rxg2T4c7jRJuc_FU",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -44,18 +43,18 @@
     "_id": "64a76694b33b3424f7e00b16",
     "productName": "Organic Moringa",
     "description": "MORINGA SEEDS ARE OBTAINED FROM THE PODS OF THE MORINGA PLANT (MORINGA OLEIFERA) OR THE DRUMSTICK TREE",
-    "image": "https://drive.google.com/file/d/14Se2a2Qn5ho7Vwv3iUxg00T7YAockfVP/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=14Se2a2Qn5ho7Vwv3iUxg00T7YAockfVP",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b17",
     "productName": "Organic Beet Chip",
     "description": "Perfect Snack! Organic Beets root are a rich source of nutrients that are needed for a healthy body.",
-    "image": "https://drive.google.com/file/d/1iIs9Wi_eLLklcGosMe9y3Fnl12R2nI-G/view?usp=drive_link",
-    "category": "fruits and vegetables",
+    "image": "https://drive.google.com/uc?id=1iIs9Wi_eLLklcGosMe9y3Fnl12R2nI-G",
+    "category": "Fruits and Vegetables",
     "price": 35.75,
     "quantity": 5,
     "feature": false
@@ -64,8 +63,8 @@
     "_id": "64a76694b33b3424f7e00b18",
     "productName": "Apple wood Smoked Norwegian Salmon",
     "description": "Piece size and prices generally range from 7oz to 11oz ",
-    "image": "https://drive.google.com/file/d/199FHd8rAF9a85sq7T6jDcx68V-EKiJ90/view?usp=drive_link",
-    "category": "meats and seafood",
+    "image": "https://drive.google.com/uc?id=199FHd8rAF9a85sq7T6jDcx68V-EKiJ90",
+    "category": "Meats and Seafood",
     "price": 35,
     "weight": 1,
     "feature": true
@@ -74,8 +73,8 @@
     "_id": "64a76694b33b3424f7e00b19",
     "productName": "Apple wood Smoked Georgia Mountain Trout",
     "description": "Packages of single fillets generally range 6oz to 7 1/2oz. Double packages with 2 smaller fillets generally range 9 ½oz- 11 oz ",
-    "image": "https://drive.google.com/file/d/1uRNkkqsmrw7PT4bhrlViLtCFMQCKnsjS/view?usp=drive_link",
-    "category": "meats and seafood",
+    "image": "https://drive.google.com/uc?id=1uRNkkqsmrw7PT4bhrlViLtCFMQCKnsjS",
+    "category": "Meats and Seafood",
     "price": 35,
     "weight": 1,
     "feature": false
@@ -84,8 +83,8 @@
     "_id": "64a76694b33b3424f7e00b20",
     "productName": "Herb Aioli",
     "description": "A wonderful sauce that is a delicious accompaniment to the smoked fish with fresh garlic, fresh lemon juice, and fresh herbs in a mayonnaise base. ",
-    "image": "https://drive.google.com/file/d/1JK3g3HsrKLIfordxoHodSGXmuNLT5HaX/view?usp=drive_link",
-    "category": "baked goods",
+    "image": "https://drive.google.com/uc?id=1JK3g3HsrKLIfordxoHodSGXmuNLT5HaX",
+    "category": "Baked Goods",
     "price": 4,
     "weight": 0.25,
     "feature": false
@@ -94,8 +93,8 @@
     "_id": "64a76694b33b3424f7e00b21",
     "productName": "Habanero Hibiscucs Jelly",
     "description": "Habanero Hibiscus Jelly is prepared using fresh hand-picked Hibiscus",
-    "image": "https://drive.google.com/file/d/1L420X_TnCfBAdqPmlQcBJsuB5J1Vj7Cj/view?usp=drive_link",
-    "category": "baked goods",
+    "image": "https://drive.google.com/uc?id=1L420X_TnCfBAdqPmlQcBJsuB5J1Vj7Cj",
+    "category": "Baked Goods",
     "price": 10,
     "quantity": 1,
     "feature": true
@@ -104,8 +103,8 @@
     "_id": "64a76694b33b3424f7e00b22",
     "productName": "Hibiscucs Chutney",
     "description": "Beautiful flowers make the best chutney.",
-    "image": "https://drive.google.com/file/d/1lAkkU62vYtDaajM3tuYSiWfsmhOeGfnM/view?usp=drive_link",
-    "category": "baked goods",
+    "image": "https://drive.google.com/uc?id=1lAkkU62vYtDaajM3tuYSiWfsmhOeGfnM",
+    "category": "Baked Goods",
     "price": 10,
     "quantity": 1,
     "feature": false
@@ -114,19 +113,18 @@
     "_id": "64a76694b33b3424f7e00b23",
     "productName": "Hibiscus Jelly",
     "description": "Pride Road all natural Hibiscus Jelly is prepared using freshly hand picked hibiscus.",
-    "image": "https://drive.google.com/file/d/1LlHGUN5UsT52ymFVKl37RjvK3hE1Eegn/view?usp=drive_link",
-    "category": "baked goods",
+    "image": "https://drive.google.com/uc?id=1LlHGUN5UsT52ymFVKl37RjvK3hE1Eegn",
+    "category": "Baked Goods",
     "price": 10,
     "quantity": 1,
-    "feature": false
-  }
-  ,
+    "feature": true
+  },
   {
     "_id": "64a76694b33b3424f7e00b24",
     "productName": "Hibiscucs Peach Chutney",
     "description": "Hibiscus Peach Chutney is slowly cooked sweet and tangy spread made with hand-picked Hibiscus calyxes, peaches, zest, and spices.",
-    "image": "https://drive.google.com/file/d/1yHkpX0O4Z1LyqUiiFd3l-qLTQ8uK1k3c/view?usp=drive_link",
-    "category": "baked goods",
+    "image": "https://drive.google.com/uc?id=1yHkpX0O4Z1LyqUiiFd3l-qLTQ8uK1k3c",
+    "category": "Baked Goods",
     "price": 10,
     "quantity": 1,
     "feature": false
@@ -135,20 +133,151 @@
     "_id": "64a76694b33b3424f7e00b25",
     "productName": "Goat Cheese",
     "description": "The freshest cheese from Sonoma farms ",
-    "image": "https://drive.google.com/file/d/1GqEIt8JondyZmlMpnZUGDvsncfHbR0NN/view?usp=drive_link",
-    "category": "dairy",
+    "image": "https://drive.google.com/uc?id=1GqEIt8JondyZmlMpnZUGDvsncfHbR0NN",
+    "category": "Dairy",
     "price": 12,
     "quantity": 4,
-    "feature": false
+    "feature": true
   },
   {
     "_id": "64a76694b33b3424f7e00b26",
     "productName": "Ricotta",
     "description": "Perfect pairing for your charcuterie board ",
-    "image": "https://drive.google.com/file/d/1_sKzUF2zr0UfI4kpriSbeV1uAUKsXS1s/view?usp=drive_link",
-    "category": "dairy",
+    "image": "https://drive.google.com/uc?id=1_sKzUF2zr0UfI4kpriSbeV1uAUKsXS1s",
+    "category": "Dairy",
     "price": 18,
     "quantity": 6,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b27",
+    "productName": "Milk",
+    "description": "Fresh cow milk",
+    "image": "https://drive.google.com/uc?id=1HCCbb0CyAKFRnB4NzwiW_xjTUFT0Wp37",
+    "category": "Dairy",
+    "price": 2.99,
+    "quantity": 10,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b28",
+    "productName": "Cheese",
+    "description": "Cheddar cheese",
+    "image": "https://drive.google.com/uc?id=1xt2tiaNDwRvnEw2dGh3CpCdY_hjCnnGi",
+    "category": "Dairy",
+    "price": 5.99,
+    "quantity": 5,
+    "weight": 0.5,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b29",
+    "productName": "Basil",
+    "description": "Fresh basil leaves",
+    "image": "https://drive.google.com/uc?id=1M7r_CAwduwaOGPOkRvlW2-3qt5jIYDnk",
+    "category": "Herbs",
+    "price": 1.99,
+    "quantity": 20,
+    "weight": 0.05,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b30",
+    "productName": "Rosemary",
+    "description": "Dried rosemary leaves",
+    "image": "https://drive.google.com/uc?id=1sFAw1bY2bC32yyfuiXCVtz6QuUG6iOML",
+    "category": "Herbs",
+    "price": 0.99,
+    "quantity": 15,
+    "weight": 0.03,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b31",
+    "productName": "Beef Steak",
+    "description": "Premium beef steak for grilling or frying",
+    "image": "https://drive.google.com/uc?id=1q_eFZ8LEkojS3h3Nr7rmn53GlN0Dc4um",
+    "category": "Meat",
+    "price": 10.99,
+    "quantity": 20,
+    "weight": 0.5,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b32",
+    "productName": "Chicken Breast",
+    "description": "Boneless skinless chicken breast",
+    "image": "https://drive.google.com/uc?id=13c96F3rcJ1Led0ialt5DvblpZ-q2Zxdd",
+    "category": "Meat",
+    "price": 5.99,
+    "quantity": 30,
+    "weight": 0.4,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b33",
+    "productName": "Pork Chops",
+    "description": "Tender pork chops for grilling or roasting",
+    "image": "https://drive.google.com/uc?id=1krNzVU2xN-eohgsV7srLHCvL5wGfOH5f",
+    "category": "Meat",
+    "price": 8.99,
+    "quantity": 15,
+    "weight": 0.61,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b34",
+    "productName": "Lamb Chops",
+    "description": "Tender lamb chops for grilling or roasting",
+    "image": "https://drive.google.com/uc?id=1Y_PUmjQ9OigR4VrM7uPcBMLp50OBykhd",
+    "category": "Meat",
+    "price": 12.99,
+    "quantity": 10,
+    "weight": 0.7,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b41",
+    "productName": "Cinnamon Roll",
+    "description": "Soft and gooey cinnamon roll",
+    "image": "https://drive.google.com/uc?id=1z-lGfNbGfVyrDqcxQVyekzVpP0q5PHeA",
+    "category": "Bakery",
+    "price": 2.99,
+    "quantity": 40,
+    "weight": 0.15,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b43",
+    "productName": "Blueberry Muffin",
+    "description": "Moist and flavorful blueberry muffin",
+    "image": "https://drive.google.com/uc?id=1RC2MqFHiVnK7LarVOEJ4qXog7Q6dADzw",
+    "category": "Bakery",
+    "price": 2.49,
+    "quantity": 60,
+    "weight": 0.2,
+    "feature": false
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b37",
+    "productName": "Tuna Steak",
+    "description": "Premium-grade tuna steak, perfect for grilling or searing",
+    "image": "https://drive.google.com/uc?id=1Z11VtRGxw8M2pC4jVzRhygJWcMn0II_l",
+    "category": "Seafood",
+    "price": 12.99,
+    "quantity": 30,
+    "weight": 0.6,
+    "feature": true
+  },
+  {
+    "_id": "64a76694b33b3424f7e00b38",
+    "productName": "Crab Legs",
+    "description": "Delicious and meaty crab legs, ideal for a seafood feast",
+    "image": "https://drive.google.com/uc?id=1epgDtLkonp1dPQICaqhQUQJmH10YTicO",
+    "category": "Seafood",
+    "price": 19.99,
+    "quantity": 25,
+    "weight": 0.8,
     "feature": false
   }
 ]

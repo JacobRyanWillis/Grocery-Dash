@@ -36,7 +36,7 @@ const VendorSignUp = () => {
       const { data } = await addOwner({
         variables: { ...formState },
       });
-      Auth.login(data.addOwner.token);
+      Auth.login(data.addOwner.token, 'owner');
       window.location.assign('/');
     } catch (e) {
       console.error(e);
