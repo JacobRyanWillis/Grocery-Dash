@@ -1,7 +1,7 @@
 function getProfileData() {
 
     let data = {
-        chatbotName: "Zest",
+        chatbotName: "Zesty",
         age: "I was created on 7-10-2021",
         chatbotCreatedBy: "Everitt Gill! But this website was a huge group project. Check out the about page for more info",
         home: "Amelia Island Florida",
