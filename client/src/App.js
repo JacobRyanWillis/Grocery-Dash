@@ -15,6 +15,7 @@ import Cart from './pages/cart';
 import VendorDashboard from './pages/vendorDashboard';
 import UpdateProduct from './pages/updateProduct';
 import OwnerLogin from './pages/ownerlogin';
+import AddProduct from './pages/addProduct';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -51,6 +52,7 @@ const App = () => {
             <Route path='/shop' element={<Shop />}/>
             <Route path='/cart' element={<Cart />}/>
             <Route path='/dashboard' element={<VendorDashboard />}/>
+            <Route path='/addproduct' element={<AddProduct/>}/>
             <Route path='/updateproduct' element={<UpdateProduct />}/>
             <Route path='/ownerlogin' element={<OwnerLogin />}/>
           </Routes>

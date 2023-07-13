@@ -57,11 +57,13 @@ const VendorDashboard = () => {
         <div className="text-3xl md:text-4xl col-span-1 mx-auto md:mx-0 md:col-span-2 font-semibold">
           <h1>Manage your Items</h1>
         </div>
-        <Link to='/updateproduct'>
-        <button className="col-span-1 md:col-span-2 mx-auto md:mx-0 rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-40">
-          Add Item
-        </button> 
-        </Link>
+        <div className="col-span-1 md:col-span-2 mx-auto md:mx-0">
+          <Link to='/addproduct'>
+          <button className="rounded-md bg-grass px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-40">
+            Add Item
+          </button> 
+          </Link>
+        </div>
         {ownerProducts.map((product) =>
         <div className="m-2 shadow-class rounded grid grid-cols-3">
           <div className="col-span-1">
@@ -78,7 +80,7 @@ const VendorDashboard = () => {
               <span className="text-xl ml-2">{product.quantity}</span>
             </div>
             <div className="flex">
-              <button class="rounded-md px-3 py-1 mt-2 mr-2 text-base ring-eggplant ring-2 font-semibold leading-6 text-eggplant shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-600">
+              <button className="rounded-md px-3 py-1 mt-2 mr-2 text-base ring-eggplant ring-2 font-semibold leading-6 text-eggplant shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-600">
                 Edit
               </button>
               <button onClick={() => handleRemoveProduct(product._id)} className="rounded-md bg-eggplant px-2 py-1 mt-2 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
