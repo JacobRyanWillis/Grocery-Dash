@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import { GET_PUBLIC_OWNERS, GET_ALL_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -10,7 +10,7 @@ import ChatbotIcon from "../components/chatboticon";
 
 const Market = () => {
   const { data, loading, error } = useQuery(GET_PUBLIC_OWNERS);
-  const userData = data?.publicOwners;
+  const userData = data.publicOwners;
   
 
   const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
@@ -18,6 +18,35 @@ const Market = () => {
   const filteredFeature = productData?.filter(
     (product) => product.feature === true
   );
+  
+    const settings = {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              centerMode: true,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
+      };
+
 
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
@@ -72,51 +101,19 @@ const Market = () => {
       )      
   }
 
-  const settings = {
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-    ],
-  };
+  
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate a 2-second delay before setting isLoading to false
-    const delay = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(delay);
-  }, []);
 
   if (error) {
     return <p>Error: {error.message}</p>; // Render an error message if an error occurs
   }
     
-  if (loading || loading2 || isLoading) {
-    return <p>Loading...</p>; // Render a loading indicator while data is being fetched or during the delay
+  if (loading) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
+  if (loading2) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
   }
 
   return (
@@ -152,6 +149,7 @@ const Market = () => {
             {renderSection('Fruits and Vegetables')}
             {renderSection('Fruits and Vegetables')}
             {renderSection('Fruits and Vegetables')}
+            
           </div>
         </div>
       </div>
