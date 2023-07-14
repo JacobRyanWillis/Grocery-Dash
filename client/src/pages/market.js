@@ -19,14 +19,6 @@ const Market = () => {
     (product) => product.feature === true
   );
 
-  if (loading) {
-    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
-  }
-
-  if (loading2) {
-    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
-  }
-
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
     return owners[randomIndex];
@@ -108,7 +100,13 @@ const Market = () => {
     ],
   };
 
-  
+  if (loading) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
+  if (loading2) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
 
   return (
     <div className="font-gilroy">
