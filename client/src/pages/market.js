@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import ChatbotIcon from "../components/chatboticon";
 
 const Market = () => {
-  const { data, loading } = useQuery(GET_PUBLIC_OWNERS);
+  const { data, loading, error } = useQuery(GET_PUBLIC_OWNERS);
   const userData = data?.publicOwners;
   console.log(userData)
 
@@ -100,6 +100,11 @@ const Market = () => {
     ],
   };
 
+
+  if (error) {
+    return <p>Error: {error.message}</p>; // Render an error message if an error occurs
+  }
+    
   if (loading) {
     return <p>Loading...</p>; // Render a loading indicator while data is being fetched
   }
