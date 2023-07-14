@@ -44,6 +44,7 @@ query Query {
   }
 }
 `;
+
 export const SHOP = gql`
 query Query {
   allProducts {
