@@ -125,14 +125,6 @@ const VendorSignUp = () => {
                   >
                     Password
                   </label>
-                  <div className="text-lg">
-                    <a
-                      href="#"
-                      className="font-semi-bold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Forgot password?
-                    </a>
-                  </div>
                 </div>
                 <div className="mt-2">
                   <input
