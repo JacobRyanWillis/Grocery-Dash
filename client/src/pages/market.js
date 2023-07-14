@@ -10,7 +10,7 @@ import ChatbotIcon from "../components/chatboticon";
 
 const Market = () => {
   const { data, loading, error } = useQuery(GET_PUBLIC_OWNERS);
-  const userData = data.publicOwners;
+  const userData = data?.publicOwners;
   
 
   const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
