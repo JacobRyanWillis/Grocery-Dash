@@ -10,7 +10,7 @@ import ChatbotIcon from "../components/chatboticon";
 
 const Market = () => {
   const { data, loading } = useQuery(GET_PUBLIC_OWNERS);
-  const userData = data?.publicOwners || null;
+  const userData = data?.publicOwners;
   console.log(userData)
 
   const { loading: loading2, data: products } = useQuery(GET_ALL_PRODUCTS);
@@ -18,6 +18,14 @@ const Market = () => {
   const filteredFeature = productData?.filter(
     (product) => product.feature === true
   );
+
+  if (loading) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
+  if (loading2) {
+    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
 
   const getRandomOwner = (owners) => {
     const randomIndex = Math.floor(Math.random() * owners.length);
@@ -100,13 +108,7 @@ const Market = () => {
     ],
   };
 
-  if (loading) {
-    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
-  }
-
-  if (loading2) {
-    return <p>Loading...</p>; // Render a loading indicator while data is being fetched
-  }
+  
 
   return (
     <div className="font-gilroy">
