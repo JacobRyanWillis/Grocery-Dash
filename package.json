@@ -1,9 +1,12 @@
 {
   "name": "grocery-dash",
   "version": "1.0.0",
+  "homepage": "https://JacobRyanWillis.github.io/Grocery-Dash",
   "description": "",
   "main": "server/server.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node server/server.js --ignore client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -13,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "gh-pages": "^5.0.0"
   },
   "dependencies": {
     "@apollo/client": "^3.7.16",
