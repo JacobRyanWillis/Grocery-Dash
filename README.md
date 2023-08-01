@@ -22,7 +22,7 @@ This project has been a valuable learning experience for our team, as it marks o
 
 ## Installation
 
-If you wish to fork be sure to npm -i otherwise you can see our deployed site here: https://grocerydash-fe2f431cfb75.herokuapp.com/
+Clone our repository and run "npm i". To seed the data run "npm run seed", after that "npm run develop".
 
 ## Usage
 
