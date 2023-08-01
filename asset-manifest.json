@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.612e64ae.css",
+    "main.js": "/static/js/main.c0333a4d.js",
+    "static/media/BuyerImage.png": "/static/media/BuyerImage.8f4fbd16cc511eb5b14b.png",
+    "static/media/VendorImage.png": "/static/media/VendorImage.803da4bffc6d0171abf4.png",
+    "static/media/willis.jpg": "/static/media/willis.156479592604089d1e39.jpg",
+    "static/media/hero-image.png": "/static/media/hero-image.480bd01ef4e40122ad61.png",
+    "static/media/everitt.png": "/static/media/everitt.34482ad2e141bb064942.png",
+    "static/media/clarence.png": "/static/media/clarence.62deb0f394245a1b6b3d.png",
+    "static/media/asheville-market.jpg": "/static/media/asheville-market.20ac422b6918a9dfc338.jpg",
+    "static/media/marietta-market.jpg": "/static/media/marietta-market.9b3f8252a9397a01e491.jpg",
+    "static/media/Gilroy-Regular.ttf": "/static/media/Gilroy-Regular.5b89a8df3b17dccdb73f.ttf",
+    "static/media/austell-market.jpg": "/static/media/austell-market.663b9883a224966923f1.jpg",
+    "static/media/bruno.jpg": "/static/media/bruno.a89c85f7441034087673.jpg",
+    "static/media/badr.jpg": "/static/media/badr.00afe3569bc61108b7dc.jpg",
+    "static/media/pear.png": "/static/media/pear.a1373d74c353c824bd23.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.612e64ae.css.map": "/static/css/main.612e64ae.css.map",
+    "main.c0333a4d.js.map": "/static/js/main.c0333a4d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.612e64ae.css",
+    "static/js/main.c0333a4d.js"
+  ]
+}
